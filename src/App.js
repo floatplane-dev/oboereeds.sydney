@@ -3,7 +3,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import "./App.scss";
 import { Home } from "./home";
-import BuyingGuide from "./buying-guide";
+import { BuyingGuide } from "./buying-guide";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 

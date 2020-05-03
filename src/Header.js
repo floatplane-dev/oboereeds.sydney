@@ -9,8 +9,10 @@ class Header extends Component {
           <h1>Sydney Oboe Reeds</h1>
         </Link>
         <nav>
-          <Link to="buying-guide">buying guide</Link>
-          <Link to="contact">contact</Link>
+          <Link to="buying-guide">Buying Guide</Link>
+          <a href="https://www.instagram.com/oboethings" target="_blank">
+            <img src="instagram-logo.png" />
+          </a>
         </nav>
       </header>
     );
