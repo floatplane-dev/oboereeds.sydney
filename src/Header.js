@@ -10,6 +10,7 @@ class Header extends Component {
         </Link>
         <nav>
           <Link to="buying-guide">Buying Guide</Link>
+          <Link to="about">About the maker</Link>
           <a href="https://www.instagram.com/oboethings" target="_blank">
             <img src="instagram-logo.png" />
           </a>
