@@ -1,13 +1,18 @@
-import React from "react";
+import React, { Component } from "react";
 import Header from "./Header";
-import "./App.css";
+import Footer from "./Footer";
+import "./App.scss";
 
-function App() {
-  return (
-    <div className="App">
-      <Header />
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <Header />
+
+        <Footer />
+      </div>
+    );
+  }
 }
 
 export default App;
