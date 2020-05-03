@@ -1,3 +1,13 @@
+@import "./home/style.scss";
+
 header {
-  background: green;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  background: rgba(green, 0.2);
+  height: 80px;
+  width: 100%;
+  padding: 8px 16px;
 }
