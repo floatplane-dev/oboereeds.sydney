@@ -14,11 +14,11 @@ cat ~/.ssh/id_rsa.pub
 # CREATE YOUR USER
 
 ssh root@1.2.3.4
-sudo adduser jw
+sudo adduser rv
 # Religiously store your 64 random character password in 1Password
-sudo gpasswd -a jw sudo
-groups jw
-su - jw
+sudo gpasswd -a rv sudo
+groups rv
+su - rv
 # On your local run:
 cat ~/.ssh/id_rsa.pub
 # Copy the output
@@ -28,7 +28,7 @@ vim ~/.ssh/authorized_keys
 # Paste your local's public key here, save
 touch ~/.hushlogin
 logout
-ssh jw@1.2.3.4
+ssh rv@1.2.3.4
 # Should log you in
 # No welcome message is shown
 
@@ -40,11 +40,13 @@ sudo vim /etc/ssh/sshd_config
 # PasswordAuthentication no
 # PermitRootLogin no
 # Save
+# disables username/pw forces only ssh key login
+
 sudo service ssh restart
 logout
 ssh root@1.2.3.4
 # Should fail
-ssh jw@1.2.3.4
+ssh rv@1.2.3.4
 # Should work
 
 # ----------
@@ -65,6 +67,8 @@ sudo apt-get install fish
 chsh -s /usr/bin/fish
 fish
 # Should show fish greeting
+
+sudo apt install curl
 curl -L https://get.oh-my.fish | fish
 omf install lambda
 # Should show you Lambda theme
@@ -77,7 +81,7 @@ set fish_greeting
 # curl -o ~/.config/fish/functions/fish_right_prompt.fish https://raw.githubusercontent.com/js402882/theme-lambda/duration-in-right-prompt/fish_right_prompt.fish
 
 logout
-ssh jw@1.2.3.4
+ssh rv@1.2.3.4
 # Fish should be your default shell
 # No Fish welcome message should be shown
 
@@ -95,17 +99,21 @@ sudo ufw status verbose
 # Needs reboot, see next step
 
 # ----------
-
 # RENAME SERVER
+# OPTIONAL!
 
 sudo vim /etc/hostname
 # Update server name if needed"
 sudo vim /etc/hosts
 # Update 127.0.0.1 to same name
+
+# ----------
+# RESTART SERVER
+
 sudo reboot
 # Wait 10 sec
-ssh jw@1.2.3.4
-# Should show new server name
+ssh rv@1.2.3.4
+# Should show new server name (if you set one)
 
 # ----------
 
@@ -114,7 +122,7 @@ ssh jw@1.2.3.4
 # Create folder for projects (www) and the git repos (repo).
 sudo mkdir /var/www/
 # Give the deploy group read and write access to the project folders.
-sudo chown -R jw:deploy /var/www/
+sudo chown -R rv:rv /var/www/ # sudo chown -R rv:[group name, eg: deploy] /var/www/
 sudo chmod -R g+w /var/www/
 # Make sure these permissions are inherited when future files and folders are created within.
 sudo chmod -R g+s /var/www/
@@ -125,17 +133,19 @@ ls -la /var/www/
 
 # CREATE SSH KEY
 
+# to allow the server to talk to github (it needs it's own identity)
 # Without password, with custom file name
-ssh-keygen -t rsa -b 4096 -C "cdn@server.interflux.com" -f ~/.ssh/rsa_cdn -P ""
+# ssh-keygen -t rsa -b 4096 -C "cdn@server.interflux.com" -f ~/.ssh/rsa_cdn -P ""
 ssh-keygen -t rsa -b 4096 -C "www@server.interflux.com" -f ~/.ssh/rsa_www -P ""
-ssh-keygen -t rsa -b 4096 -C "api@server.interflux.com" -f ~/.ssh/rsa_api -P ""
+# ssh-keygen -t rsa -b 4096 -C "api@server.interflux.com" -f ~/.ssh/rsa_api -P ""
 
 # Copy each each public key to their respective Github repos
 # Add as deploy keys under the repo settings
-cat ~/.ssh/rsa_cdn.pub
+# cat ~/.ssh/rsa_cdn.pub
 cat ~/.ssh/rsa_www.pub
-cat ~/.ssh/rsa_api.pub
+# cat ~/.ssh/rsa_api.pub
 
+# just once we clone git in to this server
 env GIT_SSH_COMMAND='ssh -i ~/.ssh/rsa_floatplane.dev' git clone git@github.com:floatplane-dev/floatplane.dev.git
 
 # bash
@@ -145,7 +155,7 @@ env GIT_SSH_COMMAND='ssh -i ~/.ssh/rsa_floatplane.dev' git clone git@github.com:
 # fish
 
 cd /var/www/cdn.interflux.com
-git config core.sshCommand "ssh -i ~/.ssh/rsa_cdn -F /dev/null"
+git config core.sshCommand "ssh -i ~/.ssh/rsa_cdn -F /dev/null" #configure git to use this rsa key for this folder from now on
 git pull
 
 cd /var/www/www.interflux.com
@@ -216,10 +226,10 @@ sudo ufw allow 'Nginx HTTPS'
 sudo ufw status verbose
 sudo reboot
 # Wait 10 sec
-ssh jw@1.2.3.4
+ssh rv@1.2.3.4
 
 # Become owner of `sites-available` for easier editing
-sudo chown -R jw:jw /etc/nginx/sites-available/
+sudo chown -R rv:rv /etc/nginx/sites-available/
 chmod -R g+s /etc/nginx/sites-available/
 
 # Check whether the server blocks are valid:
@@ -313,8 +323,8 @@ git clone https://github.com/rbenv/rbenv-vars.git
 # Set a default Ruby version at user root
 echo "2.6.5" >> ~/.ruby-version
 rbenv install
-ls -la /home/jw/.rbenv/versions/
-du -sh /home/jw/.rbenv/versions/*
+ls -la /home/rv/.rbenv/versions/
+du -sh /home/rv/.rbenv/versions/*
 ruby  -v
 gem -v
 
@@ -377,10 +387,10 @@ vim .rbenv-vars
 DB_USER=[the postgres role created earlier]
 DB_PASSWORD=[the postgres password set earlier]
 SECRET_KEY_BASE=[choose random secret]
-JWT_SECRET=[choose random secret]
+rvT_SECRET=[choose random secret]
 '
 
-# Make sure you store SECRET_KEY_BASE and JWT_SECRET in 1Password
+# Make sure you store SECRET_KEY_BASE and rvT_SECRET in 1Password
 
 # Check if Rbenv can read them:
 
@@ -486,10 +496,10 @@ Description=This service starts and stops the Ember Fastboot app server for lmpa
 
 [Service]
 WorkingDirectory=/var/www/lmpa.interflux.com
-ExecStart=/home/jw/.nvm/versions/node/v8.12.0/bin/node server.js
+ExecStart=/home/rv/.nvm/versions/node/v8.12.0/bin/node server.js
 Type=simple
-User=jw
-Group=jw
+User=rv
+Group=rv
 # StandardOutput=file:/var/log/fastboot/lmpa-interflux-com.access.log
 # StandardError=file:/var/log/fastboot/lmpa-interflux-com.error.log
 
