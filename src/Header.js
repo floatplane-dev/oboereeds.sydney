@@ -11,8 +11,12 @@ class Header extends Component {
         <nav>
           <Link to="buying-guide">Buying Guide</Link>
           <Link to="about">About the maker</Link>
-          <a href="https://www.instagram.com/oboethings" target="_blank">
-            <img src="instagram-logo.png" />
+          <a
+            href="https://www.instagram.com/oboethings"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="instagram-logo.png" alt="" />
           </a>
         </nav>
       </header>

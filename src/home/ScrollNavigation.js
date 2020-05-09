@@ -8,7 +8,9 @@ class ScrollNavigation extends Component {
       <main className="scroll-navigation">
         <nav>
           {children.map(child => (
-            <li>{child.props.navigationTitle}</li>
+            <li key={child.props.navigationTitle}>
+              {child.props.navigationTitle}
+            </li>
           ))}
         </nav>
 
