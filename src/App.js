@@ -12,25 +12,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Router>
-          <Header />
-
-          <Switch>
-            <Route path="/buying-guide">
-              <BuyingGuide />
-            </Route>
-
-            <Route path="/buying-guide">
-              <About />
-            </Route>
-
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
-
-          <Footer />
-        </Router>
+        <h1>Coming soon</h1>
       </div>
     );
   }

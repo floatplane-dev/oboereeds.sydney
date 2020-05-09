@@ -1,5 +1,15 @@
 @import "./home/style.scss";
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 
+  h1 {
+    font-size: 36px;
+    font-family: "Cormorant Garamond", serif;
+  }
+}
 header {
   position: fixed;
   display: flex;
