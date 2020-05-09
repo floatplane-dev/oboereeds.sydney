@@ -5,7 +5,6 @@ class Home extends Component {
     return (
       <section className="hero" style={{ backgroundImage: "" }}>
         <h1>Sydney Oboe Reeds</h1>
-        <button className="call-to-action">See our Catalogue</button>
       </section>
     );
   }

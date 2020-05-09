@@ -3,6 +3,7 @@ import Hero from "./Hero";
 import Student from "./Student";
 import Intermediate from "./Intermediate";
 import Randall from "./Randall";
+import ScrollNavigation from "./ScrollNavigation";
 
 import { loadStripe } from "@stripe/stripe-js";
 const stripePromise = loadStripe("pk_test_vwrEmYVBuXu2F36jDcCBuhKT00nVBJrwdf");
@@ -23,18 +24,15 @@ class Home extends Component {
           allowedCountries: ["AU"]
         }
       });
-      // If `redirectToCheckout` fails due to a browser or network
-      // error, display the localized error message to your customer
-      // using `error.message`.
     };
 
     return (
-      <main>
-        <Hero />
-        <Student handleClick={handleClick} />
-        <Intermediate handleClick={handleClick} />
-        <Randall handleClick={handleClick} />
-      </main>
+      <ScrollNavigation>
+        <Hero navigationTitle="Hero" />
+        <Student navigationTitle="Student" />
+        <Intermediate navigationTitle="Intermediate" />
+        <Randall navigationTitle="Randall" />
+      </ScrollNavigation>
     );
   }
 }
