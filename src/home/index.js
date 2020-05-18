@@ -3,7 +3,7 @@ import Hero from "./Hero";
 import Student from "./Student";
 import Intermediate from "./Intermediate";
 import Randall from "./Randall";
-import ScrollNavigation from "./ScrollNavigation";
+import ScrollNavigation from "./ScrollNavigation/";
 
 // import { loadStripe } from "@stripe/stripe-js";
 // const stripePromise = loadStripe("pk_test_vwrEmYVBuXu2F36jDcCBuhKT00nVBJrwdf");

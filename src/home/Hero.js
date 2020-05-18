@@ -4,8 +4,11 @@ class Home extends Component {
   render() {
     return (
       <section
-        className="hero"
-        style={{ backgroundImage: "alvin-engler-bIhpiQA009k-unsplash.jpg" }}
+        className={`${this.props.navigationTitle} hero`}
+        style={{
+          backgroundSize: "cover",
+          backgroundImage: "url(alvin-engler-bIhpiQA009k-unsplash.jpg)"
+        }}
       >
         <h1>Sydney Oboe Reeds</h1>
       </section>

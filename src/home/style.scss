@@ -1,8 +1,52 @@
-main.scroll-navigation > nav {
+main.scroll-navigation > aside {
   position: fixed;
   top: 50vh;
   left: 10px;
   transform: translateY(-50%);
+
+  li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin-top: 4px;
+    cursor: pointer;
+
+    &::before {
+      content: ("");
+      position: absolute;
+      left: 1px;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 80%;
+      width: 1px;
+      background: white;
+      opacity: 0.5;
+    }
+
+    span {
+      padding: 10px;
+      opacity: 0;
+    }
+  }
+
+  li.active {
+    color: white;
+
+    &::before {
+      left: 0;
+      width: 3px;
+      height: calc(80% + 2px);
+      background: white;
+      opacity: 1;
+    }
+  }
+
+  li:hover {
+    span {
+      opacity: 1;
+    }
+  }
 }
 
 section.hero {
@@ -17,6 +61,7 @@ section.hero {
   h1 {
     font-size: 36px;
     font-weight: 700;
+    color: white;
   }
 
   button {

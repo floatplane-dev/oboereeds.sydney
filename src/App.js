@@ -20,7 +20,7 @@ class App extends Component {
               <BuyingGuide />
             </Route>
 
-            <Route path="/buying-guide">
+            <Route path="/about">
               <About />
             </Route>
 

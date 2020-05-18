@@ -3,7 +3,13 @@ import React, { Component } from "react";
 class Student extends Component {
   render() {
     return (
-      <section className="product" style={{ backgroundColor: "#0096884f" }}>
+      <section
+        className={`${this.props.navigationTitle} product`}
+        style={{
+          backgroundSize: "cover",
+          backgroundImage: "url(angela-lo-bHt54uNa1mo-unsplash.jpg)"
+        }}
+      >
         <div className="left">
           <h2>
             Hand crafted student reed <span>$19.99</span>
