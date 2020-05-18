@@ -20,7 +20,7 @@ main.scroll-navigation > aside {
       transform: translateY(-50%);
       height: 80%;
       width: 1px;
-      background: white;
+      background: $grey;
       opacity: 0.5;
     }
 
@@ -28,18 +28,15 @@ main.scroll-navigation > aside {
       padding: 10px;
       opacity: 0;
       transition: all ease-out 100ms;
-      color: white;
+      color: $grey;
     }
   }
 
   li.active {
-    color: white;
-
     &::before {
       left: 0;
       width: 3px;
       height: calc(80% + 2px);
-      background: white;
       opacity: 1;
     }
   }
@@ -57,13 +54,12 @@ section.hero {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-color: $white;
 
   h1 {
     font-size: 36px;
     font-weight: 700;
-    color: white;
+    color: $navy;
   }
 
   button {

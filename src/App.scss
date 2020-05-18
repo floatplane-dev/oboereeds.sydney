@@ -1,3 +1,9 @@
+$yellow: #fed965;
+$navy: #022160;
+$white: #e6e6e6;
+$grey: #3a3937;
+$black: #000000;
+
 @import "./home/style.scss";
 
 header {
@@ -6,7 +12,7 @@ header {
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
-  background: rgba(green, 0.2);
+  background: transparent;
   height: 80px;
   width: 100%;
   padding: 8px 16px;

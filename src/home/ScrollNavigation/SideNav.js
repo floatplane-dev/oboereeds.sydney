@@ -16,11 +16,13 @@ class SideNav extends Component {
                 activeSection == navigationTitle ? "active" : ""
               }`}
               onClick={() => {
-                document
-                  .querySelector(`section.${navigationTitle}`)
-                  .scrollIntoView({
-                    behavior: "smooth"
-                  });
+                const element = document.querySelector(
+                  `section.${navigationTitle}`
+                );
+
+                element.scrollIntoView({
+                  behavior: "smooth"
+                });
               }}
             >
               <span>{navigationTitle}</span>
