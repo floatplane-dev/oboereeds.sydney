@@ -12,11 +12,15 @@ class SideNav extends Component {
           return (
             <li
               key={navigationTitle}
-              className={activeSection == navigationTitle ? "active" : ""}
+              className={`${navigationTitle} ${
+                activeSection == navigationTitle ? "active" : ""
+              }`}
               onClick={() => {
-                document.querySelector(`.${navigationTitle}`).scrollIntoView({
-                  behavior: "smooth"
-                });
+                document
+                  .querySelector(`section.${navigationTitle}`)
+                  .scrollIntoView({
+                    behavior: "smooth"
+                  });
               }}
             >
               <span>{navigationTitle}</span>

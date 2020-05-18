@@ -6,7 +6,9 @@ class Header extends Component {
     return (
       <header>
         <Link to="/">
-          <h1>Sydney Oboe Reeds</h1>
+          <img src="oboe-icon.png" alt="" />
+          <img src="reeds-icon.png" alt="" />
+          <img src="sydney-icon.png" alt="" />
         </Link>
         <nav>
           <Link to="buying-guide">Buying Guide</Link>

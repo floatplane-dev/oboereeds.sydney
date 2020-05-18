@@ -5,7 +5,7 @@ class Student extends Component {
     return (
       <section
         className={`${this.props.navigationTitle} product`}
-        style={{ backgroundColor: "#ffeb3b38" }}
+        style={{ backgroundColor: "green" }}
       >
         <div className="right">
           <h2>

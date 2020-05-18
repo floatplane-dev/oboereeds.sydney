@@ -6,7 +6,8 @@ class ScrollNavigation extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeSection: undefined // defined in componentDidMount
+      activeSection: undefined, // defined in componentDidMount
+      tempTitles: []
     };
 
     this._onScroll = this.onScroll.bind(this);
@@ -37,7 +38,9 @@ class ScrollNavigation extends Component {
 
     const currentSection = currentSectionElement.classList[0];
 
-    this.setState({ activeSection: currentSection });
+    if (this.state.activeSection !== currentSection) {
+      this.setState({ activeSection: currentSection });
+    }
   }
 
   render() {

@@ -27,6 +27,8 @@ main.scroll-navigation > aside {
     span {
       padding: 10px;
       opacity: 0;
+      transition: all ease-out 100ms;
+      color: white;
     }
   }
 
