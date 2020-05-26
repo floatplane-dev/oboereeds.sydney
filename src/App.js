@@ -4,7 +4,6 @@ import Footer from "./Footer";
 import "./App.scss";
 import { Home } from "./home";
 import { BuyingGuide } from "./buying-guide";
-import { About } from "./about";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -18,10 +17,6 @@ class App extends Component {
           <Switch>
             <Route path="/buying-guide">
               <BuyingGuide />
-            </Route>
-
-            <Route path="/about">
-              <About />
             </Route>
 
             <Route path="/">

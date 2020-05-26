@@ -35,79 +35,43 @@ class Header extends Component {
     const scrollingDown = scrollY > prevScroll;
     const scrollingUp = scrollY < prevScroll;
 
-    // console.log({ headerOffset, scrollingUp, scrollY });
+    this.setState({
+      prevScroll: scrollY
+    });
 
-    let newOffset;
-    if (scrollingUp && scrollY < headerOffset) {
-      console.log("fixed");
-      this.setState({
-        headerOffset: 0,
-        isFixed: true
-      });
-    } else if (scrollingUp && !isFixed) {
-      console.log("scrollingUp", { headerOffset });
-      this.setState({
-        isFixed: false
-      });
-    }
-
-    if (scrollingDown && scrollY > headerOffset + headerHeight) {
-      // play catch up so it's there incase you go up
-      // headerOffset: scrollY - headerOffset
-      // console.log({ scrollY, headerOffset, headerHeight });
-      // console.log("catchup", scrollY - headerHeight);
-
-      if (isFixed) {
-        console.log("set isFixed to false");
+    if (scrollingUp) {
+      if (scrollY < headerOffset) {
+        // one off set { position: fixed }
         this.setState({
-          headerOffset: scrollY,
-          isFixed: false
+          headerOffset: 0,
+          isFixed: true
         });
-      } else {
-        console.log("normall Scrolldown");
+      } else if (!isFixed) {
+        // scrolling up to bring the { position: absolute } header in to view
         this.setState({
-          headerOffset: scrollY - headerHeight,
           isFixed: false
         });
       }
     }
 
-    this.setState({
-      prevScroll: scrollY
-    });
+    if (scrollingDown) {
+      if (isFixed) {
+        // Scrolling down for the first time, trigger { position: absolute }
+        this.setState({
+          headerOffset: scrollY,
+          isFixed: false
+        });
+        return;
+      }
 
-    //
-    // // const isFixed = scrollY < headerOffset;
-    // const isFixed = scrollY < prevScroll;
-    //
-    // const isScrollingUp = scrollY < prevScroll;
-    //
-    // const headerHeight = document.querySelector("header").offsetHeight;
-    // const trailingTop = prevScroll - headerHeight;
-    // const isTrailing = trailingTop > scrollY;
-    //
-    // let newOffset;
-    //
-    // if (isTrailing) {
-    //   // is shuddering just out of view
-    //   newOffset = scrollY - headerHeight;
-    // } else {
-    //   // is frozen as I scroll back up to it
-    //   newOffset = headerOffset;
-    // }
-    //
-    // console.log({
-    //   isTrailing,
-    //   prevScroll: scrollY,
-    //   headerOffset: newOffset,
-    //   isFixed
-    // });
-    //
-    // this.setState({
-    //   prevScroll: scrollY,
-    //   headerOffset: newOffset,
-    //   isFixed
-    // });
+      if (scrollY > headerOffset + headerHeight) {
+        this.setState({
+          headerOffset: scrollY - headerHeight,
+          isFixed: false
+        });
+        return;
+      }
+    }
   }
 
   render() {
@@ -123,7 +87,6 @@ class Header extends Component {
         </Link>
         <nav>
           <Link to="buying-guide">Reed Buying Guide</Link>
-          <Link to="about">About Madeleine</Link>
           <a
             href="https://www.instagram.com/oboethings"
             target="_blank"
