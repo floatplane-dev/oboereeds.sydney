@@ -33,6 +33,15 @@ header {
       padding: 0 8px;
       margin-left: 4px;
       text-transform: capitalize;
+      &:link,
+      &:active,
+      &:visited {
+        color: $grey;
+        text-decoration: none;
+      }
+      &:hover {
+        color: red;
+      }
       img {
         width: 20px;
         height: 20px;
