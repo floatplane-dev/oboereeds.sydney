@@ -4,50 +4,16 @@ $white: #e6e6e6;
 $grey: #3a3937;
 $black: #000000;
 
+@import "./header/style.scss";
+@import "./cart/style.scss";
 @import "./home/style.scss";
 
-header {
-  position: fixed;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box;
-  background: transparent;
-  height: 80px;
-  width: 100%;
-  padding: 8px 16px;
-  font-size: 18px;
-  z-index: 1;
+.App {
+  transition: all ease 200ms;
 
-  > a {
-    display: flex;
-
-    img {
-      height: 40px;
-    }
-  }
-
-  nav {
-    a {
-      line-height: 20px;
-      padding: 0 8px;
-      margin-left: 4px;
-      text-transform: capitalize;
-      &:link,
-      &:active,
-      &:visited {
-        color: $grey;
-        text-decoration: none;
-      }
-      &:hover {
-        color: red;
-      }
-      img {
-        width: 20px;
-        height: 20px;
-        margin: 10px;
-      }
-    }
+  &.cart-active {
+    transform: translatex(-150px);
+    filter: blur(3px);
   }
 }
 

@@ -25,7 +25,7 @@ class SideNav extends Component {
                 });
               }}
             >
-              <span>{navigationTitle}</span>
+              <span>{navigationTitle.replaceAll("-", " ")}</span>
             </li>
           );
         })}

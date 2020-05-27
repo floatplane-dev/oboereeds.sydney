@@ -25,6 +25,7 @@ main.scroll-navigation > aside {
     }
 
     span {
+      text-transform: capitalize;
       padding: 10px;
       opacity: 0;
       transition: all ease-out 100ms;

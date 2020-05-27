@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import debounce from "./debounce";
+import debounce from "../debounce";
 
 class Header extends Component {
   constructor(props) {
@@ -65,6 +65,8 @@ class Header extends Component {
 
   render() {
     const { prevScroll, isFixed, headerOffset } = this.state;
+    const { toggleCart } = this.props;
+
     return (
       <header
         style={{ position: isFixed ? "fixed" : "absolute", top: headerOffset }}
@@ -83,7 +85,7 @@ class Header extends Component {
           >
             <img src="instagram-logo.png" alt="" />
           </a>
-          <img src="cart.svg" alt="" />
+          <img src="cart.svg" alt="" onClick={() => toggleCart()} />
         </nav>
       </header>
     );

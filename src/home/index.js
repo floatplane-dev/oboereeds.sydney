@@ -28,10 +28,10 @@ class Home extends Component {
 
     return (
       <ScrollNavigation>
-        <Hero navigationTitle="Hero" />
-        <Student navigationTitle="Student" />
-        <Intermediate navigationTitle="Intermediate" />
-        <Randall navigationTitle="Randall" />
+        <Hero navigationTitle="sydney-oboe-reeds" />
+        <Student navigationTitle="student" />
+        <Intermediate navigationTitle="intermediate" />
+        <Randall navigationTitle="randall" />
       </ScrollNavigation>
     );
   }
