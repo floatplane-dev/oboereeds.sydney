@@ -8,7 +8,7 @@ class Header extends Component {
 
     this.state = {
       prevScroll: 0,
-      isFixed: true,
+      isFixed: false,
       headerOffset: 0
     };
 
@@ -31,47 +31,36 @@ class Header extends Component {
     const { headerOffset, prevScroll, isFixed } = this.state;
     const { scrollY } = window;
 
-    const headerHeight = document.querySelector("header").offsetHeight;
     const scrollingDown = scrollY > prevScroll;
-    const scrollingUp = scrollY < prevScroll;
 
-    this.setState({
-      prevScroll: scrollY
-    });
-
-    if (scrollingUp) {
-      if (scrollY < headerOffset) {
-        // one off set { position: fixed }
-        this.setState({
-          headerOffset: 0,
-          isFixed: true
-        });
-      } else if (!isFixed) {
-        // scrolling up to bring the { position: absolute } header in to view
-        this.setState({
-          isFixed: false
-        });
-      }
-    }
+    let newHeaderOffset = headerOffset;
+    let newIsFixed = isFixed;
 
     if (scrollingDown) {
       if (isFixed) {
-        // Scrolling down for the first time, trigger { position: absolute }
-        this.setState({
-          headerOffset: scrollY,
-          isFixed: false
-        });
-        return;
+        // transition from position: fixed to position: absolute
+        newHeaderOffset = scrollY;
+        newIsFixed = false;
+      } else {
+        const headerHeight = document.querySelector("header").offsetHeight;
+        if (scrollY > headerOffset + headerHeight) {
+          // continually set top so the header is just above the viewport
+          newHeaderOffset = scrollY - headerHeight;
+        }
       }
-
-      if (scrollY > headerOffset + headerHeight) {
-        this.setState({
-          headerOffset: scrollY - headerHeight,
-          isFixed: false
-        });
-        return;
+    } else {
+      if (scrollY < headerOffset) {
+        // transition from position: absolute to position: fixed
+        newHeaderOffset = 0;
+        newIsFixed = true;
       }
     }
+
+    this.setState({
+      prevScroll: scrollY,
+      headerOffset: newHeaderOffset,
+      isFixed: newIsFixed
+    });
   }
 
   render() {
