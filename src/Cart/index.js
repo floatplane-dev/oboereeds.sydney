@@ -1,26 +1,16 @@
 import React, { Component } from "react";
+import Close from "./Close";
 
 class Cart extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      products: []
-    };
-  }
-
-  componentDidMount() {}
-
-  componentWillUnmount() {}
-
   render() {
     const { isShowingCart, toggleCart } = this.props;
 
     return (
       <aside className={`cart ${isShowingCart ? "cart-active" : ""}`}>
-        <p className="button2" onClick={() => toggleCart()}>
-          x
-        </p>
+        <Close toggleCart={toggleCart} />
+
+        <h1>Your Cart</h1>
+        <h2>No products selected</h2>
       </aside>
     );
   }

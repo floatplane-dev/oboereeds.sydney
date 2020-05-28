@@ -64,7 +64,7 @@ class Header extends Component {
   }
 
   render() {
-    const { prevScroll, isFixed, headerOffset } = this.state;
+    const { isFixed, headerOffset } = this.state;
     const { toggleCart } = this.props;
 
     return (
@@ -83,9 +83,16 @@ class Header extends Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src="instagram-logo.png" alt="" />
+            <img className="icon" src="instagram-logo.png" alt="" />
           </a>
-          <img src="cart.svg" alt="" onClick={() => toggleCart()} />
+          <button>
+            <img
+              className="icon"
+              src="cart.svg"
+              alt=""
+              onClick={() => toggleCart()}
+            />
+          </button>
         </nav>
       </header>
     );

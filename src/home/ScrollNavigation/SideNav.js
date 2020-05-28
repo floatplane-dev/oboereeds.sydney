@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 
 class SideNav extends Component {
   render() {
@@ -13,7 +12,7 @@ class SideNav extends Component {
             <li
               key={navigationTitle}
               className={`${navigationTitle} ${
-                activeSection == navigationTitle ? "active" : ""
+                activeSection === navigationTitle ? "active" : ""
               }`}
               onClick={() => {
                 const element = document.querySelector(

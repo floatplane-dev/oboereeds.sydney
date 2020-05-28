@@ -1,54 +1,4 @@
-main.scroll-navigation > aside {
-  position: fixed;
-  top: 50vh;
-  left: 10px;
-  transform: translateY(-50%);
-
-  li {
-    position: relative;
-    display: flex;
-    align-items: center;
-    list-style: none;
-    margin-top: 4px;
-    cursor: pointer;
-
-    &::before {
-      content: ("");
-      position: absolute;
-      left: 1px;
-      top: 50%;
-      transform: translateY(-50%);
-      height: 80%;
-      width: 1px;
-      background: $grey;
-      opacity: 0.5;
-    }
-
-    span {
-      text-transform: capitalize;
-      padding: 10px;
-      opacity: 0;
-      transition: all ease-out 100ms;
-      color: $grey;
-    }
-  }
-
-  li.active {
-    &::before {
-      left: 0;
-      width: 3px;
-      height: calc(80% + 2px);
-      opacity: 1;
-      border-radius: 1px;
-    }
-  }
-
-  li:hover {
-    span {
-      opacity: 1;
-    }
-  }
-}
+@import "./ScrollNavigation/style.scss";
 
 section.hero {
   display: flex;
@@ -96,5 +46,24 @@ section.product {
     button {
       margin-top: 16px;
     }
+  }
+}
+
+section.bio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  background-color: $white;
+  padding: 40px;
+
+  h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: $navy;
+  }
+
+  p {
+    margin-top: 15px;
   }
 }

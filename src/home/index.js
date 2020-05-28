@@ -3,6 +3,7 @@ import Hero from "./Hero";
 import Student from "./Student";
 import Intermediate from "./Intermediate";
 import Randall from "./Randall";
+import Bio from "./Bio";
 import ScrollNavigation from "./ScrollNavigation/";
 
 // import { loadStripe } from "@stripe/stripe-js";
@@ -32,6 +33,7 @@ class Home extends Component {
         <Student navigationTitle="student" />
         <Intermediate navigationTitle="intermediate" />
         <Randall navigationTitle="randall" />
+        <Bio navigationTitle="about-madeleine" />
       </ScrollNavigation>
     );
   }
