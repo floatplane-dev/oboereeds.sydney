@@ -7,7 +7,7 @@ class Footer extends Component {
         <p>Sydney Oboe Reeds</p>
         <ul>
           <li>Randall Residence</li>
-          <li>Abbotsford, Sydney, Australia</li>
+          <li>Sydney, Australia</li>
         </ul>
       </footer>
     );

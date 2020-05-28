@@ -8,14 +8,25 @@ import Footer from "./Footer";
 import Home from "./home";
 import BuyingGuide from "./buying-guide";
 
+import { allProducts } from "./allProducts";
+
 class App extends Component {
   constructor(props) {
     super(props);
+    const storedProducts =
+      JSON.parse(window.localStorage.getItem("selectedProducts")) || {};
+    let selectedProducts = allProducts;
+
+    console.log({ selectedProducts, storedProducts });
+    Object.keys(storedProducts).forEach(key => {
+      selectedProducts[key].quantity = storedProducts[key].quantity;
+    });
+
     this.state = {
-      selectedProducts:
-        JSON.parse(window.localStorage.getItem("selectedProducts")) || [],
+      selectedProducts,
       isShowingCart: false
     };
+
     this.addToCart = this.addToCart.bind(this);
     this.removeFromCart = this.removeFromCart.bind(this);
     this.toggleCart = this.toggleCart.bind(this);
@@ -38,10 +49,10 @@ class App extends Component {
   addToCart(item, number) {
     const { selectedProducts } = this.state;
 
-    const newProductsState = [
-      ...selectedProducts,
-      ...new Array(number).fill(item)
-    ];
+    const oldQuantity = selectedProducts[item].quantity;
+
+    let newProductsState = Object.assign({}, selectedProducts);
+    newProductsState[item].quantity = oldQuantity + number;
 
     window.localStorage.setItem(
       "selectedProducts",

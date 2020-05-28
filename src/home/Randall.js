@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { ProductNumberPicker, CartManifestMessage } from "../store-components/";
+import { allProducts } from "../allProducts";
 
 class Randall extends Component {
   constructor(props) {
@@ -12,15 +13,12 @@ class Randall extends Component {
   render() {
     const { selectedProducts, addToCart } = this.props;
     const { number } = this.state;
-    const product = {
-      name: "Professional standard Randall Reed",
-      price: "49.99",
-      sku: "12347"
-    };
+    const product = allProducts.sku_HD6LyrvIxJcPpW;
 
-    const amountInCart = selectedProducts.filter(
-      selected => selected.sku === product.sku
-    ).length;
+    const amountInCart = selectedProducts[product.sku].quantity;
+    // const amountInCart = selectedProducts.filter(
+    //   selected => selected.sku === product.sku
+    // ).length;
 
     return (
       <section className={`${this.props.navigationTitle} product`}>
@@ -45,7 +43,7 @@ class Randall extends Component {
 
           <button
             className="call-to-action"
-            onClick={() => addToCart(product, number)}
+            onClick={() => addToCart(product.sku, number)}
           >
             Add to cart
           </button>

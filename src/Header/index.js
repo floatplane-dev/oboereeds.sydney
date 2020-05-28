@@ -92,7 +92,9 @@ class Header extends Component {
               alt=""
               onClick={() => toggleCart()}
             />
-            <span>{selectedProducts.length && selectedProducts.length}</span>
+            <span>
+              {selectedProducts.length ? selectedProducts.length : null}
+            </span>
           </button>
         </nav>
       </header>

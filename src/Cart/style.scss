@@ -2,6 +2,9 @@ aside.cart {
   position: fixed;
   top: 0;
   right: 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   height: 100vh;
   width: 420px;
   background: $yellow;
@@ -51,7 +54,22 @@ aside.cart {
   }
 
   > main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
     box-sizing: border-box;
     padding: 8px 16px;
+
+    > ul {
+      > li {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+
+    > button {
+      margin: auto auto 20px;
+    }
   }
 }
