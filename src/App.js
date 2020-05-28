@@ -1,46 +1,68 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "./App.scss";
+
 import Header from "./Header/";
 import Cart from "./Cart/";
 import Footer from "./Footer";
-import "./App.scss";
-import { Home } from "./home";
-import { BuyingGuide } from "./buying-guide";
-
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./home";
+import BuyingGuide from "./buying-guide";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedProducts: JSON.parse(
-        window.localStorage.getItem("selectedProducts")
-      ),
+      selectedProducts:
+        JSON.parse(window.localStorage.getItem("selectedProducts")) || [],
       isShowingCart: false
     };
-    this.addToCard = this.addToCard.bind(this);
-    this.removeFromCard = this.removeFromCard.bind(this);
+    this.addToCart = this.addToCart.bind(this);
+    this.removeFromCart = this.removeFromCart.bind(this);
     this.toggleCart = this.toggleCart.bind(this);
   }
 
   toggleCart() {
-    console.log("test", this.state.isShowingCart);
+    const { isShowingCart } = this.state;
+
+    if (!isShowingCart) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+
     this.setState({
-      isShowingCart: !this.state.isShowingCart
+      isShowingCart: !isShowingCart
     });
   }
 
-  addToCard(item) {
+  addToCart(item, number) {
     const { selectedProducts } = this.state;
+
+    const newProductsState = [
+      ...selectedProducts,
+      ...new Array(number).fill(item)
+    ];
+
+    window.localStorage.setItem(
+      "selectedProducts",
+      JSON.stringify(newProductsState)
+    );
+
     this.setState({
-      selectedProducts: selectedProducts.push(item)
+      selectedProducts: newProductsState
     });
   }
 
-  removeFromCard(item) {
+  removeFromCart(item) {
     const { selectedProducts } = this.state;
+    const newProductsState = selectedProducts.slice(item, 1);
+
+    window.localStorage.setItem("selectedProducts", newProductsState);
+
     this.setState({
-      selectedProducts: selectedProducts.slice(item)
+      selectedProducts: newProductsState
     });
+    console.log("remove from cart", { newProductsState });
   }
 
   render() {
@@ -68,7 +90,10 @@ class App extends Component {
               </Route>
 
               <Route path="/">
-                <Home addToCard={this.addToCard} />
+                <Home
+                  selectedProducts={selectedProducts}
+                  addToCart={this.addToCart}
+                />
               </Route>
             </Switch>
 

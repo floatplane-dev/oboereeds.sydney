@@ -11,4 +11,4 @@ class BuyingGuide extends Component {
   }
 }
 
-export { BuyingGuide };
+export default BuyingGuide;

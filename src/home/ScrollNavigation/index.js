@@ -15,11 +15,15 @@ class ScrollNavigation extends Component {
   }
 
   componentDidMount() {
-    window.addEventListener("scroll", this._onScroll);
+    if (window.innerWidth > 1000) {
+      window.addEventListener("scroll", this._onScroll);
+    }
   }
 
   componentWillUnmount() {
-    window.removeEventListener("scroll", this._onScroll);
+    if (window.innerWidth > 1000) {
+      window.removeEventListener("scroll", this._onScroll);
+    }
   }
 
   onScroll = debounce(() => this.calculateActiveSection(), 10, true);
@@ -49,7 +53,12 @@ class ScrollNavigation extends Component {
 
     return (
       <main className="scroll-navigation">
-        <SideNav activeSection={activeSection} navigationChildren={children} />
+        {window.innerWidth > 1000 && (
+          <SideNav
+            activeSection={activeSection}
+            navigationChildren={children}
+          />
+        )}
 
         {children}
       </main>

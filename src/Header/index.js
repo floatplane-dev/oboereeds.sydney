@@ -65,7 +65,7 @@ class Header extends Component {
 
   render() {
     const { isFixed, headerOffset } = this.state;
-    const { toggleCart } = this.props;
+    const { toggleCart, selectedProducts } = this.props;
 
     return (
       <header
@@ -92,6 +92,7 @@ class Header extends Component {
               alt=""
               onClick={() => toggleCart()}
             />
+            <span>{selectedProducts.length && selectedProducts.length}</span>
           </button>
         </nav>
       </header>
