@@ -11,6 +11,13 @@
     />
     <title>Sydney Oboe Reeds</title>
 
+    <script>
+      String.prototype.replaceAll = function(search, replacement) {
+        var target = this;
+        return target.replace(new RegExp(search, "g"), replacement);
+      };
+    </script>
+
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap"
       rel="stylesheet"

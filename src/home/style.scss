@@ -1,15 +1,17 @@
+@import "./ScrollNavigation/style.scss";
+
 section.hero {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-color: $white;
 
   h1 {
     font-size: 36px;
     font-weight: 700;
+    color: $navy;
   }
 
   button {
@@ -22,27 +24,49 @@ section.product {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 540px;
+    box-sizing: border-box;
+    max-width: 600px;
     height: 100vh;
-    padding: 40px;
+    padding: 160px;
 
     &.left {
       align-items: flex-start;
       margin-right: auto;
+      padding-right: 0;
     }
 
     &.right {
       align-items: flex-end;
       margin-left: auto;
+      padding-left: 0;
     }
 
-    h2 {
+    > h2 {
       font-size: 24px;
       font-weight: 700;
     }
 
-    button {
+    > button {
       margin-top: 16px;
     }
+  }
+}
+
+section.bio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  background-color: $white;
+  padding: 160px;
+
+  h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: $navy;
+  }
+
+  p {
+    margin-top: 15px;
   }
 }

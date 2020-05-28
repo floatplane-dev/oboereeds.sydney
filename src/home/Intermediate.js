@@ -1,19 +1,51 @@
 import React, { Component } from "react";
+import { ProductNumberPicker, CartManifestMessage } from "../store-components/";
+import { allProducts } from "../allProducts";
 
-class Student extends Component {
+class Intermediate extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      number: 1
+    };
+  }
+
   render() {
-    const { handleClick } = this.props;
+    const { selectedProducts, addToCart } = this.props;
+    const { number } = this.state;
+    const product = allProducts.sku_HD6K593YsNVnaB;
+
+    const amountInCart = selectedProducts[product.sku].quantity;
+    // const amountInCart = selectedProducts.filter(
+    //   selected => selected.sku === product.sku
+    // ).length;
+
     return (
-      <section className="product" style={{ backgroundColor: "#ffeb3b38" }}>
+      <section className={`${this.props.navigationTitle} product`}>
         <div className="right">
           <h2>
-            High quality intermediate reed <span>$31.99</span>
+            {product.name}&nbsp;<span>${product.price}</span>
           </h2>
+
+          <ProductNumberPicker
+            number={number}
+            max={25}
+            min={1}
+            increase={() => {
+              this.setState({ number: number + 1 });
+            }}
+            decrease={() => {
+              this.setState({ number: number - 1 });
+            }}
+          />
+
+          <CartManifestMessage amountInCart={amountInCart} />
+
           <button
-            onClick={e => handleClick(e, "sku_HD6K593YsNVnaB")}
             className="call-to-action"
+            onClick={() => addToCart(product.sku, number)}
           >
-            Buy this reed
+            Add to cart
           </button>
         </div>
       </section>
@@ -21,4 +53,4 @@ class Student extends Component {
   }
 }
 
-export default Student;
+export default Intermediate;
