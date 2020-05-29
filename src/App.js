@@ -7,6 +7,7 @@ import Cart from "./Cart/";
 import Footer from "./Footer";
 import Home from "./home";
 import BuyingGuide from "./buying-guide";
+import Success from "./Success";
 
 import { allProducts } from "./allProducts";
 
@@ -84,6 +85,18 @@ class App extends Component {
             <Switch>
               <Route path="/buying-guide">
                 <BuyingGuide />
+              </Route>
+
+              <Route path="/success">
+                <Success
+                  resetState={() => {
+                    window.localStorage.setItem(
+                      "selectedProducts",
+                      JSON.stringify(allProducts)
+                    );
+                    this.setState({ selectedProducts: allProducts });
+                  }}
+                />
               </Route>
 
               <Route path="/">

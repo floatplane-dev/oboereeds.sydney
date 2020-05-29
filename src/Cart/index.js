@@ -27,7 +27,7 @@ class Cart extends Component {
 
       const { error } = await stripe.redirectToCheckout({
         items: itemsArray,
-        successUrl: "http://localhost:3000/",
+        successUrl: "http://localhost:3000/success",
         // successUrl: "https://oboereeds.sydney/success",
         cancelUrl: "http://localhost:3000/",
         // cancelUrl: "https://oboereeds.sydney",
