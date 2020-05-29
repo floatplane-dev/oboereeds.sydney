@@ -17,7 +17,6 @@ class App extends Component {
       JSON.parse(window.localStorage.getItem("selectedProducts")) || {};
     let selectedProducts = allProducts;
 
-    console.log({ selectedProducts, storedProducts });
     Object.keys(storedProducts).forEach(key => {
       selectedProducts[key].quantity = storedProducts[key].quantity;
     });
@@ -27,8 +26,7 @@ class App extends Component {
       isShowingCart: false
     };
 
-    this.addToCart = this.addToCart.bind(this);
-    this.removeFromCart = this.removeFromCart.bind(this);
+    this.modifyCart = this.modifyCart.bind(this);
     this.toggleCart = this.toggleCart.bind(this);
   }
 
@@ -46,7 +44,7 @@ class App extends Component {
     });
   }
 
-  addToCart(item, number) {
+  modifyCart(item, number) {
     const { selectedProducts } = this.state;
 
     const oldQuantity = selectedProducts[item].quantity;
@@ -62,18 +60,6 @@ class App extends Component {
     this.setState({
       selectedProducts: newProductsState
     });
-  }
-
-  removeFromCart(item) {
-    const { selectedProducts } = this.state;
-    const newProductsState = selectedProducts.slice(item, 1);
-
-    window.localStorage.setItem("selectedProducts", newProductsState);
-
-    this.setState({
-      selectedProducts: newProductsState
-    });
-    console.log("remove from cart", { newProductsState });
   }
 
   render() {
@@ -103,7 +89,7 @@ class App extends Component {
               <Route path="/">
                 <Home
                   selectedProducts={selectedProducts}
-                  addToCart={this.addToCart}
+                  modifyCart={this.modifyCart}
                 />
               </Route>
             </Switch>
@@ -116,6 +102,7 @@ class App extends Component {
           isShowingCart={isShowingCart}
           selectedProducts={selectedProducts}
           toggleCart={this.toggleCart}
+          modifyCart={this.modifyCart}
         />
       </React.Fragment>
     );

@@ -8,7 +8,7 @@ import ScrollNavigation from "./ScrollNavigation/";
 
 class Home extends Component {
   render() {
-    const { addToCart, selectedProducts } = this.props;
+    const { modifyCart, selectedProducts } = this.props;
 
     return (
       <ScrollNavigation>
@@ -16,17 +16,17 @@ class Home extends Component {
         <Student
           navigationTitle="student"
           selectedProducts={selectedProducts}
-          addToCart={addToCart}
+          modifyCart={modifyCart}
         />
         <Intermediate
           navigationTitle="intermediate"
           selectedProducts={selectedProducts}
-          addToCart={addToCart}
+          modifyCart={modifyCart}
         />
         <Randall
           navigationTitle="randall"
           selectedProducts={selectedProducts}
-          addToCart={addToCart}
+          modifyCart={modifyCart}
         />
         <Bio navigationTitle="about-madeleine" />
       </ScrollNavigation>

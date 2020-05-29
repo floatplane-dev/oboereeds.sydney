@@ -49,7 +49,7 @@ class Header extends Component {
         }
       }
     } else {
-      if (scrollY < headerOffset) {
+      if (scrollY <= headerOffset) {
         // transition from position: absolute to position: fixed
         newHeaderOffset = 0;
         newIsFixed = true;
@@ -61,16 +61,18 @@ class Header extends Component {
       headerOffset: newHeaderOffset,
       isFixed: newIsFixed
     });
+
+    const element = document.querySelector("header#top");
+
+    element.style.position = isFixed ? "fixed" : "absolute";
+    element.style.top = `${headerOffset}px`;
   }
 
   render() {
-    const { isFixed, headerOffset } = this.state;
     const { toggleCart, selectedProducts } = this.props;
 
     return (
-      <header
-        style={{ position: isFixed ? "fixed" : "absolute", top: headerOffset }}
-      >
+      <header id="top">
         <Link to="/">
           <img src="oboe-icon.png" alt="" />
           <img src="reeds-icon.png" alt="" />

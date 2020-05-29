@@ -60,11 +60,24 @@ aside.cart {
     box-sizing: border-box;
     padding: 8px 16px;
 
+    > h2 {
+      padding: 16px 0;
+    }
+
     > ul {
       > li {
         display: flex;
-        width: 100%;
+        align-items: center;
         justify-content: space-between;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 8px;
+        border-bottom: 1px solid black;
+        margin-bottom: 8px;
+
+        &:first-child {
+          border-top: 1px solid black;
+        }
       }
     }
 

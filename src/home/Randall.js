@@ -11,7 +11,7 @@ class Randall extends Component {
   }
 
   render() {
-    const { selectedProducts, addToCart } = this.props;
+    const { selectedProducts, modifyCart } = this.props;
     const { number } = this.state;
     const product = allProducts.sku_HD6LyrvIxJcPpW;
 
@@ -43,7 +43,7 @@ class Randall extends Component {
 
           <button
             className="call-to-action"
-            onClick={() => addToCart(product.sku, number)}
+            onClick={() => modifyCart(product.sku, number)}
           >
             Add to cart
           </button>
