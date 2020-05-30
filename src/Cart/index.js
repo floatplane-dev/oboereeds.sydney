@@ -63,7 +63,10 @@ class Cart extends Component {
     const shippingTotal = shippingMethod ? shippingMethod.price : 0;
 
     return (
-      <aside className={`cart ${isShowingCart ? "cart-active" : ""}`}>
+      <aside
+        className={`cart ${isShowingCart ? "cart-active" : ""}`}
+        style={{ height: window.innerHeight }}
+      >
         <header>
           <h1>Your Cart</h1>
           <Close toggleCart={toggleCart} />

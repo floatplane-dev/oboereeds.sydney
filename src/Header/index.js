@@ -12,18 +12,33 @@ class Header extends Component {
       headerOffset: 0
     };
 
-    this._onScroll = this.onScroll.bind(this);
+    this.onScroll = this.onScroll.bind(this);
+    this.onResize = this.onResize.bind(this);
     this.setLastScrollY = this.setLastScrollY.bind(this);
   }
 
   componentDidMount() {
-    this.setState({ lastScrollY: window.scrollY });
-    window.addEventListener("scroll", this._onScroll);
+    window.addEventListener("resize", this.onResize);
+
+    if (window.innerWidth > 1000) {
+      this.setState({ lastScrollY: window.scrollY });
+      window.addEventListener("scroll", this.onScroll);
+    }
   }
 
   componentWillUnmount() {
-    window.removeEventListener("scroll", this._onScroll);
+    window.removeEventListener("resize", this.onScroll);
+
+    if (window.innerWidth > 1000) {
+      window.removeEventListener("scroll", this.onScroll);
+    }
   }
+
+  onResize = () => {
+    const element = document.querySelector("header#top");
+    element.style.position = "fixed";
+    element.style.top = `0px`;
+  };
 
   onScroll = debounce(this.setLastScrollY, 5, true);
 
