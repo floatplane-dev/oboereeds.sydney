@@ -70,8 +70,6 @@ class App extends Component {
       product => (emptyCart[product].quantity = 0)
     );
 
-    console.log("reset state in app.js", emptyCart);
-
     window.localStorage.setItem("selectedProducts", JSON.stringify(emptyCart));
     this.setState({ selectedProducts: emptyCart });
   }

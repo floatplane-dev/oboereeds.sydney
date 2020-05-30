@@ -43,7 +43,6 @@ class Cart extends Component {
 
       const shippingItem = { sku: shippingMethod.sku, quantity: 1 };
 
-      console.log("output", [...itemsArray, shippingItem]);
       const { error } = await stripe.redirectToCheckout({
         items: [...itemsArray, shippingItem],
         successUrl: "http://localhost:3000/success",

@@ -5,9 +5,7 @@ class ShippingRadio extends Component {
     const { selectShippingMethod } = this.props;
 
     const onChange = e => {
-      console.log(e.currentTarget.value);
       const method = JSON.parse(e.currentTarget.value);
-      console.log({ method });
       selectShippingMethod(method);
     };
 
