@@ -1,3 +1,6 @@
+@import "./LineItem/style.scss";
+@import "./ShippingRadio/style.scss";
+
 aside.cart {
   position: fixed;
   top: 0;
@@ -11,6 +14,10 @@ aside.cart {
 
   transition: transform ease 200ms;
   transform: translatex(100%);
+
+  @media (max-width: 500px) {
+    width: 100vw;
+  }
 
   &.cart-active {
     transform: translatex(0%);
@@ -64,25 +71,20 @@ aside.cart {
       padding: 16px 0;
     }
 
-    > ul {
-      > li {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        box-sizing: border-box;
-        width: 100%;
-        padding: 8px;
-        border-bottom: 1px solid black;
-        margin-bottom: 8px;
+    > ul.lineItem-list {
+    }
 
-        &:first-child {
-          border-top: 1px solid black;
-        }
-      }
+    > p {
+      line-height: 32px;
+      padding: 8px;
     }
 
     > button {
-      margin: auto auto 20px;
+      line-height: 36px;
+      padding: 0 8px;
+      font-size: 16px;
+      background: rgba(blue, 0.2);
+      margin: 20px auto 20px;
     }
   }
 }

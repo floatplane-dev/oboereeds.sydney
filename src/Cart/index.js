@@ -1,11 +1,25 @@
 import React, { Component } from "react";
 import Close from "./Close";
-import { ProductNumberPicker } from "../store-components";
+import LineItem from "./LineItem/";
+import ShippingRadio from "./ShippingRadio/";
 
 import { loadStripe } from "@stripe/stripe-js";
 const stripePromise = loadStripe("pk_test_vwrEmYVBuXu2F36jDcCBuhKT00nVBJrwdf");
 
 class Cart extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      shippingMethod: undefined
+    };
+
+    this.selectShippingMethod = this.selectShippingMethod.bind(this);
+  }
+
+  selectShippingMethod(shippingMethod) {
+    this.setState({ shippingMethod });
+  }
+
   render() {
     const {
       isShowingCart,
@@ -13,6 +27,8 @@ class Cart extends Component {
       selectedProducts,
       modifyCart
     } = this.props;
+
+    const { shippingMethod } = this.state;
 
     const orderArray = Object.keys(selectedProducts)
       .filter(key => selectedProducts[key].quantity > 0)
@@ -25,8 +41,11 @@ class Cart extends Component {
         return { sku: item.sku, quantity: item.quantity };
       });
 
+      const shippingItem = { sku: shippingMethod.sku, quantity: 1 };
+
+      console.log("output", [...itemsArray, shippingItem]);
       const { error } = await stripe.redirectToCheckout({
-        items: itemsArray,
+        items: [...itemsArray, shippingItem],
         successUrl: "http://localhost:3000/success",
         // successUrl: "https://oboereeds.sydney/success",
         cancelUrl: "http://localhost:3000/",
@@ -37,6 +56,12 @@ class Cart extends Component {
       });
     };
 
+    const orderTotal = orderArray.reduce((acc, lineItem) => {
+      return acc + Number(lineItem.price) * lineItem.quantity;
+    }, 0);
+
+    const shippingTotal = shippingMethod ? shippingMethod.price : 0;
+
     return (
       <aside className={`cart ${isShowingCart ? "cart-active" : ""}`}>
         <header>
@@ -45,28 +70,25 @@ class Cart extends Component {
         </header>
         <main>
           <h2>{`${orderArray.length || "No"} products selected`}</h2>
-          <ul>
-            {orderArray.map((item, key) => {
-              return (
-                <li key={key}>
-                  <p>{item.name}</p>
-                  <ProductNumberPicker
-                    number={item.quantity}
-                    max={25}
-                    min={0}
-                    increase={() => {
-                      modifyCart(item.sku, 1);
-                    }}
-                    decrease={() => {
-                      modifyCart(item.sku, -1);
-                    }}
-                  />
-                  <p>${item.price * item.quantity}</p>
-                </li>
-              );
-            })}
+          <ul className="lineItem-list">
+            {orderArray.map((item, key) => (
+              <LineItem key={key} item={item} modifyCart={modifyCart} />
+            ))}
           </ul>
-          <button onClick={proceedToCheckout}>Proceed to Checkout</button>
+
+          {orderArray.length > 0 && (
+            <React.Fragment>
+              <ShippingRadio selectShippingMethod={this.selectShippingMethod} />
+              <p>{`Total: $${(orderTotal + shippingTotal).toFixed(2)}`}</p>
+            </React.Fragment>
+          )}
+
+          <button
+            disabled={!shippingMethod || orderArray.length === 0}
+            onClick={proceedToCheckout}
+          >
+            Proceed to Checkout
+          </button>
         </main>
       </aside>
     );

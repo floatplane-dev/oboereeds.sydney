@@ -29,6 +29,10 @@ section.product {
     height: 100vh;
     padding: 160px;
 
+    @media (max-width: 1000px) {
+      padding: 24px;
+    }
+
     &.left {
       align-items: flex-start;
       margin-right: auto;
@@ -46,6 +50,10 @@ section.product {
       font-weight: 700;
     }
 
+    > p {
+      margin: 8px 0;
+    }
+
     > button {
       margin-top: 16px;
     }
@@ -59,6 +67,10 @@ section.bio {
   height: 100vh;
   background-color: $white;
   padding: 160px;
+
+  @media (max-width: 1000px) {
+    padding: 24px;
+  }
 
   h1 {
     font-size: 36px;

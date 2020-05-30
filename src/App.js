@@ -16,7 +16,7 @@ class App extends Component {
     super(props);
     const storedProducts =
       JSON.parse(window.localStorage.getItem("selectedProducts")) || {};
-    let selectedProducts = allProducts;
+    let selectedProducts = Object.assign({}, allProducts);
 
     Object.keys(storedProducts).forEach(key => {
       selectedProducts[key].quantity = storedProducts[key].quantity;
@@ -29,6 +29,7 @@ class App extends Component {
 
     this.modifyCart = this.modifyCart.bind(this);
     this.toggleCart = this.toggleCart.bind(this);
+    this.resetCart = this.resetCart.bind(this);
   }
 
   toggleCart() {
@@ -63,6 +64,18 @@ class App extends Component {
     });
   }
 
+  resetCart() {
+    const emptyCart = allProducts;
+    Object.keys(allProducts).forEach(
+      product => (emptyCart[product].quantity = 0)
+    );
+
+    console.log("reset state in app.js", emptyCart);
+
+    window.localStorage.setItem("selectedProducts", JSON.stringify(emptyCart));
+    this.setState({ selectedProducts: emptyCart });
+  }
+
   render() {
     const { selectedProducts, isShowingCart } = this.state;
 
@@ -88,15 +101,7 @@ class App extends Component {
               </Route>
 
               <Route path="/success">
-                <Success
-                  resetState={() => {
-                    window.localStorage.setItem(
-                      "selectedProducts",
-                      JSON.stringify(allProducts)
-                    );
-                    this.setState({ selectedProducts: allProducts });
-                  }}
-                />
+                <Success resetCart={this.resetCart} />
               </Route>
 
               <Route path="/">

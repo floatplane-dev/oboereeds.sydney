@@ -71,6 +71,10 @@ class Header extends Component {
   render() {
     const { toggleCart, selectedProducts } = this.props;
 
+    const orderArray = Object.keys(selectedProducts)
+      .filter(key => selectedProducts[key].quantity > 0)
+      .map(sku => selectedProducts[sku]);
+
     return (
       <header id="top">
         <Link to="/">
@@ -94,9 +98,7 @@ class Header extends Component {
               alt=""
               onClick={() => toggleCart()}
             />
-            <span>
-              {selectedProducts.length ? selectedProducts.length : null}
-            </span>
+            <span>{orderArray.length ? orderArray.length : null}</span>
           </button>
         </nav>
       </header>
