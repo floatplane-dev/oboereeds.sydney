@@ -113,7 +113,14 @@ class Header extends Component {
               alt=""
               onClick={() => toggleCart()}
             />
-            <span>{orderArray.length ? orderArray.length : null}</span>
+            <span>
+              {orderArray.length
+                ? orderArray.reduce(
+                    (acc, lineItem) => acc + lineItem.quantity,
+                    0
+                  )
+                : null}
+            </span>
           </button>
         </nav>
       </header>
