@@ -30,19 +30,30 @@ section.product {
     padding: 160px;
 
     @media (max-width: 1000px) {
+      max-width: 460px;
       padding: 24px;
+    }
+
+    @media (max-width: 500px) {
+      width: 100vw;
     }
 
     &.left {
       align-items: flex-start;
       margin-right: auto;
       padding-right: 0;
+      @media (max-width: 500px) {
+        padding-right: 24px;
+      }
     }
 
     &.right {
       align-items: flex-end;
       margin-left: auto;
       padding-left: 0;
+      @media (max-width: 500px) {
+        padding-left: 24px;
+      }
     }
 
     > h2 {

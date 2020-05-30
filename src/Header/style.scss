@@ -16,8 +16,9 @@
     height: 48px;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 500px) {
     height: 40px;
+    padding: 8px 12px;
   }
 
   > a {
@@ -25,6 +26,12 @@
 
     img {
       height: 40px;
+      @media (max-width: 1000px) {
+        height: 36px;
+      }
+      @media (max-width: 500px) {
+        height: 32px;
+      }
     }
   }
 

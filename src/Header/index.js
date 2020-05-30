@@ -84,13 +84,13 @@ class Header extends Component {
         </Link>
         <nav>
           <Link to="buying-guide">Reed Buying Guide</Link>
-          <a
+          {/*<a
             href="https://www.instagram.com/oboethings"
             target="_blank"
             rel="noopener noreferrer"
           >
             <img className="icon" src="instagram-logo.png" alt="" />
-          </a>
+          </a>*/}
           <button>
             <img
               className="icon"
