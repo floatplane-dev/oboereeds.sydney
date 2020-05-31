@@ -4,11 +4,17 @@ class Footer extends Component {
   render() {
     return (
       <footer>
-        <p>Sydney Oboe Reeds</p>
         <ul>
-          <li>Randall Residence</li>
-          <li>Sydney, Australia</li>
+          <li>
+            Contact:{" "}
+            <a href="mailto:sydneyoboereeds@gmail.com">
+              sydneyoboereeds@gmail.com
+            </a>
+          </li>
+          <li></li>
         </ul>
+
+        <p>&copy; Sydney Oboe Reeds 2020, Sydney, Australia</p>
       </footer>
     );
   }
