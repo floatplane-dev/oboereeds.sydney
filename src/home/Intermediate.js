@@ -46,14 +46,13 @@ class Intermediate extends Component {
             }}
           />
 
-          <CartManifestMessage amountInCart={amountInCart} />
-
           <button
             className="call-to-action"
             onClick={() => modifyCart(product.sku, number)}
           >
             Add to cart
           </button>
+          <CartManifestMessage amountInCart={amountInCart} />
         </div>
       </section>
     );

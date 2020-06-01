@@ -51,15 +51,13 @@ class Student extends Component {
               this.setState({ number: number - 1 });
             }}
           />
-
-          <CartManifestMessage amountInCart={amountInCart} />
-
           <button
             className="call-to-action"
             onClick={() => modifyCart(product.sku, number)}
           >
             Add to cart
           </button>
+          <CartManifestMessage amountInCart={amountInCart} />
         </div>
       </section>
     );

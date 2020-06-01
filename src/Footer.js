@@ -6,10 +6,11 @@ class Footer extends Component {
       <footer>
         <ul>
           <li>
-            Contact:{" "}
-            <a href="mailto:sydneyoboereeds@gmail.com">
-              sydneyoboereeds@gmail.com
-            </a>
+            <p>Site currently under construction</p>
+            <p>
+              Have a question?{" "}
+              <a href="mailto:sydneyoboereeds@gmail.com">email us</a>
+            </p>
           </li>
           <li></li>
         </ul>

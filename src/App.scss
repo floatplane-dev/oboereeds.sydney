@@ -1,13 +1,24 @@
+// old
 $yellow: #fed965;
 $navy: #022160;
-$white: #e6e6e6;
 $grey: #3a3937;
 $black: #000000;
+
+$white: #fefcff;
+$navy-blue: #153250;
+$red: #970c10;
+$spearmint: #add3d0;
+$cane: #fff9ea;
+$cork: #f5ebe5;
 
 @import "./Header/style.scss";
 @import "./Cart/style.scss";
 @import "./home/style.scss";
 @import "./store-components/style.scss";
+
+body {
+  background: $white;
+}
 
 body.no-scroll {
   overflow: hidden;

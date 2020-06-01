@@ -20,6 +20,13 @@ section.hero {
 }
 
 section.product {
+  &.student {
+    background: $cane;
+  }
+
+  &.intermediate {
+    background: $cork;
+  }
   > div {
     display: flex;
     flex-direction: column;
