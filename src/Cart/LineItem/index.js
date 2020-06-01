@@ -13,10 +13,10 @@ class LineItem extends Component {
           max={25}
           min={0}
           increase={() => {
-            modifyCart(item.sku, 1);
+            modifyCart(item.price_id, 1);
           }}
           decrease={() => {
-            modifyCart(item.sku, -1);
+            modifyCart(item.price_id, -1);
           }}
         />
         <p>${item.price * item.quantity}</p>

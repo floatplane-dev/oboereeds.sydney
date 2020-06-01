@@ -1,26 +1,20 @@
-// const allProducts = {
-//   sku_HD6JsYpdE0lMlt: 0, // Student
-//   sku_HD6K593YsNVnaB: 0, // Intermediate
-//   sku_HD6LyrvIxJcPpW: 0 // Randall
-// };
-
 const allProducts = {
-  sku_HD6JsYpdE0lMlt: {
+  price_HNza6zL9e3th0a: {
     name: "Hand crafted student reed",
     price: "19.99",
-    sku: "sku_HD6JsYpdE0lMlt",
+    price_id: "price_HNza6zL9e3th0a",
     quantity: 0
   },
-  sku_HD6K593YsNVnaB: {
+  price_HNzbbA3RcoZBDx: {
     name: "High quality intermediate reed",
-    price: "31.99",
-    sku: "sku_HD6K593YsNVnaB",
+    price: "27.99",
+    price_id: "price_HNzbbA3RcoZBDx",
     quantity: 0
   },
-  sku_HD6LyrvIxJcPpW: {
+  price_HNzcuAvZoAPxIj: {
     name: "Professional standard Randall reed",
-    price: "49.99",
-    sku: "sku_HD6LyrvIxJcPpW",
+    price: "47.99",
+    price_id: "price_HNzcuAvZoAPxIj",
     quantity: 0
   }
 };

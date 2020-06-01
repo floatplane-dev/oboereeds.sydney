@@ -4,7 +4,7 @@ import LineItem from "./LineItem/";
 import ShippingRadio from "./ShippingRadio/";
 
 import { loadStripe } from "@stripe/stripe-js";
-const stripePromise = loadStripe("pk_test_vwrEmYVBuXu2F36jDcCBuhKT00nVBJrwdf");
+const stripePromise = loadStripe("pk_live_Lljg8yyI2fmZZ1jz0q0y5JY200s0hsAvj3");
 
 class Cart extends Component {
   constructor(props) {
@@ -32,23 +32,23 @@ class Cart extends Component {
 
     const orderArray = Object.keys(selectedProducts)
       .filter(key => selectedProducts[key].quantity > 0)
-      .map(sku => selectedProducts[sku]);
+      .map(price_id => selectedProducts[price_id]);
 
     const proceedToCheckout = async event => {
       const stripe = await stripePromise;
 
       const itemsArray = orderArray.map(item => {
-        return { sku: item.sku, quantity: item.quantity };
+        return { price: item.price_id, quantity: item.quantity };
       });
 
-      const shippingItem = { sku: shippingMethod.sku, quantity: 1 };
+      const shippingItem = { price: shippingMethod.price_id, quantity: 1 };
+
+      console.log({ items: [...itemsArray, shippingItem] });
 
       const { error } = await stripe.redirectToCheckout({
         items: [...itemsArray, shippingItem],
-        successUrl: "http://localhost:3000/success",
-        // successUrl: "https://oboereeds.sydney/success",
-        cancelUrl: "http://localhost:3000/",
-        // cancelUrl: "https://oboereeds.sydney",
+        successUrl: "https://oboereeds.sydney/success",
+        cancelUrl: "https://oboereeds.sydney",
         shippingAddressCollection: {
           allowedCountries: ["AU"]
         }

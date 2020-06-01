@@ -88,7 +88,7 @@ class Header extends Component {
 
     const orderArray = Object.keys(selectedProducts)
       .filter(key => selectedProducts[key].quantity > 0)
-      .map(sku => selectedProducts[sku]);
+      .map(price_id => selectedProducts[price_id]);
 
     return (
       <header id="top">

@@ -17,7 +17,7 @@ class ShippingRadio extends Component {
             type="radio"
             id="standard"
             name="shipping"
-            value='{"sku":"prod_HN6PKBNFv59Mo6","price":10}'
+            value='{"price_id":"price_HNzjkFbQIBNClu","price":10}'
             onChange={onChange}
           />
           <label htmlFor="standard">
@@ -30,11 +30,24 @@ class ShippingRadio extends Component {
             type="radio"
             id="express"
             name="shipping"
-            value='{"sku":"prod_HN6QyQkYKjuyxb","price":15}'
+            value='{"price_id":"price_HNziKfRMowH5bP","price":15}'
             onChange={onChange}
           />
           <label htmlFor="express">
             Express Shipping <span>$15</span>
+          </label>
+        </li>
+
+        <li>
+          <input
+            type="radio"
+            id="next-lesson"
+            name="shipping"
+            value='{"price_id":"price_HNzkVcr18BsjW5","price":0}'
+            onChange={onChange}
+          />
+          <label htmlFor="next-lesson">
+            Next Lesson Delivery <span>Free</span>
           </label>
         </li>
       </ul>

@@ -13,12 +13,9 @@ class Student extends Component {
   render() {
     const { selectedProducts, modifyCart } = this.props;
     const { number } = this.state;
-    const product = allProducts.sku_HD6JsYpdE0lMlt;
+    const product = allProducts.price_HNza6zL9e3th0a;
 
-    const amountInCart = selectedProducts[product.sku].quantity;
-    // const amountInCart = selectedProducts.filter(
-    //   selected => selected.sku === product.sku
-    // ).length;
+    const amountInCart = selectedProducts[product.price_id].quantity;
 
     return (
       <section className={`${this.props.navigationTitle} product`}>
@@ -53,7 +50,7 @@ class Student extends Component {
           />
           <button
             className="call-to-action"
-            onClick={() => modifyCart(product.sku, number)}
+            onClick={() => modifyCart(product.price_id, number)}
           >
             Add to cart
           </button>
