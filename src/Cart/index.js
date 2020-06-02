@@ -46,7 +46,7 @@ class Cart extends Component {
       const { error } = await stripe.redirectToCheckout({
         lineItems: [...itemsArray, shippingItem],
         mode: "payment",
-        successUrl: "https://oboereeds.sydney/success",
+        successUrl: "https://oboereeds.sydney",
         cancelUrl: "https://oboereeds.sydney",
         shippingAddressCollection: {
           allowedCountries: ["AU"]
