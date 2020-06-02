@@ -14,8 +14,18 @@ import { allProducts } from "./allProducts";
 class App extends Component {
   constructor(props) {
     super(props);
-    const storedProducts =
+    let storedProducts =
       JSON.parse(window.localStorage.getItem("selectedProducts")) || {};
+
+    // safely resets your storedProducts if there are stored ones which aren't included in allProducts
+    if (
+      Object.keys(storedProducts).some(
+        key => !Object.keys(allProducts).find(innerKey => innerKey === key)
+      )
+    ) {
+      storedProducts = {};
+    }
+
     let selectedProducts = Object.assign({}, allProducts);
 
     Object.keys(storedProducts).forEach(key => {
