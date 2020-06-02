@@ -53,6 +53,8 @@ class Cart extends Component {
           allowedCountries: ["AU"]
         }
       });
+
+      console.error({ error });
     };
 
     const orderTotal = orderArray.reduce((acc, lineItem) => {

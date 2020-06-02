@@ -93,9 +93,9 @@ class Header extends Component {
     return (
       <header id="top">
         <Link to="/">
-          <img src="sydney-icon.png" alt="" />
           <img src="oboe-icon.png" alt="" />
           <img src="reeds-icon.png" alt="" />
+          <img src="sydney-icon.png" alt="" />
         </Link>
         <nav>
           <Link to="buying-guide">Reed Buying Guide</Link>
