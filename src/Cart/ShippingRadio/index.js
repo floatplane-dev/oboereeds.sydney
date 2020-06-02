@@ -38,7 +38,7 @@ class ShippingRadio extends Component {
           </label>
         </li>
 
-        <li>
+        {/*<li>
           <input
             type="radio"
             id="next-lesson"
@@ -49,7 +49,7 @@ class ShippingRadio extends Component {
           <label htmlFor="next-lesson">
             Next Lesson Delivery <span>Free</span>
           </label>
-        </li>
+        </li>*/}
       </ul>
     );
   }
