@@ -43,11 +43,9 @@ class Cart extends Component {
 
       const shippingItem = { price: shippingMethod.price_id, quantity: 1 };
 
-      console.log({ itemsArray });
-
       const { error } = await stripe.redirectToCheckout({
+        lineItems: [...itemsArray, shippingItem],
         mode: "payment",
-        items: itemsArray,
         successUrl: "https://oboereeds.sydney/success",
         cancelUrl: "https://oboereeds.sydney",
         shippingAddressCollection: {
