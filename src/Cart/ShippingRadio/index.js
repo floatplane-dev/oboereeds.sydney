@@ -38,18 +38,18 @@ class ShippingRadio extends Component {
           </label>
         </li>
 
-        {/*<li>
+        <li>
           <input
             type="radio"
             id="next-lesson"
             name="shipping"
-            value='{"price_id":"price_HNzkVcr18BsjW5","price":0}'
+            value='{"price_id": "false","price":0}'
             onChange={onChange}
           />
           <label htmlFor="next-lesson">
             Next Lesson Delivery <span>Free</span>
           </label>
-        </li>*/}
+        </li>
       </ul>
     );
   }

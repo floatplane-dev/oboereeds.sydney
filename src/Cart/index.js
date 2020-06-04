@@ -37,14 +37,18 @@ class Cart extends Component {
     const proceedToCheckout = async event => {
       const stripe = await stripePromise;
 
-      const itemsArray = orderArray.map(item => {
+      let lineItems = orderArray.map(item => {
         return { price: item.price_id, quantity: item.quantity };
       });
 
-      const shippingItem = { price: shippingMethod.price_id, quantity: 1 };
+      // only if a shipping method with a price id is selected include it in the order
+      if (shippingMethod.price_id) {
+        const shippingItem = { price: shippingMethod.price_id, quantity: 1 };
+        lineItems = lineItems.push(shippingItem);
+      }
 
       const { error } = await stripe.redirectToCheckout({
-        lineItems: [...itemsArray, shippingItem],
+        lineItems,
         mode: "payment",
         successUrl: "https://oboereeds.sydney",
         cancelUrl: "https://oboereeds.sydney",
@@ -60,7 +64,10 @@ class Cart extends Component {
       return acc + Number(lineItem.price) * lineItem.quantity;
     }, 0);
 
-    const shippingTotal = shippingMethod ? shippingMethod.price : 0;
+    const shippingTotal =
+      shippingMethod && shippingMethod.price_id ? shippingMethod.price : 0;
+
+    console.log("render", shippingTotal);
 
     return (
       <aside

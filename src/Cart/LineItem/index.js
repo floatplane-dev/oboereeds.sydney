@@ -7,7 +7,7 @@ class LineItem extends Component {
 
     return (
       <li className="LineItem">
-        <p>{item.name}</p>
+        <label>{item.name}</label>
         <ProductNumberPicker
           number={item.quantity}
           max={25}
