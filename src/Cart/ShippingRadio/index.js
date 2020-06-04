@@ -43,7 +43,7 @@ class ShippingRadio extends Component {
             type="radio"
             id="next-lesson"
             name="shipping"
-            value='{"price_id": "false","price":0}'
+            value='{"price_id": false,"price":0}'
             onChange={onChange}
           />
           <label htmlFor="next-lesson">
