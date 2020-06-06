@@ -7,6 +7,7 @@ import Cart from "./Cart/";
 import Footer from "./Footer";
 import Home from "./home";
 import BuyingGuide from "./buying-guide";
+import Three from "./Three";
 import Success from "./Success";
 
 import { allProducts } from "./allProducts";
@@ -106,6 +107,10 @@ class App extends Component {
             <Switch>
               <Route path="/buying-guide">
                 <BuyingGuide />
+              </Route>
+
+              <Route path="/three">
+                <Three />
               </Route>
 
               <Route path="/success">
