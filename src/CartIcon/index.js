@@ -9,7 +9,7 @@ class CartIcon extends Component {
       .map(price_id => selectedProducts[price_id]);
 
     return (
-      <button>
+      <button id="cart-icon">
         <img
           className="icon"
           src="cart.svg"

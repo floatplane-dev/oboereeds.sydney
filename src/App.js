@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.scss";
 
-import Header from "./Header/";
+import CartIcon from "./CartIcon/";
 import Cart from "./Cart/";
 import Footer from "./Footer";
 import Home from "./home";
@@ -99,9 +99,9 @@ class App extends Component {
           }}
         >
           <Router>
-            <Header
-              selectedProducts={selectedProducts}
+            <CartIcon
               toggleCart={this.toggleCart}
+              selectedProducts={selectedProducts}
             />
 
             <Background />
