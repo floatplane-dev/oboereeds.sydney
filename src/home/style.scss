@@ -6,7 +6,8 @@ section.hero {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: $white;
+  background-size: cover;
+  filter: grayscale(1) contrast(0.4) brightness(1.8);
 
   h1 {
     font-size: 36px;
@@ -20,13 +21,6 @@ section.hero {
 }
 
 section.product {
-  &.student {
-    background: $cane;
-  }
-
-  &.intermediate {
-    background: $cork;
-  }
   > div {
     display: flex;
     flex-direction: column;
@@ -83,7 +77,6 @@ section.bio {
   flex-direction: column;
   justify-content: center;
   height: 100vh;
-  background-color: $white;
   padding: 160px;
 
   @media (max-width: 1000px) {
