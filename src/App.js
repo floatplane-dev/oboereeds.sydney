@@ -8,7 +8,7 @@ import Footer from "./Footer";
 import Home from "./home";
 import BuyingGuide from "./buying-guide";
 import Success from "./Success";
-import Background from "./Background";
+import ScrollComponents from "./ScrollComponents";
 
 import { allProducts } from "./allProducts";
 
@@ -103,9 +103,7 @@ class App extends Component {
               toggleCart={this.toggleCart}
               selectedProducts={selectedProducts}
             />
-
-            <Background />
-
+            <ScrollComponents />
             <Switch>
               <Route path="/buying-guide">
                 <BuyingGuide />
@@ -122,7 +120,6 @@ class App extends Component {
                 />
               </Route>
             </Switch>
-
             <Footer />
           </Router>
         </div>

@@ -8,15 +8,6 @@ section.hero {
   height: 100vh;
   background-size: cover;
 
-  .fixed-background {
-    position: fixed;
-    height: 100vh;
-    width: 100%;
-    background-size: cover;
-    filter: grayscale(1) contrast(0.4) brightness(1.8);
-    z-index: -1;
-  }
-
   h1 {
     font-size: 36px;
     font-weight: 700;
