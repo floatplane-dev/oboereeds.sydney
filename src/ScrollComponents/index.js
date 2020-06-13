@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import debounce from "../debounce.js";
 import backgroundOpacity from "./backgroundOpacity";
-import oboePosition from "./oboePosition";
+import { oboePosition } from "./oboePosition";
+import Oboe from "./Oboe";
 
 class ScrollComponents extends Component {
   constructor(props) {
@@ -24,11 +25,8 @@ class ScrollComponents extends Component {
   onScroll = debounce(() => this.setPositionRules(), 10, true);
 
   setPositionRules = () => {
-    const windowHeight = window.innerHeight;
-    const scroll = window.scrollY;
-
-    backgroundOpacity(windowHeight, scroll);
-    oboePosition(windowHeight, scroll);
+    backgroundOpacity();
+    oboePosition();
   };
 
   render() {
@@ -38,7 +36,9 @@ class ScrollComponents extends Component {
           id="background"
           style={{ backgroundImage: "url(opera-house.jpg)" }}
         />
-        <div id="oboe">{/*<Oboe />*/}</div>
+        <div id="oboe">
+          <Oboe />
+        </div>
       </div>
     );
   }

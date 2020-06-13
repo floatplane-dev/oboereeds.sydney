@@ -67,8 +67,6 @@ class Cart extends Component {
     const shippingTotal =
       shippingMethod && shippingMethod.price_id ? shippingMethod.price : 0;
 
-    console.log("render", shippingTotal);
-
     return (
       <aside
         className={`cart ${isShowingCart ? "cart-active" : ""}`}

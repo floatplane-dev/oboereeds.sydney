@@ -20,6 +20,7 @@ section.hero {
 }
 
 section.product {
+  background: rgba(cyan, 0.1);
   > div {
     display: flex;
     flex-direction: column;
@@ -75,6 +76,7 @@ section.bio {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  box-sizing: border-box;
   height: 100vh;
   padding: 160px;
 

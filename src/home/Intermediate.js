@@ -18,7 +18,10 @@ class Intermediate extends Component {
     const amountInCart = selectedProducts[product.price_id].quantity;
 
     return (
-      <section className={`${this.props.navigationTitle} product`}>
+      <section
+        id={this.props.navigationTitle}
+        className={`${this.props.navigationTitle} product`}
+      >
         <div className="right">
           <h2>
             {product.name}&nbsp;<span>${product.price}</span>
