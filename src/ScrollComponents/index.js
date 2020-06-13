@@ -16,6 +16,8 @@ class ScrollComponents extends Component {
 
   componentDidMount() {
     window.addEventListener("scroll", this.onScroll);
+    backgroundOpacity();
+    oboePosition();
   }
 
   componentWillUnmount() {
