@@ -31,6 +31,10 @@
         var target = this;
         return target.replace(new RegExp(search, "g"), replacement);
       };
+      window.onresize = function() {
+        document.body.height = window.innerHeight;
+      };
+      window.onresize();
     </script>
 
     <link
