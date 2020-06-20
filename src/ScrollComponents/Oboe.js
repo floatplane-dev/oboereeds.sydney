@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 import { calculateCameraOffset } from "./oboePosition";
 
 class Oboe extends Component {
@@ -24,17 +25,31 @@ class Oboe extends Component {
     renderer.setSize(window.innerWidth, window.innerHeight);
     el.appendChild(renderer.domElement);
 
-    const loader = new GLTFLoader();
-    loader.load("S2_oboe_1.gltf.glb", function(gltf) {
-      model = gltf.scene;
-      clips = gltf.animations;
-      mixer = new THREE.AnimationMixer(model);
-      model.rotation.x = Math.PI;
-      model.rotation.z = Math.PI;
-      scene.add(model);
-    });
+    let loader = new GLTFLoader();
 
-    // 0, -40, 45
+    var dracoLoader = new DRACOLoader();
+    dracoLoader.setDecoderPath("js/");
+    loader.setDRACOLoader(dracoLoader);
+    dracoLoader.preload();
+
+    loader.load(
+      "S2_oboe_2_textured.glb",
+      gltf => {
+        console.log({ gltf });
+        model = gltf.scene;
+        clips = gltf.animations;
+        mixer = new THREE.AnimationMixer(model);
+        model.rotation.y = Math.PI / -2;
+        scene.add(model);
+      },
+      xhr => {
+        console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
+      },
+      error => {
+        console.log("An error happened");
+      }
+    );
+
     camera.position.set(0, 40, -130);
     camera.lookAt(new THREE.Vector3(0, 0, -130));
 
@@ -75,7 +90,7 @@ class Oboe extends Component {
       if (elementClicked) {
         var clip = THREE.AnimationClip.findByName(
           clips,
-          elementClicked.object.name
+          elementClicked.object.name.splice(6, 0, ".")
         );
         console.log({ clip });
         var action = mixer.clipAction(clip);

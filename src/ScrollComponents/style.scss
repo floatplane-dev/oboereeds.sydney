@@ -11,6 +11,7 @@
   #oboe {
     width: 100%;
     height: 100vh;
+    // z-index: -1; // overcomes the new stacking context created by position: fixed
     > canvas {
       width: 100%;
       height: 100%;
