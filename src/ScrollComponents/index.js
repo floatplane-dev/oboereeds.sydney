@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import debounce from "../debounce.js";
 import backgroundOpacity from "./backgroundOpacity";
 import { oboePosition } from "./oboePosition";
-import Oboe from "./Oboe";
+import Oboe from "./oboe/";
 
 class ScrollComponents extends Component {
   constructor(props) {
@@ -18,6 +18,8 @@ class ScrollComponents extends Component {
     window.addEventListener("scroll", this.onScroll);
     backgroundOpacity();
     oboePosition();
+
+    new Oboe().render(document.getElementById("oboe"));
   }
 
   componentWillUnmount() {
@@ -38,9 +40,7 @@ class ScrollComponents extends Component {
           id="background"
           style={{ backgroundImage: "url(opera-house.jpg)" }}
         />
-        <div id="oboe">
-          <Oboe />
-        </div>
+        <div id="oboe" />
       </div>
     );
   }
