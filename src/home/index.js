@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Hero from "./Hero";
+import Hero from "./Hero/";
 import Student from "./Student";
 import Intermediate from "./Intermediate";
 import Randall from "./Randall";
 import Bio from "./Bio";
-import TheOboe from "./TheOboe";
+import TheOboe from "./TheOboe/";
 import ScrollNavigation from "./ScrollNavigation/";
 
 class Home extends Component {

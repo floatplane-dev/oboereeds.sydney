@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 import OboeScene from "./three/";
 
 class TheOboe extends Component {

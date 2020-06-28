@@ -2,6 +2,14 @@ import React, { Component } from "react";
 import Close from "./Close";
 import LineItem from "./LineItem/";
 import ShippingRadio from "./ShippingRadio/";
+import CartIcon from "./CartIcon";
+
+import {
+  toggleCart,
+  modifyCart,
+  resetCart,
+  checkLocalstorage,
+} from "./actions";
 
 import { loadStripe } from "@stripe/stripe-js";
 const stripePromise = loadStripe("pk_live_Lljg8yyI2fmZZ1jz0q0y5JY200s0hsAvj3");
@@ -10,7 +18,7 @@ class Cart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      shippingMethod: undefined
+      shippingMethod: undefined,
     };
 
     this.selectShippingMethod = this.selectShippingMethod.bind(this);
@@ -25,19 +33,19 @@ class Cart extends Component {
       isShowingCart,
       toggleCart,
       selectedProducts,
-      modifyCart
+      modifyCart,
     } = this.props;
 
     const { shippingMethod } = this.state;
 
     const orderArray = Object.keys(selectedProducts)
-      .filter(key => selectedProducts[key].quantity > 0)
-      .map(price_id => selectedProducts[price_id]);
+      .filter((key) => selectedProducts[key].quantity > 0)
+      .map((price_id) => selectedProducts[price_id]);
 
-    const proceedToCheckout = async event => {
+    const proceedToCheckout = async (event) => {
       const stripe = await stripePromise;
 
-      let lineItems = orderArray.map(item => {
+      let lineItems = orderArray.map((item) => {
         return { price: item.price_id, quantity: item.quantity };
       });
 
@@ -53,8 +61,8 @@ class Cart extends Component {
         successUrl: "https://oboereeds.sydney",
         cancelUrl: "https://oboereeds.sydney",
         shippingAddressCollection: {
-          allowedCountries: ["AU"]
-        }
+          allowedCountries: ["AU"],
+        },
       });
 
       console.error({ error });
@@ -103,4 +111,4 @@ class Cart extends Component {
   }
 }
 
-export default Cart;
+export { Cart, CartIcon, toggleCart, modifyCart, resetCart, checkLocalstorage };

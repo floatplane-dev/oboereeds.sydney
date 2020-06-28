@@ -5,8 +5,8 @@ class CartIcon extends Component {
     const { toggleCart, selectedProducts } = this.props;
 
     const orderArray = Object.keys(selectedProducts)
-      .filter(key => selectedProducts[key].quantity > 0)
-      .map(price_id => selectedProducts[price_id]);
+      .filter((key) => selectedProducts[key].quantity > 0)
+      .map((price_id) => selectedProducts[price_id]);
 
     return (
       <button id="cart-icon">

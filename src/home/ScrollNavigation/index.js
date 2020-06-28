@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import SideNav from "./SideNav";
-import debounce from "../../debounce";
+import debounce from "helpers/debounce";
 
 class ScrollNavigation extends Component {
   constructor(props) {
     super(props);
     this.state = {
       activeSection: undefined, // defined in componentDidMount
-      tempTitles: []
+      tempTitles: [],
     };
 
     this._onScroll = this.onScroll.bind(this);

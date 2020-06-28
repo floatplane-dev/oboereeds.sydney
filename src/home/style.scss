@@ -1,24 +1,6 @@
 @import "./ScrollNavigation/style.scss";
+@import "./Hero/style.scss";
 @import "./TheOboe/style.scss";
-
-section.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-size: cover;
-
-  h1 {
-    font-size: 36px;
-    font-weight: 700;
-    color: $navy;
-  }
-
-  button {
-    margin-top: 16px;
-  }
-}
 
 section.product {
   // background: rgba(cyan, 0.1);

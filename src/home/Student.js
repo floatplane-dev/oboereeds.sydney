@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { ProductNumberPicker, CartManifestMessage } from "../store-components/";
-import { allProducts } from "../allProducts";
+import { allProducts } from "products/allProducts";
 
 class Student extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      number: 1
+      number: 1,
     };
   }
 
