@@ -10,22 +10,20 @@ camera.position.set(0, 40, -130);
 camera.lookAt(new THREE.Vector3(0, 0, -130));
 
 const calculateCameraOffset = () => {
-  const el = document.getElementById("the-oboe");
+  const el = document.getElementById("the-oboe"); // a section in home/index
   if (!el) return 0;
 
-  const { innerHeight, innerWidth, scrollY } = window;
-  const { offsetTop, offsetHeight } = el;
+  const { innerHeight, scrollY } = window;
+  const { offsetTop } = el;
 
   let offset;
-  if (scrollY > offsetTop + offsetHeight + innerHeight) {
-    // scrollPosition is below the CanvasBackground
-    offset = offsetHeight;
-  } else if (scrollY > offsetTop - innerHeight) {
-    // scrollPosition within the CanvasBackground border
-    offset = (scrollY - offsetTop + innerHeight) / (innerWidth / 25);
-  } else {
-    // scrollPosition is above the CanvasBackground
+
+  if (scrollY < innerHeight) {
+    offset = (scrollY - innerHeight) / (innerHeight / 65);
+  } else if (scrollY < offsetTop - innerHeight) {
     offset = 0;
+  } else {
+    offset = (scrollY - offsetTop + innerHeight) / (innerHeight / 65);
   }
 
   return offset;

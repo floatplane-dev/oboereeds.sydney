@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import debounce from "../debounce.js";
 import backgroundOpacity from "./backgroundOpacity";
-import { oboePosition } from "./oboePosition";
 import Oboe from "./oboe/";
 
 class ScrollComponents extends Component {
@@ -17,7 +16,6 @@ class ScrollComponents extends Component {
   componentDidMount() {
     window.addEventListener("scroll", this.onScroll);
     backgroundOpacity();
-    oboePosition();
 
     new Oboe().render(document.getElementById("oboe"));
   }
@@ -30,7 +28,6 @@ class ScrollComponents extends Component {
 
   setPositionRules = () => {
     backgroundOpacity();
-    oboePosition();
   };
 
   render() {

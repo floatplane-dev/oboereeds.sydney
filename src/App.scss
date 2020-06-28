@@ -25,29 +25,6 @@ body.no-scroll {
   overflow: hidden;
 }
 
-.Background {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  img.reed {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 40px;
-  }
-
-  img.oboe {
-    position: fixed;
-    left: 50%;
-    top: 70%;
-    transform: translate(-50%, 0%);
-    height: 2000px;
-    z-index: -1;
-  }
-}
-
 .App {
   transition: all ease 200ms;
 
