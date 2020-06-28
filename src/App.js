@@ -21,7 +21,7 @@ class App extends Component {
     // safely resets your storedProducts if there are stored ones which aren't included in allProducts
     if (
       Object.keys(storedProducts).some(
-        key => !Object.keys(allProducts).find(innerKey => innerKey === key)
+        (key) => !Object.keys(allProducts).find((innerKey) => innerKey === key)
       )
     ) {
       storedProducts = {};
@@ -29,13 +29,13 @@ class App extends Component {
 
     let selectedProducts = Object.assign({}, allProducts);
 
-    Object.keys(storedProducts).forEach(key => {
+    Object.keys(storedProducts).forEach((key) => {
       selectedProducts[key].quantity = storedProducts[key].quantity;
     });
 
     this.state = {
       selectedProducts,
-      isShowingCart: false
+      isShowingCart: false,
     };
 
     this.modifyCart = this.modifyCart.bind(this);
@@ -53,7 +53,7 @@ class App extends Component {
     }
 
     this.setState({
-      isShowingCart: !isShowingCart
+      isShowingCart: !isShowingCart,
     });
   }
 
@@ -71,14 +71,14 @@ class App extends Component {
     );
 
     this.setState({
-      selectedProducts: newProductsState
+      selectedProducts: newProductsState,
     });
   }
 
   resetCart() {
     const emptyCart = allProducts;
     Object.keys(allProducts).forEach(
-      product => (emptyCart[product].quantity = 0)
+      (product) => (emptyCart[product].quantity = 0)
     );
 
     window.localStorage.setItem("selectedProducts", JSON.stringify(emptyCart));
@@ -91,6 +91,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <div
+          id="App"
           className={`App ${isShowingCart ? "cart-active" : ""}`}
           onClick={() => {
             if (isShowingCart) {
@@ -99,10 +100,6 @@ class App extends Component {
           }}
         >
           <Router>
-            <CartIcon
-              toggleCart={this.toggleCart}
-              selectedProducts={selectedProducts}
-            />
             <ScrollComponents />
             <Switch>
               <Route path="/buying-guide">
@@ -121,6 +118,11 @@ class App extends Component {
               </Route>
             </Switch>
             <Footer />
+
+            <CartIcon
+              toggleCart={this.toggleCart}
+              selectedProducts={selectedProducts}
+            />
           </Router>
         </div>
 

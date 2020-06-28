@@ -16,8 +16,6 @@ class ScrollComponents extends Component {
   componentDidMount() {
     window.addEventListener("scroll", this.onScroll);
     backgroundOpacity();
-
-    new Oboe().render(document.getElementById("oboe"));
   }
 
   componentWillUnmount() {
@@ -37,7 +35,6 @@ class ScrollComponents extends Component {
           id="background"
           style={{ backgroundImage: "url(opera-house.jpg)" }}
         />
-        <div id="oboe" />
       </div>
     );
   }

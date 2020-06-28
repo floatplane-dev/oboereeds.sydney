@@ -3,6 +3,7 @@ main.scroll-navigation > aside {
   top: 50vh;
   left: 10px;
   transform: translateY(-50%);
+  z-index: 1;
 
   li {
     position: relative;

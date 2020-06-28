@@ -6,7 +6,7 @@ import spotlight from "./spotlight";
 import { raycaster, clock, mouse } from "./raycaster";
 import loadModel from "./loader";
 
-export default class Oboe {
+export default class OboeScene {
   async render(el) {
     const scene = new THREE.Scene();
     el.appendChild(renderer.domElement);
@@ -51,8 +51,7 @@ export default class Oboe {
           action.clampWhenFinished = true;
           // action.time = action.getClip().duration;
           // action.setEffectiveTimeScale(-1)
-          action.play();
-          // .reset();
+          action.play().reset();
         }
       }
     });
@@ -67,7 +66,7 @@ export default class Oboe {
         mixer.update(delta);
       }
 
-      camera.position.set(0, 40, -130 + calculateCameraOffset());
+      camera.position.set(0, 75, -130 + calculateCameraOffset());
       camera.lookAt(new THREE.Vector3(0, 0, -130 + calculateCameraOffset()));
 
       renderer.render(scene, camera);

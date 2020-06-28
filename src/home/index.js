@@ -4,7 +4,7 @@ import Student from "./Student";
 import Intermediate from "./Intermediate";
 import Randall from "./Randall";
 import Bio from "./Bio";
-import CanvasBackground from "./CanvasBackground";
+import TheOboe from "./TheOboe";
 import ScrollNavigation from "./ScrollNavigation/";
 
 class Home extends Component {
@@ -29,7 +29,7 @@ class Home extends Component {
           selectedProducts={selectedProducts}
           modifyCart={modifyCart}
         />
-        <CanvasBackground navigationTitle="the-oboe" />
+        <TheOboe navigationTitle="the-oboe" />
         <Bio navigationTitle="about-madeleine" />
       </ScrollNavigation>
     );
