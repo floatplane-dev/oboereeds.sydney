@@ -42,16 +42,25 @@ export default class OboeScene {
           clips,
           elementClicked.object.name.splice(6, 0, ".") // todo
         );
-        console.log({ clip });
+        // console.log({ clip });
         var action = mixer.clipAction(clip);
 
         if (action) {
-          console.log({ action });
           action.setLoop(THREE.LoopOnce);
           action.clampWhenFinished = true;
-          // action.time = action.getClip().duration;
-          // action.setEffectiveTimeScale(-1)
-          action.play().reset();
+          action.setEffectiveTimeScale(0.5).play().reset();
+
+          const undo = () => {
+            console.log("mouseup", action.paused, action.time);
+            action.reset();
+            action.paused = false;
+            action.timeScale = -1;
+
+            action.setLoop(THREE.LoopOnce).play().reset();
+            renderer.domElement.removeEventListener("mouseup", undo);
+          };
+
+          renderer.domElement.addEventListener("mouseup", undo);
         }
       }
     });
