@@ -15,7 +15,7 @@ class TheOboe extends Component {
         className={`${this.props.navigationTitle}`}
         style={{ height: `${window.innerHeight * 4}px` }}
       >
-        <div id="oboe" />
+        <div id="oboe" style={{ height: `${window.outerHeight}px` }} />
       </section>
     );
   }

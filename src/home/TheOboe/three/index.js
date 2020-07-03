@@ -51,7 +51,7 @@ export default class OboeScene {
       event.preventDefault();
 
       mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-      mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+      mouse.y = -(event.clientY / window.outerHeight) * 2 + 1;
     }
 
     renderer.domElement.addEventListener("mousedown", () => {
