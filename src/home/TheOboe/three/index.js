@@ -2,7 +2,7 @@ import * as THREE from "three";
 
 import { camera, calculateCameraOffset } from "./camera";
 import renderer from "./renderer";
-import spotlight from "./spotlight";
+import { light1, light2 } from "./lights";
 import { raycaster, clock, mouse } from "./raycaster";
 import loadModel from "./loader";
 
@@ -19,7 +19,8 @@ export default class OboeScene {
 
     model.rotation.y = Math.PI / -2;
     scene.add(model);
-    scene.add(spotlight);
+    scene.add(light1);
+    scene.add(light2);
 
     window.addEventListener("mousemove", onMouseMove, false);
 
