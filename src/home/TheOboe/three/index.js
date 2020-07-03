@@ -4,21 +4,44 @@ import { camera, calculateCameraOffset } from "./camera";
 import renderer from "./renderer";
 import { light1, light2 } from "./lights";
 import { raycaster, clock, mouse } from "./raycaster";
-import loadModel from "./loader";
+import {
+  modelLoader,
+  oboeMaterialLoader,
+  keyworkMaterialLoader,
+} from "./model";
 
 export default class OboeScene {
   async render(el) {
     const scene = new THREE.Scene();
     el.appendChild(renderer.domElement);
 
-    const gltf = await loadModel("S2_oboe_2_textured.glb");
+    let [gltf, oboeMaterial, keyworkMaterial] = await Promise.all([
+      modelLoader("models/untextured_compressed.gltf"),
+      oboeMaterialLoader(),
+      keyworkMaterialLoader(),
+    ]);
+
+    console.log({ gltf, keyworkMaterial, oboeMaterial });
 
     const model = gltf.scene;
+
+    const oboeBody = model.children.find((child) => child.name === "Oboe_body");
+    const oboeKeywork = model.children.find((child) => child.name === "rig");
+
+    oboeKeywork.traverse((child) => {
+      if (child instanceof THREE.Mesh) {
+        child.material = keyworkMaterial;
+      }
+    });
+
+    oboeBody.material = oboeMaterial;
+
     const mixer = new THREE.AnimationMixer(gltf.scene);
     const clips = gltf.animations;
 
     model.rotation.y = Math.PI / -2;
     scene.add(model);
+
     scene.add(light1);
     scene.add(light2);
 
