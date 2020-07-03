@@ -55,32 +55,31 @@ export default class OboeScene {
     }
 
     renderer.domElement.addEventListener("mousedown", () => {
-      console.log("mousedown");
       const elementClicked = raycaster.intersectObjects(
         scene.children,
         true
       )[0];
 
       if (elementClicked) {
-        var clip = THREE.AnimationClip.findByName(
+        const clip = THREE.AnimationClip.findByName(
           clips,
           elementClicked.object.name.splice(6, 0, ".") // todo
         );
-        // console.log({ clip });
-        var action = mixer.clipAction(clip);
+
+        const action = mixer.clipAction(clip);
 
         if (action) {
+          action.stop();
           action.setLoop(THREE.LoopOnce);
           action.clampWhenFinished = true;
-          action.setEffectiveTimeScale(0.5).play().reset();
+          action.setDuration(0.1);
+          action.setEffectiveTimeScale(1).play();
 
           const undo = () => {
-            console.log("mouseup", action.paused, action.time);
-            action.reset();
+            action.play();
             action.paused = false;
             action.timeScale = -1;
 
-            action.setLoop(THREE.LoopOnce).play().reset();
             renderer.domElement.removeEventListener("mouseup", undo);
           };
 
