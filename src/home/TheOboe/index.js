@@ -3,9 +3,7 @@ import OboeScene from "./three/";
 
 class TheOboe extends Component {
   componentDidMount() {
-    window.addEventListener("scroll", this.onScroll);
-
-    new OboeScene().render(document.getElementById("oboe"));
+    new OboeScene().render(document.getElementById("three"));
   }
 
   render() {
@@ -13,9 +11,9 @@ class TheOboe extends Component {
       <section
         id={this.props.navigationTitle}
         className={`${this.props.navigationTitle}`}
-        style={{ height: `${window.innerHeight * 4}px` }}
+        style={{ height: `${window.outerHeight * 4}px` }}
       >
-        <div id="oboe" style={{ height: `${window.outerHeight}px` }} />
+        <div id="three" style={{ height: `${window.outerHeight}px` }} />
       </section>
     );
   }

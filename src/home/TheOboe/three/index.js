@@ -5,42 +5,56 @@ import renderer from "./renderer";
 import { light1, light2 } from "./lights";
 import { raycaster, clock, mouse } from "./raycaster";
 import {
-  modelLoader,
-  oboeMaterialLoader,
-  keyworkMaterialLoader,
-} from "./model";
+  oboeModelLoader,
+  oboeBodyMaterialLoader,
+  oboeKeyworkMaterialLoader,
+  reedModelLoader,
+  // reedCorkMaterialLoader,
+} from "./models/";
 
 export default class OboeScene {
   async render(el) {
     const scene = new THREE.Scene();
     el.appendChild(renderer.domElement);
 
-    let [gltf, oboeMaterial, keyworkMaterial] = await Promise.all([
-      modelLoader("models/untextured_compressed.gltf"),
-      oboeMaterialLoader(),
-      keyworkMaterialLoader(),
+    let [
+      reed,
+      // reedCorkMaterial
+    ] = await Promise.all([
+      reedModelLoader(),
+      // reedCorkMaterialLoader(),
     ]);
+    const reedModel = reed.scene;
+    // console.log({ reedModel });
+    reedModel.rotation.y = Math.PI / -2; // get Haymish to remove me
+    reedModel.rotation.x = Math.PI / -2; // get Haymish to remove me
+    reedModel.position.z = -121;
+    reedModel.scale.set(1.3, 1.3, 1.3);
+    scene.add(reedModel);
 
-    console.log({ gltf, keyworkMaterial, oboeMaterial });
-
-    const model = gltf.scene;
-
-    const oboeBody = model.children.find((child) => child.name === "Oboe_body");
-    const oboeKeywork = model.children.find((child) => child.name === "rig");
-
+    let [oboe, oboeBodyMaterial, oboeKeyworkMaterial] = await Promise.all([
+      oboeModelLoader(),
+      oboeBodyMaterialLoader(),
+      oboeKeyworkMaterialLoader(),
+    ]);
+    const oboeModel = oboe.scene;
+    const oboeBody = oboeModel.children.find(
+      (child) => child.name === "Oboe_body"
+    );
+    const oboeKeywork = oboeModel.children.find(
+      (child) => child.name === "rig"
+    );
+    oboeBody.material = oboeBodyMaterial;
     oboeKeywork.traverse((child) => {
       if (child instanceof THREE.Mesh) {
-        child.material = keyworkMaterial;
+        child.material = oboeKeyworkMaterial;
       }
     });
+    oboeModel.rotation.y = Math.PI / -2; // get Haymish to remove me
+    scene.add(oboeModel);
 
-    oboeBody.material = oboeMaterial;
-
-    const mixer = new THREE.AnimationMixer(gltf.scene);
-    const clips = gltf.animations;
-
-    model.rotation.y = Math.PI / -2;
-    scene.add(model);
+    const mixer = new THREE.AnimationMixer(oboe.scene);
+    const clips = oboe.animations;
 
     scene.add(light1);
     scene.add(light2);
@@ -93,10 +107,10 @@ export default class OboeScene {
 
       raycaster.setFromCamera(mouse, camera);
 
-      if (clips && clips.length) {
-        let delta = clock.getDelta();
-        mixer.update(delta);
-      }
+      // if (clips && clips.length) {
+      let delta = clock.getDelta();
+      mixer.update(delta);
+      // }
 
       camera.position.set(0, 75, -130 + calculateCameraOffset());
       camera.lookAt(new THREE.Vector3(0, 0, -130 + calculateCameraOffset()));
