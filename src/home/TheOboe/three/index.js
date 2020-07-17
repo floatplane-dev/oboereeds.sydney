@@ -4,31 +4,15 @@ import { camera, calculateCameraOffset } from "./camera";
 import renderer from "./renderer";
 import { light1, light2 } from "./lights";
 import { raycaster, clock, mouse } from "./raycaster";
-import {
-  loadOboe,
-  reedModelLoader,
-  // reedCorkMaterialLoader,
-} from "./models/";
+import { loadOboe, loadReed } from "./models/";
 
 export default class OboeScene {
   async render(el) {
     const scene = new THREE.Scene();
     el.appendChild(renderer.domElement);
 
-    let [
-      reed,
-      // reedCorkMaterial
-    ] = await Promise.all([
-      reedModelLoader(),
-      // reedCorkMaterialLoader(),
-    ]);
-    const reedModel = reed.scene;
-    // console.log({ reedModel });
-    reedModel.rotation.y = Math.PI / -2; // get Haymish to remove me
-    reedModel.rotation.x = Math.PI / -2; // get Haymish to remove me
-    reedModel.position.z = -127;
-    reedModel.scale.set(1.5, 1.5, 1.5);
-    scene.add(reedModel);
+    let reed = await loadReed();
+    scene.add(reed);
 
     let [oboe, mixer, clips] = await loadOboe();
     scene.add(oboe);

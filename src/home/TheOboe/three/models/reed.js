@@ -37,4 +37,22 @@ const reedCorkMaterialLoader = async () => {
   });
 };
 
-export { reedModelLoader, reedCorkMaterialLoader };
+const loadReed = async () => {
+  let [
+    reed,
+    // reedCorkMaterial
+  ] = await Promise.all([
+    reedModelLoader(),
+    // reedCorkMaterialLoader(),
+  ]);
+  const reedModel = reed.scene;
+  // console.log({ reedModel });
+  reedModel.rotation.y = Math.PI / -2; // get Haymish to remove me
+  reedModel.rotation.x = Math.PI / -2; // get Haymish to remove me
+  reedModel.position.z = -127;
+  reedModel.scale.set(1.5, 1.5, 1.5);
+
+  return reedModel;
+};
+
+export default loadReed;
