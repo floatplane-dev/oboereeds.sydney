@@ -19,7 +19,7 @@ class LineItem extends Component {
             modifyCart(item.price_id, -1);
           }}
         />
-        <p>${item.price * item.quantity}</p>
+        <p>${(item.price * item.quantity).toFixed(2)}</p>
       </li>
     );
   }

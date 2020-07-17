@@ -5,7 +5,7 @@ function toggleCart() {
 
   if (!isShowingCart) {
     document.body.classList.add("no-scroll");
-    document.getElementById("oboe").style.top = `${window.scrollY}px`;
+    document.getElementById("three").style.top = `${window.scrollY}px`;
   } else {
     document.body.classList.remove("no-scroll");
     // new Promise((resolve) => {
@@ -14,7 +14,7 @@ function toggleCart() {
     //     300
     //   );
     // });
-    window.setTimeout((document.getElementById("oboe").style.top = 0), 200);
+    window.setTimeout((document.getElementById("three").style.top = 0), 200);
   }
 
   this.setState({
