@@ -1,6 +1,7 @@
 import { TextureLoader, MeshStandardMaterial } from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
+import * as THREE from "three";
 
 const loader = new GLTFLoader();
 const dracoLoader = new DRACOLoader();
@@ -63,4 +64,33 @@ const oboeKeyworkMaterialLoader = async () => {
   });
 };
 
-export { oboeModelLoader, oboeBodyMaterialLoader, oboeKeyworkMaterialLoader };
+const loadOboe = async () => {
+  let [oboe, oboeBodyMaterial, oboeKeyworkMaterial] = await Promise.all([
+    oboeModelLoader(),
+    oboeBodyMaterialLoader(),
+    oboeKeyworkMaterialLoader(),
+  ]);
+  const oboeModel = oboe.scene;
+
+  const oboeBody = oboeModel.children.find(
+    (child) => child.name === "Oboe_body"
+  );
+  oboeBody.material = oboeBodyMaterial;
+
+  const oboeKeywork = oboeModel.children.find((child) => child.name === "rig");
+  oboeKeywork.traverse((child) => {
+    if (child instanceof THREE.Mesh) {
+      child.material = oboeKeyworkMaterial;
+    }
+  });
+
+  oboeModel.rotation.y = Math.PI / -2; // get Haymish to remove me
+  oboeModel.position.z = -6;
+
+  const mixer = new THREE.AnimationMixer(oboe.scene);
+  const clips = oboe.animations;
+
+  return [oboeModel, mixer, clips];
+};
+
+export default loadOboe;

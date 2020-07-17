@@ -30,11 +30,11 @@ const calculateCameraOffset = () => {
   } else if (scrollY < offsetTop + offsetHeight - innerHeight * 0.66) {
     // you're scrolling past the oboe, dom not clickable
     el2.style.zIndex = "auto";
-    offset = (scrollY - offsetTop + innerHeight * 0.66) / (innerHeight / 65);
+    offset = (scrollY - offsetTop + innerHeight * 0.66) / (innerHeight / 60);
   } else {
     // you've gone past the oboe, and the dom is clickable again
     el2.style.zIndex = -1;
-    offset = (scrollY - offsetTop + innerHeight * 0.66) / (innerHeight / 65);
+    offset = (scrollY - offsetTop + innerHeight * 0.66) / (innerHeight / 60);
   }
 
   return offset;

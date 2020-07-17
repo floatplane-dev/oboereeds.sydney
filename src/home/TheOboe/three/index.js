@@ -5,9 +5,7 @@ import renderer from "./renderer";
 import { light1, light2 } from "./lights";
 import { raycaster, clock, mouse } from "./raycaster";
 import {
-  oboeModelLoader,
-  oboeBodyMaterialLoader,
-  oboeKeyworkMaterialLoader,
+  loadOboe,
   reedModelLoader,
   // reedCorkMaterialLoader,
 } from "./models/";
@@ -28,33 +26,12 @@ export default class OboeScene {
     // console.log({ reedModel });
     reedModel.rotation.y = Math.PI / -2; // get Haymish to remove me
     reedModel.rotation.x = Math.PI / -2; // get Haymish to remove me
-    reedModel.position.z = -121;
-    reedModel.scale.set(1.3, 1.3, 1.3);
+    reedModel.position.z = -127;
+    reedModel.scale.set(1.5, 1.5, 1.5);
     scene.add(reedModel);
 
-    let [oboe, oboeBodyMaterial, oboeKeyworkMaterial] = await Promise.all([
-      oboeModelLoader(),
-      oboeBodyMaterialLoader(),
-      oboeKeyworkMaterialLoader(),
-    ]);
-    const oboeModel = oboe.scene;
-    const oboeBody = oboeModel.children.find(
-      (child) => child.name === "Oboe_body"
-    );
-    const oboeKeywork = oboeModel.children.find(
-      (child) => child.name === "rig"
-    );
-    oboeBody.material = oboeBodyMaterial;
-    oboeKeywork.traverse((child) => {
-      if (child instanceof THREE.Mesh) {
-        child.material = oboeKeyworkMaterial;
-      }
-    });
-    oboeModel.rotation.y = Math.PI / -2; // get Haymish to remove me
-    scene.add(oboeModel);
-
-    const mixer = new THREE.AnimationMixer(oboe.scene);
-    const clips = oboe.animations;
+    let [oboe, mixer, clips] = await loadOboe();
+    scene.add(oboe);
 
     scene.add(light1);
     scene.add(light2);
@@ -106,11 +83,8 @@ export default class OboeScene {
       requestAnimationFrame(animate);
 
       raycaster.setFromCamera(mouse, camera);
-
-      // if (clips && clips.length) {
       let delta = clock.getDelta();
       mixer.update(delta);
-      // }
 
       camera.position.set(0, 75, -130 + calculateCameraOffset());
       camera.lookAt(new THREE.Vector3(0, 0, -130 + calculateCameraOffset()));

@@ -1,15 +1,5 @@
-import {
-  oboeModelLoader,
-  oboeBodyMaterialLoader,
-  oboeKeyworkMaterialLoader,
-} from "./oboe";
+import loadOboe from "./oboe";
 
 import { reedModelLoader, reedCorkMaterialLoader } from "./reed";
 
-export {
-  oboeModelLoader,
-  oboeBodyMaterialLoader,
-  oboeKeyworkMaterialLoader,
-  reedModelLoader,
-  reedCorkMaterialLoader,
-};
+export { loadOboe, reedModelLoader, reedCorkMaterialLoader };
