@@ -70,6 +70,8 @@ export default class OboeScene {
       let delta = clock.getDelta();
       mixer.update(delta);
 
+      // reed.rotation.z += 0.01;
+
       camera.position.set(0, 75, -130 + calculateCameraOffset());
       camera.lookAt(new THREE.Vector3(0, 0, -130 + calculateCameraOffset()));
 

@@ -11,7 +11,7 @@ dracoLoader.preload();
 const reedModelLoader = async () => {
   return new Promise((resolve, reject) => {
     loader.load(
-      "models/reed/reed.gltf",
+      "models/reed/reed.glb",
       (gltf) => resolve(gltf),
       (xhr) => console.log((xhr.loaded / xhr.total) * 100 + "% loaded"),
       (error) => reject(error)
@@ -22,20 +22,17 @@ const reedModelLoader = async () => {
 const reedCorkMaterialLoader = async () => {
   return new Promise((resolve, reject) => {
     Promise.all([
-      new TextureLoader().load("models/reed/textures/reed_cork_BaseColor.png"),
-      new TextureLoader().load("models/reed/textures/reed_cork_Normal.png"),
-      new TextureLoader().load("models/reed/textures/reed_cork_Height.png"),
-      new TextureLoader().load("models/reed/textures/reed_cork_Metallic.png"),
-      new TextureLoader().load("models/reed/textures/reed_cork_Roughness.png"),
-    ]).then(([map, normalMap, displacementMap, metalnessMap, roughnessMap]) => {
+      new TextureLoader().load("models/reed/textures/reed.002_baseColor.png"),
+      new TextureLoader().load("models/reed/textures/reed.002_normal.png"),
+      new TextureLoader().load(
+        "models/reed/textures/reed.002_occlusionRoughnessMetallic.png"
+      ),
+    ]).then(([map, normalMap, roughnessMap]) => {
       resolve(
         new MeshStandardMaterial({
           map,
           normalMap,
-          displacementMap,
-          metalnessMap,
           roughnessMap,
-          displacementScale: 0.1,
         })
       );
     });
@@ -43,17 +40,23 @@ const reedCorkMaterialLoader = async () => {
 };
 
 const loadReed = async () => {
-  let [reed, reedCorkMaterial] = await Promise.all([
+  let [
+    reed,
+    // material
+  ] = await Promise.all([
     reedModelLoader(),
-    reedCorkMaterialLoader(),
+    // reedCorkMaterialLoader(),
   ]);
   const reedModel = reed.scene;
   console.log({ reedModel });
 
-  const cork = reedModel.children.find((child) => child.name === "Cylinder");
-  cork.material = reedCorkMaterial;
+  // const cork = reedModel.children.find((child) => child.name === "Cylinder");
+  // cork.material = material;
 
-  reedModel.position.z = -127;
+  reedModel.position.z = -128;
+  reedModel.scale.z = 1 / 100;
+  reedModel.scale.y = 1 / 100;
+  reedModel.scale.x = 1 / 100;
 
   return reedModel;
 };
