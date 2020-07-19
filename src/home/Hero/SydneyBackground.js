@@ -40,10 +40,10 @@ class SydneyBackground extends Component {
 
   render() {
     return (
-      <div
-        id="SydneyBackground"
-        style={{ backgroundImage: "url(opera-house.jpg)" }}
-      />
+      <picture id="SydneyBackground">
+        <source srcSet="opera-house@1200x800.webp" type="image/webp" />
+        <img src="opera-house@1200x800.jpg" alt="Alt Text!" />
+      </picture>
     );
   }
 }
