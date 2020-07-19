@@ -24,13 +24,18 @@ const reedCorkMaterialLoader = async () => {
     Promise.all([
       new TextureLoader().load("models/reed/textures/reed_cork_BaseColor.png"),
       new TextureLoader().load("models/reed/textures/reed_cork_Normal.png"),
+      new TextureLoader().load("models/reed/textures/reed_cork_Height.png"),
       new TextureLoader().load("models/reed/textures/reed_cork_Metallic.png"),
-    ]).then(([map, normalMap, roughnessMap]) => {
+      new TextureLoader().load("models/reed/textures/reed_cork_Roughness.png"),
+    ]).then(([map, normalMap, displacementMap, metalnessMap, roughnessMap]) => {
       resolve(
         new MeshStandardMaterial({
           map,
           normalMap,
+          displacementMap,
+          metalnessMap,
           roughnessMap,
+          displacementScale: 0.1,
         })
       );
     });
@@ -38,19 +43,17 @@ const reedCorkMaterialLoader = async () => {
 };
 
 const loadReed = async () => {
-  let [
-    reed,
-    // reedCorkMaterial
-  ] = await Promise.all([
+  let [reed, reedCorkMaterial] = await Promise.all([
     reedModelLoader(),
-    // reedCorkMaterialLoader(),
+    reedCorkMaterialLoader(),
   ]);
   const reedModel = reed.scene;
-  // console.log({ reedModel });
-  reedModel.rotation.y = Math.PI / -2; // get Haymish to remove me
-  reedModel.rotation.x = Math.PI / -2; // get Haymish to remove me
+  console.log({ reedModel });
+
+  const cork = reedModel.children.find((child) => child.name === "Cylinder");
+  cork.material = reedCorkMaterial;
+
   reedModel.position.z = -127;
-  reedModel.scale.set(1.5, 1.5, 1.5);
 
   return reedModel;
 };
