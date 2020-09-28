@@ -1,0 +1,111 @@
+canvas {
+  position: absolute;
+  top: 0;
+}
+
+section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 0 40px;
+}
+
+@media (max-width: 900px) {
+  section {
+    min-height: 100vh;
+    height: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  section {
+    padding: 0 30px;
+  }
+}
+
+section div.product {
+  position: absolute;
+  left: 15%;
+  top: 50%;
+  transform: translatey(-50%);
+  max-width: 400px;
+  padding: 0 20px;
+}
+@media (max-width: 1200px) {
+  section div.product {
+    left: 60px;
+  }
+}
+@media (max-width: 900px) {
+  section div.product {
+    position: relative;
+    margin: auto;
+    left: 0;
+    transform: none;
+  }
+}
+
+section div.product:not(.expanded) button.collapse,
+section div.product:not(.expanded) button.expand
+/* section div.product:not(.expanded) > p, */
+/* section div.product:not(.expanded) > ul > li.expand-only  */ {
+  display: none;
+}
+
+section div.product.expanded button.expand {
+  display: none;
+}
+
+section div.product h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+@media (max-width: 900px) {
+  section div.product h2 {
+    padding-top: 72px;
+  }
+}
+
+section div.product span.price {
+  position: absolute;
+  right: 20px;
+  top: 0;
+  font-size: 20px;
+  min-width: 62px;
+  padding: 0 14px;
+  box-sizing: border-box;
+  font-weight: bold;
+  text-align: center;
+  line-height: 34px;
+  background: #ffae35;
+  color: white;
+}
+@media (max-width: 900px) {
+  section div.product span.price {
+    top: 72px;
+  }
+}
+
+section div.product p,
+section div.product > ul > li {
+  font-size: 16px;
+  line-height: 22px;
+  list-style: disc;
+}
+
+section div.product > ul {
+  padding: 12px 20px;
+}
+
+section div.product button.buy {
+  font-size: 19px;
+  font-weight: bold;
+  padding: 0 16px;
+  min-width: 157px;
+  line-height: 39px;
+  margin-top: 16px;
+  background: #c3df55;
+  border: none;
+  border-radius: 5px;
+}

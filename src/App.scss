@@ -1,52 +1,11 @@
 // old
-$yellow: #fed965;
-$navy: #022160;
 $grey: #3a3937;
 $black: #000000;
 
 $white: #f6f6f9;
-$navy-blue: #153250;
-$red: #970c10;
-$spearmint: #add3d0;
+// $red: #970c10;
+// $spearmint: #add3d0;
 $cane: #fff9ea;
 $cork: #f5ebe5;
 
 @import "./Cart/style.scss";
-@import "./home/style.scss";
-@import "./store-components/style.scss";
-
-body {
-  background: $white;
-}
-
-body.no-scroll {
-  overflow: hidden;
-}
-
-#App {
-  transition: all ease 200ms;
-
-  &.cart-active {
-    transform: translatex(-210px);
-    filter: blur(3px);
-    > * {
-      pointer-events: none;
-    }
-  }
-}
-
-button.call-to-action {
-  line-height: 36px;
-  padding: 0 8px;
-  font-size: 16px;
-  background: rgba(blue, 0.2);
-}
-
-footer {
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  width: 100%;
-  padding: 24px 16px;
-  font-size: 18px;
-}

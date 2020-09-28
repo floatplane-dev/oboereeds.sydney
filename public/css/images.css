@@ -1,0 +1,30 @@
+ul.product-images {
+  position: absolute;
+  right: 15%;
+  top: 50%;
+  transform: translate(50%, -50%);
+}
+@media (max-width: 900px) {
+  ul.product-images {
+    position: static;
+    transform: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 400px;
+    padding: 20px 0;
+    margin: auto;
+  }
+}
+
+ul.product-images li {
+  width: 146px;
+  height: 100%;
+  margin: 12px;
+  cursor: pointer;
+}
+
+ul.product-images li img {
+  width: 100%;
+  min-height: 100%;
+}

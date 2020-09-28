@@ -1,0 +1,28 @@
+#modal-wrapper {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+#modal-wrapper figure {
+  position: relative;
+  cursor: default;
+}
+
+#modal-wrapper figure img {
+  max-height: 80vh;
+  max-width: calc(100vw - 40px);
+}
+
+#modal-wrapper figure figcaption {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+}

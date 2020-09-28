@@ -17,6 +17,7 @@ const stripePromise = loadStripe("pk_live_Lljg8yyI2fmZZ1jz0q0y5JY200s0hsAvj3");
 class Cart extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       shippingMethod: undefined,
     };
@@ -46,14 +47,21 @@ class Cart extends Component {
       const stripe = await stripePromise;
 
       let lineItems = orderArray.map((item) => {
+        // console.log({ item });
         return { price: item.price_id, quantity: item.quantity };
       });
+      // console.log(lineItems);
 
       // only if a shipping method with a price id is selected include it in the order
       if (shippingMethod.price_id) {
         const shippingItem = { price: shippingMethod.price_id, quantity: 1 };
-        lineItems = lineItems.push(shippingItem);
+        // console.log({ shippingItem });
+        // console.log(1, { lineItems });
+        lineItems.push(shippingItem);
+        // console.log(2, { lineItems });
       }
+
+      console.log(3, { lineItems });
 
       const { error } = await stripe.redirectToCheckout({
         lineItems,

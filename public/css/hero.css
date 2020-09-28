@@ -1,0 +1,38 @@
+#hero {
+  height: 100vh;
+}
+#hero div.tagline {
+  position: absolute;
+  left: 15%;
+  top: 50%;
+  transform: translatey(-50%);
+  width: 320px;
+}
+@media (max-width: 1200px) {
+  #hero div.tagline {
+    left: 60px;
+  }
+}
+@media (max-width: 900px) {
+  #hero div.tagline {
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+}
+
+#hero div.tagline h1 {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 120%;
+  color: #153250;
+}
+
+#hero div.tagline p {
+  font-size: 18px;
+}
+
+#hero div.tagline p > i {
+  font-style: italic;
+}

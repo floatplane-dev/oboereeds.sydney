@@ -1,4 +1,4 @@
-import { allProducts } from "products/allProducts";
+import { allProducts } from "../products/allProducts";
 
 function toggleCart() {
   const { isShowingCart } = this.state;
@@ -24,6 +24,7 @@ function toggleCart() {
 
 function modifyCart(item, number) {
   const { selectedProducts } = this.state;
+  console.log({ item, number, selectedProducts });
 
   const oldQuantity = selectedProducts[item].quantity;
 

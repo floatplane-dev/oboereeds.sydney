@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.scss";
 
 import {
@@ -10,10 +9,6 @@ import {
   resetCart,
   checkLocalstorage,
 } from "./Cart/";
-import Footer from "./Footer";
-import Home from "./home";
-import BuyingGuide from "./buying-guide";
-import Success from "./Success";
 
 class App extends Component {
   constructor(props) {
@@ -31,46 +26,22 @@ class App extends Component {
     this.resetCart = resetCart.bind(this);
   }
 
+  componentDidMount() {
+    document.querySelectorAll("button.buy").forEach((addToCartButton) => {
+      addToCartButton.addEventListener("click", (e) =>
+        this.modifyCart(e.target.getAttribute("data-price-id"), 1)
+      );
+    });
+  }
+
   render() {
     const { selectedProducts, isShowingCart } = this.state;
-
     return (
       <React.Fragment>
-        <div
-          id="App"
-          className={`App ${isShowingCart ? "cart-active" : ""}`}
-          onClick={() => {
-            if (isShowingCart) {
-              this.toggleCart();
-            }
-          }}
-        >
-          <Router>
-            <Switch>
-              <Route path="/buying-guide">
-                <BuyingGuide />
-              </Route>
-
-              <Route path="/success">
-                <Success resetCart={this.resetCart} />
-              </Route>
-
-              <Route path="/">
-                <Home
-                  selectedProducts={selectedProducts}
-                  modifyCart={this.modifyCart}
-                />
-              </Route>
-            </Switch>
-            <Footer />
-
-            <CartIcon
-              toggleCart={this.toggleCart}
-              selectedProducts={selectedProducts}
-            />
-          </Router>
-        </div>
-
+        <CartIcon
+          toggleCart={this.toggleCart}
+          selectedProducts={selectedProducts}
+        />
         <Cart
           isShowingCart={isShowingCart}
           selectedProducts={selectedProducts}

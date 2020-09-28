@@ -1,3 +1,10 @@
-Notes:
+# Sydney Oboe Reeds
 
-`convert oversized-image.jpg -resize 2400 -quality 90 smaller-image.jpg`
+An ecommerce platform for selling hand crafted double reeds for the Oboe.
+Uses Stripe, Three.js and React
+
+## Run project with:
+
+### 'yarn'
+
+### 'yarn start'

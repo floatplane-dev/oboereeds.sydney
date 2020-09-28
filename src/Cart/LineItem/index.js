@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ProductNumberPicker } from "../../store-components";
+import ProductNumberPicker from "./ProductNumberPicker";
 
 class LineItem extends Component {
   render() {

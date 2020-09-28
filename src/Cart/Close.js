@@ -6,7 +6,7 @@ class Close extends Component {
 
     return (
       <button>
-        <img onClick={() => toggleCart()} src="close.svg" alt="" />
+        <img onClick={() => toggleCart()} src="img/close.svg" alt="" />
       </button>
     );
   }

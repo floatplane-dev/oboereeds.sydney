@@ -12,7 +12,7 @@ class CartIcon extends Component {
       <button id="cart-icon">
         <img
           className="icon"
-          src="cart.svg"
+          src="img/cart.svg"
           alt=""
           onClick={() => toggleCart()}
         />
