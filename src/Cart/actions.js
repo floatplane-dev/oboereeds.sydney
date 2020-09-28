@@ -4,10 +4,10 @@ function toggleCart() {
   const { isShowingCart } = this.state;
 
   if (!isShowingCart) {
-    document.body.classList.add("no-scroll");
+    document.body.classList.add("scrolling-disabled");
     document.getElementById("three").style.top = `${window.scrollY}px`;
   } else {
-    document.body.classList.remove("no-scroll");
+    document.body.classList.toggle("scrolling-disabled");
     // new Promise((resolve) => {
     //   window.setTimeout(
     //     resolve(),

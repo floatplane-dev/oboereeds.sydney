@@ -1,3 +1,7 @@
+body.scrolling-disabled {
+  overflow: hidden;
+}
+
 canvas {
   position: absolute;
   top: 0;

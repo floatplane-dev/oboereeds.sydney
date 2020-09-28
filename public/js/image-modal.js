@@ -11,13 +11,18 @@ function createModal(e, src, caption) {
   imageNode.src = src;
 
   figureNode.addEventListener("click", (e) => e.stopPropagation());
-  modalNode.addEventListener("click", (e) => e.target.remove());
+  modalNode.addEventListener("click", (e) => {
+    e.target.remove();
+    toggleScrollingOnBody();
+  });
 
   figcaptionNode.appendChild(captionTextNode);
   figureNode.appendChild(figcaptionNode);
   figureNode.appendChild(imageNode);
   modalNode.appendChild(figureNode);
   document.body.appendChild(modalNode);
+
+  disableScrollingOnBody(); // in main.js
 }
 
 function addClickListenersToImages() {
