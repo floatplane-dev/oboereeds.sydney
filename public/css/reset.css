@@ -3,10 +3,6 @@
    License: none (public domain)
 */
 
-body {
-  background: #f5f5f5;
-}
-
 .pac-container.pac-logo::after {
   display: none !important;
 }

@@ -13,6 +13,8 @@ section {
   flex-direction: column;
   height: 100vh;
   padding: 0 40px;
+  margin: 10px;
+  background: #fbfbfd;
 }
 
 @media (max-width: 900px) {
@@ -24,7 +26,8 @@ section {
 
 @media (max-width: 600px) {
   section {
-    padding: 0 30px;
+    padding: 0 10px;
+    margin: 10px 0;
   }
 }
 
