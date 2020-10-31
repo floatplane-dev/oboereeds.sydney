@@ -11,23 +11,23 @@ section {
   position: relative;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
   height: 100vh;
-  padding: 0 40px;
-  margin: 10px;
-  background: #fbfbfd;
+  padding: 70px 40px;
+  border-top: 10px solid #f5f5f7;
 }
 
 @media (max-width: 900px) {
   section {
-    min-height: 100vh;
+    /* min-height: 100vh; */
     height: auto;
+    padding: 70px 40px;
   }
 }
 
 @media (max-width: 600px) {
   section {
-    padding: 0 10px;
-    margin: 10px 0;
+    padding: 50px 30px;
   }
 }
 
@@ -48,6 +48,7 @@ section div.product {
   section div.product {
     position: relative;
     margin: auto;
+    top: 0;
     left: 0;
     transform: none;
   }
@@ -68,11 +69,6 @@ section div.product h2 {
   font-size: 32px;
   margin-bottom: 20px;
 }
-@media (max-width: 900px) {
-  section div.product h2 {
-    padding-top: 72px;
-  }
-}
 
 section div.product span.price {
   position: absolute;
@@ -87,11 +83,6 @@ section div.product span.price {
   line-height: 34px;
   background: #ffae35;
   color: white;
-}
-@media (max-width: 900px) {
-  section div.product span.price {
-    top: 72px;
-  }
 }
 
 section div.product p,
