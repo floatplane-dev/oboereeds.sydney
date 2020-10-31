@@ -8,7 +8,11 @@ function createModal(e, src, caption) {
   ];
 
   modalNode.setAttribute("id", "modal-wrapper");
-  imageNode.src = src;
+
+  const qualityRegex = /180x180/gi;
+  const modalSrc = src.replace(qualityRegex, "800x800");
+
+  imageNode.src = modalSrc;
 
   figureNode.addEventListener("click", (e) => e.stopPropagation());
   modalNode.addEventListener("click", (e) => {

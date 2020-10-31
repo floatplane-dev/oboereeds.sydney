@@ -1,6 +1,6 @@
 #hero {
   height: 100vh;
-  background: url("/img/opera-house@1200x800.webp");
+  background: url("/img/hero@1200x800.webp");
   background-size: cover;
   margin: 0;
   display: flex;
