@@ -24,7 +24,11 @@ function toggleCart() {
 
 function modifyCart(item, number) {
   const { selectedProducts } = this.state;
-  console.log({ item, number, selectedProducts });
+
+  if (!item) {
+    window.alert("no item found!");
+    console.log({ item, number, selectedProducts });
+  }
 
   const oldQuantity = selectedProducts[item].quantity;
 

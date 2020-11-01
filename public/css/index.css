@@ -55,18 +55,8 @@ section div.product {
     top: 0;
     left: 0;
     transform: none;
+    padding: 0;
   }
-}
-
-section div.product:not(.expanded) button.collapse,
-section div.product:not(.expanded) button.expand
-/* section div.product:not(.expanded) > p, */
-/* section div.product:not(.expanded) > ul > li.expand-only  */ {
-  display: none;
-}
-
-section div.product.expanded button.expand {
-  display: none;
 }
 
 section div.product h2 {
@@ -75,39 +65,62 @@ section div.product h2 {
 }
 
 section div.product span.price {
-  position: absolute;
-  right: 20px;
-  top: 0;
-  font-size: 20px;
-  min-width: 62px;
-  padding: 0 14px;
+  display: block;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 32px;
+  margin-top: 8px;
   box-sizing: border-box;
-  font-weight: bold;
-  text-align: center;
-  line-height: 34px;
-  background: #ffae35;
-  color: white;
+  text-align: left;
 }
 
-section div.product p,
+section div.product p {
+  font-size: 16px;
+  line-height: 22px;
+}
+
 section div.product > ul > li {
   font-size: 16px;
   line-height: 22px;
-  list-style: disc;
+  margin-top: 10px;
 }
 
 section div.product > ul {
-  padding: 12px 20px;
+  padding: 12px 0px;
 }
 
 section div.product button.buy {
-  font-size: 19px;
+  position: relative;
+  font-size: 16px;
   font-weight: bold;
-  padding: 0 16px;
-  min-width: 157px;
+  padding: 0 36px;
+  min-width: 242px;
   line-height: 39px;
-  margin-top: 16px;
-  background: #c3df55;
+  margin-top: 8px;
+  background: #222323;
   border: none;
   border-radius: 5px;
+  color: white;
+}
+
+@media (max-width: 400px) {
+  section div.product button.buy {
+    width: 100%;
+  }
+}
+
+section div.product button.buy svg {
+  position: absolute;
+  right: 14px;
+  height: 39px;
+  fill: white;
+  transition: transform ease 400ms;
+}
+
+section div.product button.buy:hover {
+  background: #595a5a;
+}
+
+section div.product button.buy:hover svg {
+  transform: translatex(4px);
 }

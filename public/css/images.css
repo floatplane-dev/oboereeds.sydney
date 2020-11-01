@@ -13,7 +13,7 @@ ul.product-images {
     flex-wrap: wrap;
     max-width: 400px;
     padding: 20px 0;
-    margin: auto;
+    margin: 8px auto auto;
   }
 }
 

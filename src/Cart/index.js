@@ -61,7 +61,7 @@ class Cart extends Component {
         // console.log(2, { lineItems });
       }
 
-      console.log(3, { lineItems });
+      // console.log(3, { lineItems });
 
       const { error } = await stripe.redirectToCheckout({
         lineItems,

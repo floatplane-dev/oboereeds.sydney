@@ -19,6 +19,10 @@ li.LineItem {
     margin-right: auto;
   }
 
+  > p {
+    font-family: monospace;
+  }
+
   > .ProductNumberPicker {
     margin-right: 8px;
   }

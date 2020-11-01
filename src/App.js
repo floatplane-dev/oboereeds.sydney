@@ -16,6 +16,7 @@ class App extends Component {
 
     const selectedProducts = checkLocalstorage();
 
+    console.log({ selectedProducts });
     this.state = {
       selectedProducts,
       isShowingCart: false,
