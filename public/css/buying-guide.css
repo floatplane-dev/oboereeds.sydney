@@ -1,5 +1,6 @@
 #buying-guide section {
-  padding: 20px 60px;
+  box-sizing: border-box;
+  padding: 40px 60px 20px;
 }
 
 #buying-guide section h3 {
@@ -10,9 +11,6 @@
 #buying-guide section p,
 #buying-guide section > ul > li {
   font-size: 16px;
-  line-height: 18px;
+  line-height: 22px;
   margin-bottom: 8px;
-}
-
-#buying-guide section ul {
 }
