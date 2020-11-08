@@ -1,49 +1,18 @@
-#hero {
-  height: 100vh;
-}
-#hero div {
-  position: absolute;
-  left: 15%;
-  top: 50%;
-  transform: translatey(-50%);
-  width: 320px;
-}
-@media (max-width: 1200px) {
-  #hero div {
-    left: 60px;
-  }
-}
-@media (max-width: 900px) {
-  #hero div {
-    top: 15%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-  }
+#buying-guide section {
+  padding: 20px 60px;
 }
 
-#hero div h1 {
+#buying-guide section h3 {
   font-size: 24px;
-  font-weight: 500;
-  line-height: 120%;
-  color: #153250;
+  margin-bottom: 12px;
 }
 
-section {
-  padding: 80px 40px;
-}
-
-section h3 {
-  font-size: 24px;
-}
-
-section div p,
-section div > ul > li {
+#buying-guide section p,
+#buying-guide section > ul > li {
   font-size: 16px;
-  line-height: 22px;
-  list-style: disc;
+  line-height: 18px;
+  margin-bottom: 8px;
 }
 
-section div > ul {
-  padding: 12px 20px;
+#buying-guide section ul {
 }
