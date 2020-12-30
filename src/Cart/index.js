@@ -31,7 +31,6 @@ class Cart extends Component {
 
   render() {
     const {
-      isShowingCart,
       toggleCart,
       selectedProducts,
       modifyCart,
@@ -85,7 +84,7 @@ class Cart extends Component {
 
     return (
       <aside
-        className={`cart ${isShowingCart ? "cart-active" : ""}`}
+        className="cart"
         style={{ height: window.innerHeight }}
       >
         <header>

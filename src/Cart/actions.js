@@ -1,33 +1,35 @@
 import { allProducts } from "../products/allProducts";
 
 function toggleCart() {
-  const { isShowingCart } = this.state;
+  if (!document.body.classList.contains("cart-active")) {
 
-  if (!isShowingCart) {
-    document.body.classList.add("scrolling-disabled");
-    document.getElementById("three").style.top = `${window.scrollY}px`;
+    const overlay = document.createElement("div");
+    overlay.classList.add("overlay");
+    document.body.appendChild(overlay);
+
+    document.body.classList.add("scrolling-disabled", "cart-active");
+
+    overlay.addEventListener('click', () => {
+      document.body.classList.remove("scrolling-disabled", "cart-active");
+      overlay.remove();
+    });
+
   } else {
-    document.body.classList.toggle("scrolling-disabled");
-    // new Promise((resolve) => {
-    //   window.setTimeout(
-    //     resolve(),
-    //     300
-    //   );
-    // });
-    window.setTimeout((document.getElementById("three").style.top = 0), 200);
+    document.body.classList.remove("scrolling-disabled", "cart-active");
+    document.querySelector('.overlay').remove();
   }
 
-  this.setState({
-    isShowingCart: !isShowingCart,
-  });
 }
 
 function modifyCart(item, number) {
+  console.log('modifyCart, params:', {item, number});
+
   const { selectedProducts } = this.state;
 
   if (!item) {
     window.alert("no item found!");
     console.log({ item, number, selectedProducts });
+    return;
   }
 
   const oldQuantity = selectedProducts[item].quantity;

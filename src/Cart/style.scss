@@ -21,10 +21,6 @@ aside.cart {
     width: 100vw;
   }
 
-  &.cart-active {
-    transform: translatex(0%);
-  }
-
   > header {
     display: flex;
     justify-content: space-between;
@@ -85,15 +81,20 @@ aside.cart {
     }
 
     > button {
-      font-size: 19px;
+      font-size: 16px;
       font-weight: bold;
-      padding: 0 16px;
-      min-width: 157px;
+      padding: 0 36px;
+      min-width: 242px;
       line-height: 39px;
-      background: #c3df55;
+      margin-top: 8px;
+      background: #222323;
       border: none;
       border-radius: 5px;
-      user-select: none;
+      color: white;
+
+      &:hover {
+        background: #595a5a;
+      }
 
       &:disabled {
         opacity: 0.5;
