@@ -149,3 +149,24 @@ section div.product button.buy:hover {
 section div.product button.buy:hover svg {
   transform: translatex(4px);
 }
+
+section iframe {
+  position: absolute;
+  right: 15%;
+  top: 50%;
+  transform: translate(100px, -50%);
+  width: calc(100% - 600px);
+  max-width: 500px;
+}
+
+@media (max-width: 900px) {
+  section iframe {
+    position: static;
+    right: 0px;
+    top: 0;
+    transform: translateY(0);
+    width: 100%;
+    padding: 20px 0;
+    max-width: none;
+  }
+}

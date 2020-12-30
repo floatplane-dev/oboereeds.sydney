@@ -12,13 +12,13 @@ body > main > header {
   z-index: 1;
 }
 @media (max-width: 900px) {
-  body > header {
+  body > main > header {
     height: 80px;
     padding: 0 30px;
   }
 }
 @media (max-width: 400px) {
-  body > header {
+  body > main > header {
     height: 80px;
     padding: 0 20px;
   }
