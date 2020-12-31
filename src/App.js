@@ -37,7 +37,7 @@ class App extends Component {
     ];
 
     const src = e.target.getAttribute("src");
-
+    imageNode.alt = src;
 
     modalNode.setAttribute("id", "modal-wrapper");
 
