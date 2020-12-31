@@ -176,14 +176,14 @@ class App extends Component {
               <li>
                 <img
                   src="/img/product-images/intermediate2@180x180.webp"
-                  data-caption="Le Roseau Chantant Cane"
+                  data-caption="Handmade in Sydney, Australia"
                   onClick={this.createModal}
                 />
               </li>
               <li>
                 <img
                   src="/img/product-images/intermediate3@180x180.webp"
-                  data-caption="Handmade in Sydney, Australia"
+                  data-caption="Le Roseau Chantant Cane"
                   onClick={this.createModal}
                 />
               </li>
