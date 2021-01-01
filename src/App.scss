@@ -8,4 +8,51 @@ $white: #f6f6f9;
 $cane: #fff9ea;
 $cork: #f5ebe5;
 
+body {
+  position: relative;
+}
+
+body.scrolling-disabled {
+  overflow: hidden;
+}
+
+body.scrolling-disabled > * {
+  filter: blur(5px);
+}
+
+body.cart-active aside.cart {
+  transform: translatex(0%);
+}
+
+body.scrolling-disabled > #modal-wrapper,
+body.scrolling-disabled > aside
+ {
+  filter: none
+}
+
+body .overlay {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+#hero {
+  height: 100vh;
+  background: url("/img/hero@1200x800.webp");
+  background-size: cover;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#hero h1.centred {
+  font-size: 36px;
+  color: #153250;
+}
+
 @import "./Cart/style.scss";
+@import "./Header/style.scss";
+@import "./products/style.scss";

@@ -83,6 +83,7 @@ aside.cart {
     > button {
       font-size: 16px;
       font-weight: bold;
+      user-select: none;
       padding: 0 36px;
       min-width: 242px;
       line-height: 39px;
@@ -98,6 +99,7 @@ aside.cart {
 
       &:disabled {
         opacity: 0.5;
+        pointer-events: none;
       }
     }
   }
