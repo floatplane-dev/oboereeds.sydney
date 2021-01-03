@@ -4,6 +4,7 @@
 #hero {
   // position: relative;
   height: 100vh;
+  background: transparent;
 
   h1.centred {
    position: absolute;
@@ -12,6 +13,7 @@
    transform: translate(-50%, -50%);
    font-size: 36px;
    color: #153250;
+  white-space: nowrap;
  }
 
  // Source: https://keithclark.co.uk/articles/pure-css-parallax-websites/
