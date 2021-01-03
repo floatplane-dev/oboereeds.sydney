@@ -3,56 +3,44 @@ $grey: #3a3937;
 $black: #000000;
 
 $white: #f6f6f9;
-// $red: #970c10;
-// $spearmint: #add3d0;
-$cane: #fff9ea;
-$cork: #f5ebe5;
 
 body {
   position: relative;
+
+  &.scrolling-disabled {
+    overflow: hidden;
+
+    > * {
+      filter: blur(5px);
+    }
+
+    & > #modal-wrapper,
+    & > aside
+     {
+      filter: none
+    }
+  }
+
+  &.cart-active aside.cart {
+    transform: translatex(0%);
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  // Source: https://keithclark.co.uk/articles/pure-css-parallax-websites/
+  main.parallax {
+    perspective: 300px;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
 }
 
-body.scrolling-disabled {
-  overflow: hidden;
-}
-
-body.scrolling-disabled > * {
-  filter: blur(5px);
-}
-
-body.cart-active aside.cart {
-  transform: translatex(0%);
-}
-
-body.scrolling-disabled > #modal-wrapper,
-body.scrolling-disabled > aside
- {
-  filter: none
-}
-
-body .overlay {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-}
-
-
-#hero {
-  height: 100vh;
-  background: url("/img/hero@1200x800.webp");
-  background-size: cover;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#hero h1.centred {
-  font-size: 36px;
-  color: #153250;
-}
-
-@import "./Cart/style.scss";
 @import "./Header/style.scss";
-@import "./products/style.scss";
+@import "./Home/style.scss";
+@import "./BuyingGuide/style.scss";
