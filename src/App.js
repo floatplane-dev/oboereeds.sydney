@@ -6,10 +6,12 @@ import {
   Route
 } from "react-router-dom";
 
+import Header from "./Header/";
+
 import Home from "./Home/";
 import BuyingGuide from "./BuyingGuide/";
 
-import Header from "./Header/";
+import Footer from "./Footer/";
 
 class App extends Component {
   render() {
@@ -27,6 +29,8 @@ class App extends Component {
               <BuyingGuide />
             </Route>
           </Switch>
+
+          <Footer />
 
         </main>
       </Router>

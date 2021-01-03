@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import BuyButton from "./BuyButton/";
 
 class Professional extends Component {
   render() {
@@ -18,22 +19,8 @@ class Professional extends Component {
             <li>The finest cane, handpicked from each batch</li>
           </ul>
           <span className="price">$47.99</span>
-          <button
-            onClick={() => modifyCart("price_HNzcuAvZoAPxIj", 1)}
-            type="button"
-            className="buy"
-            >
-            <span>Add to cart</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-            >
-              <path d="M0 0h24v24H0z" fill="none" />
-              <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
-            </svg>
-          </button>
+          <BuyButton clickHandler={() => modifyCart("price_HNzcuAvZoAPxIj", 1)} />
+
         </div>
         <iframe
           height="350"

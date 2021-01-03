@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import Modal from "./Modal";
+import Modal from "./Modal/";
+import BuyButton from "./BuyButton/";
 
 class Student extends Component {
   constructor(props) {
@@ -71,22 +72,7 @@ class Student extends Component {
               </ul>
               <span className="price">$19.99</span>
 
-              <button
-                onClick={() => modifyCart("price_HNza6zL9e3th0a", 1)}
-                type="button"
-                className="buy"
-                >
-                <span>Add to cart</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  width="24"
-                >
-                  <path d="M0 0h24v24H0z" fill="none" />
-                  <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
-                </svg>
-              </button>
+              <BuyButton clickHandler={() => modifyCart("price_HNza6zL9e3th0a", 1)} />
             </div>
 
             <ul className="product-images">
