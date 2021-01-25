@@ -13,7 +13,7 @@
    transform: translate(-50%, -50%);
    font-size: 36px;
    color: #153250;
-  white-space: nowrap;
+   white-space: nowrap;
  }
 
  // Source: https://keithclark.co.uk/articles/pure-css-parallax-websites/
@@ -31,6 +31,30 @@
      min-width: 100%;
      min-height: 100%;
 
+   }
+ }
+
+ > .scroll-prompt {
+   position: absolute;
+   display: flex;
+   flex-direction: column;
+   cursor: pointer;
+   left: 50%;
+   bottom: 40px;
+   transform: translateX(-50%);
+
+   > img {
+     margin-top: 2px;
+     animation: alternate both bounce 1s infinite ease-in-out;
+
+     @keyframes bounce {
+       from {
+         transform: translateY(0);
+       }
+       to {
+         transform: translateY(6px);
+       }
+     }
    }
  }
 }

@@ -1,7 +1,8 @@
 button#cart-icon {
-  position: fixed;
-  bottom: 60px;
-  right: 60px;
+  transform: translate(-60px, calc(-100% - 60px));
+  float: right;
+  position: sticky;
+  top: calc(100vh);
   background: none;
   border: none;
   cursor: pointer;
@@ -10,12 +11,10 @@ button#cart-icon {
   z-index: 1;
 
   @media (max-width: 900px) {
-    bottom: 30px;
-    right: 30px;
+    transform: translate(-30px, calc(-100% - 30px));
   }
   @media (max-width: 400px) {
-    bottom: 20px;
-    right: 20px;
+    transform: translate(-20px, calc(-100% - 20px));
   }
 
   .icon {

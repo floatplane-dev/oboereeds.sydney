@@ -46,26 +46,35 @@ class Home extends Component {
           <h1 className="centred">
             Sydney Oboe Reeds
           </h1>
+
+          <div
+            class="scroll-prompt"
+            onClick={() => {
+              document.getElementById('student-reed').scrollIntoView({behavior: "smooth"});
+            }}>
+            <span>Explore</span>
+            <img src="img/down.svg" alt="" />
+          </div>
+
         </section>
 
+
+
         <Student modifyCart={this.modifyCart} toggleCart={this.toggleCart}/>
+        <CartIcon
+          toggleCart={this.toggleCart}
+          selectedProducts={selectedProducts}
+        />
         <Intermediate modifyCart={this.modifyCart} toggleCart={this.toggleCart}/>
         <Professional modifyCart={this.modifyCart} toggleCart={this.toggleCart}/>
 
         {
           ReactDOM.createPortal(
-            <React.Fragment>
-              <CartIcon
-                toggleCart={this.toggleCart}
-                selectedProducts={selectedProducts}
-              />
-
-              <Cart
-                selectedProducts={selectedProducts}
-                toggleCart={this.toggleCart}
-                modifyCart={this.modifyCart}
-              />
-            </React.Fragment>,
+            <Cart
+              selectedProducts={selectedProducts}
+              toggleCart={this.toggleCart}
+              modifyCart={this.modifyCart}
+            />,
             document.body
           )
         }
