@@ -52,7 +52,7 @@ class Intermediate extends Component {
   }
 
   render() {
-    const { modifyCart } = this.props;
+    const { modifyCart, toggleCart } = this.props;
     const { images, activeIndex } = this.state;
 
     return (
@@ -71,7 +71,10 @@ class Intermediate extends Component {
             <li>Suitable for AMEB level 3+ students</li>
           </ul>
           <span className="price">$24.99</span>
-          <BuyButton clickHandler={() => modifyCart("prod_HNzb1HHMmEPmmi", 1)} />
+          <BuyButton handleClick={() => {
+            modifyCart("prod_HNzb1HHMmEPmmi", 1);
+            toggleCart();
+          }} />
         </div>
 
         <ul className="product-images">

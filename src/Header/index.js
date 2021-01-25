@@ -11,8 +11,8 @@ class Header extends Component {
           Home
         </NavLink>
 
-        <NavLink exact to="/buying-guide" activeStyle={{ display: "none" }}>
-          Buying Guide
+        <NavLink exact to="/reed-information" activeStyle={{ display: "none" }}>
+          Reed Information
         </NavLink>
       </header>
     );

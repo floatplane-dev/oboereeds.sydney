@@ -9,7 +9,7 @@ import {
 import Header from "./Header/";
 
 import Home from "./Home/";
-import BuyingGuide from "./BuyingGuide/";
+import ReedInformation from "./ReedInformation/";
 
 import Footer from "./Footer/";
 
@@ -25,8 +25,8 @@ class App extends Component {
               <Home />
             </Route>
 
-            <Route path="/buying-guide">
-              <BuyingGuide />
+            <Route path="/reed-information">
+              <ReedInformation />
             </Route>
           </Switch>
 

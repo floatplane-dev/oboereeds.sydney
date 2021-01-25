@@ -7,6 +7,7 @@ class LineItem extends Component {
 
     return (
       <li className="LineItem">
+        <img onClick={() => modifyCart(item.price_id, item.quantity * -1)} src="img/close.svg" alt="" />
         <label>{item.name}</label>
         <ProductNumberPicker
           number={item.quantity}

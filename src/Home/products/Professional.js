@@ -3,7 +3,7 @@ import BuyButton from "./BuyButton/";
 
 class Professional extends Component {
   render() {
-    const { modifyCart } = this.props;
+    const { modifyCart, toggleCart } = this.props;
     return (
       <section id="professional-reed">
         <div className="product professional">
@@ -19,7 +19,10 @@ class Professional extends Component {
             <li>The finest cane, handpicked from each batch</li>
           </ul>
           <span className="price">$47.99</span>
-          <BuyButton clickHandler={() => modifyCart("price_HNzcuAvZoAPxIj", 1)} />
+          <BuyButton handleClick={() => {
+            modifyCart("price_HNzcuAvZoAPxIj", 1);
+            toggleCart();
+          }} />
 
         </div>
         <iframe

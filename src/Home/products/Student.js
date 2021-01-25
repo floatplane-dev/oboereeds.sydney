@@ -52,7 +52,7 @@ class Student extends Component {
   }
 
   render() {
-    const { modifyCart } = this.props;
+    const { modifyCart, toggleCart } = this.props;
     const { images, activeIndex } = this.state;
 
     return (
@@ -72,7 +72,10 @@ class Student extends Component {
               </ul>
               <span className="price">$19.99</span>
 
-              <BuyButton clickHandler={() => modifyCart("price_HNza6zL9e3th0a", 1)} />
+              <BuyButton handleClick={() => {
+                modifyCart("price_HNza6zL9e3th0a", 1);
+                toggleCart();
+              }} />
             </div>
 
             <ul className="product-images">

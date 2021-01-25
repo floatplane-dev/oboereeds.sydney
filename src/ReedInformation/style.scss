@@ -1,4 +1,4 @@
-section.buying-guide {
+section.reed-information {
   box-sizing: border-box;
   padding: 70px 40px;
   background: #fff;
@@ -8,6 +8,13 @@ section.buying-guide {
   }
   @media (max-width: 600px) {
     padding: 50px 30px;
+  }
+
+  h1 {
+    font-size: 68px;
+  }
+  h2 {
+    font-size: 34px;
   }
 
   h3 {

@@ -48,9 +48,9 @@ class Home extends Component {
           </h1>
         </section>
 
-        <Student modifyCart={this.modifyCart} />
-        <Intermediate modifyCart={this.modifyCart} />
-        <Professional modifyCart={this.modifyCart} />
+        <Student modifyCart={this.modifyCart} toggleCart={this.toggleCart}/>
+        <Intermediate modifyCart={this.modifyCart} toggleCart={this.toggleCart}/>
+        <Professional modifyCart={this.modifyCart} toggleCart={this.toggleCart}/>
 
         {
           ReactDOM.createPortal(
