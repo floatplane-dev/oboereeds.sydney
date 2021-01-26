@@ -63,7 +63,7 @@ class Cart extends Component {
 
       const checkoutOptions = {
         mode: "payment",
-        successUrl: "https://oboereeds.sydney/thankyou",
+        successUrl: "https://oboereeds.sydney",
         cancelUrl: "https://oboereeds.sydney"
       }
 
