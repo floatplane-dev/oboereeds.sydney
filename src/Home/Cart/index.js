@@ -67,10 +67,17 @@ class Cart extends Component {
         cancelUrl: "https://oboereeds.sydney"
       }
 
+      console.log(Object.assign(
+        {},
+        { lineItems },
+        checkoutOptions,
+        shippingMethodOption
+      ));
+
       const { error } = await stripe.redirectToCheckout(
         Object.assign(
           {},
-          lineItems,
+          { lineItems },
           checkoutOptions,
           shippingMethodOption
         )
