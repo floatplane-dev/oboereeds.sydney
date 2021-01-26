@@ -10,6 +10,7 @@ import Header from "./Header/";
 
 import Home from "./Home/";
 import ReedInformation from "./ReedInformation/";
+import Thankyou from "./Thankyou/";
 
 import Footer from "./Footer/";
 
@@ -18,19 +19,24 @@ class App extends Component {
     return (
       <Router>
         <main  className="parallax">
-          <Header />
 
           <Switch>
             <Route exact path="/">
+              <Header />
               <Home />
+              <Footer />
             </Route>
 
-            <Route path="/reed-information">
+            <Route exact path="/thankyou">
+              <Thankyou />
+            </Route>
+
+            <Route exact path="/reed-information">
+              <Header />
               <ReedInformation />
+              <Footer />
             </Route>
           </Switch>
-
-          <Footer />
 
         </main>
       </Router>

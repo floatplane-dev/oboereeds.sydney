@@ -48,7 +48,7 @@ class Home extends Component {
           </h1>
 
           <div
-            class="scroll-prompt"
+            className="scroll-prompt"
             onClick={() => {
               document.getElementById('student-reed').scrollIntoView({behavior: "smooth"});
             }}>
@@ -57,8 +57,6 @@ class Home extends Component {
           </div>
 
         </section>
-
-
 
         <Student modifyCart={this.modifyCart} toggleCart={this.toggleCart}/>
         <CartIcon
@@ -75,7 +73,7 @@ class Home extends Component {
               toggleCart={this.toggleCart}
               modifyCart={this.modifyCart}
             />,
-            document.body
+            document.getElementById('app')
           )
         }
 

@@ -4,7 +4,7 @@ $black: #000000;
 
 $white: #f6f6f9;
 
-body {
+#app {
   position: relative;
 
   &.scrolling-disabled {
@@ -44,4 +44,5 @@ body {
 @import "./Header/style.scss";
 @import "./Home/style.scss";
 @import "./ReedInformation/style.scss";
+@import "./Thankyou/style.scss";
 @import "./Footer/style.scss";

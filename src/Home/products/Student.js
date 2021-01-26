@@ -34,12 +34,12 @@ class Student extends Component {
   }
 
   showModal(index) {
-    document.body.classList.add("scrolling-disabled");
+    document.getElementById('app').classList.add("scrolling-disabled");
     this.setState({activeIndex: index});
   }
 
   hideModal() {
-    document.body.classList.remove("scrolling-disabled");
+    document.getElementById('app').classList.remove("scrolling-disabled");
     this.setState({activeIndex: undefined});
   }
 
@@ -57,54 +57,56 @@ class Student extends Component {
 
     return (
           <section id="student-reed">
-            <div className="product student">
-              <h2>Student Reed</h2>
-              <p>
-                This light weight reed is ideal for the beginner player. Handcrafted
-                to be soft and light, beginners will play with ease. Unlike other
-                student reeds on the market, this reed uses professional quality
-                materials for a superior reed.
-              </p>
-              <ul>
-                <li>The correct choice for beginner players</li>
-                <li>Soft and light (easy to use)</li>
-                <li>Extremely responsive</li>
+            <div>
+              <div className="product student">
+                <h2>Student Reed</h2>
+                <p>
+                  This light weight reed is ideal for the beginner player. Handcrafted
+                  to be soft and light, beginners will play with ease. Unlike other
+                  student reeds on the market, this reed uses professional quality
+                  materials for a superior reed.
+                </p>
+                <ul>
+                  <li>The correct choice for beginner players</li>
+                  <li>Soft and light (easy to use)</li>
+                  <li>Extremely responsive</li>
+                </ul>
+                <span className="price">$19.99</span>
+
+                <BuyButton handleClick={() => {
+                  modifyCart("price_HNza6zL9e3th0a", 1);
+                  toggleCart();
+                }} />
+              </div>
+
+              <ul className="product-images">
+                {
+                  images.map((image, index) =>
+                    <li key={index}>
+                      <img
+                        src={image.srcLowRes}
+                        data-caption={image.caption}
+                        onClick={() => this.showModal(index)}
+                      />
+                    </li>
+                  )
+                }
               </ul>
-              <span className="price">$19.99</span>
 
-              <BuyButton handleClick={() => {
-                modifyCart("price_HNza6zL9e3th0a", 1);
-                toggleCart();
-              }} />
-            </div>
-
-            <ul className="product-images">
               {
-                images.map((image, index) =>
-                  <li key={index}>
-                    <img
-                      src={image.srcLowRes}
-                      data-caption={image.caption}
-                      onClick={() => this.showModal(index)}
-                    />
-                  </li>
+                Number.isInteger(activeIndex) &&
+                ReactDOM.createPortal(
+                  <Modal
+                    hideModal={this.hideModal}
+                    imageBack={this.imageBack}
+                    imageForward={this.imageForward}
+                    images={images}
+                    activeIndex={activeIndex}
+                    />,
+                  document.getElementById('app')
                 )
               }
-            </ul>
-
-            {
-              Number.isInteger(activeIndex) &&
-              ReactDOM.createPortal(
-                <Modal
-                  hideModal={this.hideModal}
-                  imageBack={this.imageBack}
-                  imageForward={this.imageForward}
-                  images={images}
-                  activeIndex={activeIndex}
-                  />,
-                document.body
-              )
-            }
+            </div>
 
           </section>
 

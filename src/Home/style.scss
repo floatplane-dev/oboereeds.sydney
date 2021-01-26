@@ -45,7 +45,7 @@
 
    > img {
      margin-top: 2px;
-     animation: alternate both bounce 1s infinite ease-in-out;
+     animation: alternate both bounce 700ms infinite ease-in-out;
 
      @keyframes bounce {
        from {

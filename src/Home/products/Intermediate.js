@@ -34,12 +34,12 @@ class Intermediate extends Component {
   }
 
   showModal(index) {
-    document.body.classList.add("scrolling-disabled");
+    document.getElementById('app').classList.add("scrolling-disabled");
     this.setState({activeIndex: index});
   }
 
   hideModal() {
-    document.body.classList.remove("scrolling-disabled");
+    document.getElementById('app').classList.remove("scrolling-disabled");
     this.setState({activeIndex: undefined});
   }
 
@@ -57,54 +57,55 @@ class Intermediate extends Component {
 
     return (
       <section id="intermediate-reed">
-        <div className="product intermediate">
-          <h2>Intermediate Reed</h2>
-          <p>
-            Designed for excellent response and stability, the Intermediate Reed
-            is ideal for students of grade 3 AMEB and above. It strikes the
-            perfect balance between a light weight, responsive reed that still
-            provides a dark, rich professional sound.
-          </p>
-          <ul>
-            <li>Rich sound and responsive</li>
-            <li>Medium soft</li>
-            <li>Suitable for AMEB level 3+ students</li>
-          </ul>
-          <span className="price">$24.99</span>
-          <BuyButton handleClick={() => {
-            modifyCart("prod_HNzb1HHMmEPmmi", 1);
-            toggleCart();
-          }} />
-        </div>
+        <div>
+          <div className="product intermediate">
+            <h2>Intermediate Reed</h2>
+            <p>
+              Designed for excellent response and stability, the Intermediate Reed
+              is ideal for students of grade 3 AMEB and above. It strikes the
+              perfect balance between a light weight, responsive reed that still
+              provides a dark, rich professional sound.
+            </p>
+            <ul>
+              <li>Rich sound and responsive</li>
+              <li>Medium soft</li>
+              <li>Suitable for AMEB level 3+ students</li>
+            </ul>
+            <span className="price">$24.99</span>
+            <BuyButton handleClick={() => {
+              modifyCart("prod_HNzb1HHMmEPmmi", 1);
+              toggleCart();
+            }} />
+          </div>
 
-        <ul className="product-images">
+          <ul className="product-images">
+            {
+              images.map((image, index) =>
+                <li key={index}>
+                  <img
+                    src={image.srcLowRes}
+                    data-caption={image.caption}
+                    onClick={() => this.showModal(index)}
+                  />
+                </li>
+              )
+            }
+          </ul>
+
           {
-            images.map((image, index) =>
-              <li key={index}>
-                <img
-                  src={image.srcLowRes}
-                  data-caption={image.caption}
-                  onClick={() => this.showModal(index)}
-                />
-              </li>
+            Number.isInteger(activeIndex) &&
+            ReactDOM.createPortal(
+              <Modal
+                hideModal={this.hideModal}
+                imageBack={this.imageBack}
+                imageForward={this.imageForward}
+                images={images}
+                activeIndex={activeIndex}
+                />,
+              document.getElementById('app')
             )
           }
-        </ul>
-
-        {
-          Number.isInteger(activeIndex) &&
-          ReactDOM.createPortal(
-            <Modal
-              hideModal={this.hideModal}
-              imageBack={this.imageBack}
-              imageForward={this.imageForward}
-              images={images}
-              activeIndex={activeIndex}
-              />,
-            document.body
-          )
-        }
-
+        </div>
       </section>
 
     );

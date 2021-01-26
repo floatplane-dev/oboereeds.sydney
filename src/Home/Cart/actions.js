@@ -1,21 +1,21 @@
 import { allProducts } from "../products/allProducts";
 
 function toggleCart() {
-  if (!document.body.classList.contains("cart-active")) {
+  if (!document.getElementById("app").classList.contains("cart-active")) {
 
     const overlay = document.createElement("div");
     overlay.classList.add("overlay");
-    document.body.appendChild(overlay);
+    document.getElementById("app").appendChild(overlay);
 
-    document.body.classList.add("scrolling-disabled", "cart-active");
+    document.getElementById("app").classList.add("scrolling-disabled", "cart-active");
 
     overlay.addEventListener('click', () => {
-      document.body.classList.remove("scrolling-disabled", "cart-active");
+      document.getElementById("app").classList.remove("scrolling-disabled", "cart-active");
       overlay.remove();
     });
 
   } else {
-    document.body.classList.remove("scrolling-disabled", "cart-active");
+    document.getElementById("app").classList.remove("scrolling-disabled", "cart-active");
     document.querySelector('.overlay').remove();
   }
 
