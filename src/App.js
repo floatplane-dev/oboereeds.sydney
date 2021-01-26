@@ -27,11 +27,11 @@ class App extends Component {
               <Footer />
             </Route>
 
-            <Route exact path="/thankyou">
+            <Route path="/thankyou">
               <Thankyou />
             </Route>
 
-            <Route exact path="/reed-information">
+            <Route path="/reed-information">
               <Header />
               <ReedInformation />
               <Footer />
