@@ -8,14 +8,17 @@ function toggleCart() {
     document.getElementById("app").appendChild(overlay);
 
     document.getElementById("app").classList.add("scrolling-disabled", "cart-active");
+    document.body.classList.add("scrolling-disabled", "cart-active");
 
     overlay.addEventListener('click', () => {
       document.getElementById("app").classList.remove("scrolling-disabled", "cart-active");
+      document.body.classList.remove("scrolling-disabled", "cart-active");
       overlay.remove();
     });
 
   } else {
     document.getElementById("app").classList.remove("scrolling-disabled", "cart-active");
+    document.body.classList.remove("scrolling-disabled", "cart-active");
     document.querySelector('.overlay').remove();
   }
 

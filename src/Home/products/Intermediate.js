@@ -35,11 +35,13 @@ class Intermediate extends Component {
 
   showModal(index) {
     document.getElementById('app').classList.add("scrolling-disabled");
+    document.body.classList.add("scrolling-disabled");
     this.setState({activeIndex: index});
   }
 
   hideModal() {
     document.getElementById('app').classList.remove("scrolling-disabled");
+    document.body.classList.remove("scrolling-disabled");
     this.setState({activeIndex: undefined});
   }
 
