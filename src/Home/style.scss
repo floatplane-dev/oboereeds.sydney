@@ -41,8 +41,8 @@
    flex-direction: column;
    cursor: pointer;
    left: 50%;
-   bottom: 40px;
-   transform: translateX(-50%);
+   top: calc(var(--vh, 1vh) * 100 - 40px);
+   transform: translate(-50%, -100%);
 
    > img {
      margin-top: 2px;
