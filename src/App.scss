@@ -34,11 +34,11 @@ $white: #f6f6f9;
 
   // Source: https://keithclark.co.uk/articles/pure-css-parallax-websites/
   main.parallax {
-    perspective: 300px;
-    height: 100vh;
-    height: calc(var(--vh, 1vh) * 100);
-    overflow-x: hidden;
-    overflow-y: auto;
+    // perspective: 300px;
+    // height: 100vh;
+    // height: calc(var(--vh, 1vh) * 100);
+    // overflow-x: hidden;
+    // overflow-y: auto;
   }
 }
 
