@@ -36,6 +36,7 @@ $white: #f6f6f9;
   main.parallax {
     perspective: 300px;
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     overflow-x: hidden;
     overflow-y: auto;
   }

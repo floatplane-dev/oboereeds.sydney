@@ -9,6 +9,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   width: 100%;
   background: #fff;
 
@@ -111,6 +112,7 @@
 
 #student-reed {
   height: calc(100vh - 48px);
+  height: calc(var(--vh, 1vh) * 100 - 48px);
 
   @media (max-width: 900px) {
     height: auto;

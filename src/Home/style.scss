@@ -4,6 +4,7 @@
 #hero {
   // position: relative;
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   background: transparent;
 
   h1.centred {
