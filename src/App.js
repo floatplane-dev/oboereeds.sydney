@@ -22,8 +22,8 @@ class App extends Component {
 
     window.addEventListener('resize', () => {
       // We execute the same script as before
-      let vhCartIcon = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty('--vhCartIcon', `${vhCartIcon}px`);
+      let vhCart = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vhCart', `${vhCart}px`);
     });
   }
 

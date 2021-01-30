@@ -34,7 +34,7 @@
    left: 0;
    transform-style: preserve-3d;
    overflow: hidden;
-   
+
    @media (min-width: 901px) {
      transform: translate3d(0px, 0, -200px) scale(1.66667);
    }
@@ -42,7 +42,6 @@
    > img {
      min-width: 100%;
      min-height: 100%;
-
    }
  }
 

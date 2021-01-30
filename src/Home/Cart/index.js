@@ -94,10 +94,7 @@ class Cart extends Component {
       shippingMethod && shippingMethod.price_id ? shippingMethod.price : 0;
 
     return (
-      <aside
-        className="cart"
-        style={{ height: window.innerHeight }}
-      >
+      <aside className="cart">
         <header>
           <h1>Your Cart</h1>
           <Close toggleCart={toggleCart} />
