@@ -35,6 +35,7 @@ class Home extends Component {
   componentDidMount() {
     function hideExploreButton() {
       document.querySelector('.scroll-prompt').classList.add('hide');
+      console.log('hide explore button');
       window.removeEventListener('scroll', hideExploreButton);
     }
 
