@@ -38,11 +38,12 @@ body.scrolling-disabled {
 
   // Source: https://keithclark.co.uk/articles/pure-css-parallax-websites/
   main.parallax {
-    // perspective: 300px;
-    // height: 100vh;
-    // height: calc(var(--vh, 1vh) * 100);
-    // overflow-x: hidden;
-    // overflow-y: scroll;
+    @media (min-width: 901px) {
+      perspective: 300px;
+      height: 100vh;
+      overflow-x: hidden;
+      overflow-y: scroll;
+    }
   }
 }
 

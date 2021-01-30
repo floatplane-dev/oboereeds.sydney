@@ -46,13 +46,11 @@ class Home extends Component {
     return (
       <React.Fragment>
         <section id="hero">
-          {/*
           <div className="parallax__layer--back">
             <img
               id="parallax-background"
               src="/img/hero@1200x800.webp" />
           </div>
-          */}
 
           <h1 className="centred">
             Sydney Oboe Reeds
