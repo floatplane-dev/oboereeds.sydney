@@ -10,6 +10,7 @@ button#cart-icon {
   padding: 8px;
   box-sizing: content-box;
   z-index: 1;
+  transition: top ease-out 50ms;
 
   @media (max-width: 900px) {
     top: calc(100vh - 40px);
