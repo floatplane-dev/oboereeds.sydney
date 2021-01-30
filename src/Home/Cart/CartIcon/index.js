@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 
 class CartIcon extends Component {
+
+  componentWillMount() {
+    React.initializeTouchEvents(true);
+  }
+
   render() {
     const { toggleCart, selectedProducts } = this.props;
 
@@ -15,7 +20,7 @@ class CartIcon extends Component {
           src="img/cart.svg"
           alt=""
           onTouchStart={() => toggleCart()}
-          onClick={() => toggleCart()}
+          onMouseDown={() => toggleCart()}
         />
         <span>
           {orderArray.length
