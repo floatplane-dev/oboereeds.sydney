@@ -8,7 +8,10 @@ function toggleCart() {
     document.getElementById("app").appendChild(overlay);
 
     document.getElementById("app").classList.add("scrolling-disabled", "cart-active");
-    document.body.classList.add("scrolling-disabled", "cart-active");
+
+    setTimeout(() => {
+      document.body.classList.add("scrolling-disabled", "cart-active");
+    }, 20);
 
     overlay.addEventListener('click', () => {
       document.getElementById("app").classList.remove("scrolling-disabled", "cart-active");
