@@ -18,22 +18,22 @@
  }
 
  // Source: https://keithclark.co.uk/articles/pure-css-parallax-websites/
- // .parallax__layer--back {
- //   position: absolute;
- //   top: 0;
- //   right: 0;
- //   bottom: 0;
- //   left: 0;
- //   transform: translate3d(0px, 0, -200px) scale(1.66667);
- //   transform-style: preserve-3d;
- //   overflow: hidden;
- //
- //   > img {
- //     min-width: 100%;
- //     min-height: 100%;
- //
- //   }
- // }
+ .parallax__layer--back {
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   transform: translate3d(0px, 0, -200px) scale(1.66667);
+   transform-style: preserve-3d;
+   overflow: hidden;
+
+   > img {
+     min-width: 100%;
+     min-height: 100%;
+
+   }
+ }
 
  > .scroll-prompt {
    position: absolute;
