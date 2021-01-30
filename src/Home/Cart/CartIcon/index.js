@@ -14,6 +14,7 @@ class CartIcon extends Component {
           className="icon"
           src="img/cart.svg"
           alt=""
+          onTouchStart={() => toggleCart()}
           onClick={() => toggleCart()}
         />
         <span>
