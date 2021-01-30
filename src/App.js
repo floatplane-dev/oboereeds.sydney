@@ -17,13 +17,13 @@ import Footer from "./Footer/";
 class App extends Component {
 
   componentDidMount() {
-    // let vh = window.innerHeight * 0.01;
-    // document.documentElement.style.setProperty('--vh', `${vh}px`);
+    let vhExplore = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vhExplore', `${vhExplore}px`);
 
     window.addEventListener('resize', () => {
       // We execute the same script as before
-      let vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty('--vh', `${vh}px`);
+      let vhCartIcon = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vhCartIcon', `${vhCartIcon}px`);
     });
   }
 
