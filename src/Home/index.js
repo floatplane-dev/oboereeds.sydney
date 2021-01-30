@@ -32,6 +32,15 @@ class Home extends Component {
     this.resetCart = resetCart.bind(this);
   }
 
+  componentDidMount() {
+    function hideExploreButton() {
+      document.querySelector('.scroll-prompt').classList.add('hide');
+      window.removeEventListener('scroll', hideExploreButton);
+    }
+
+    window.addEventListener('scroll', hideExploreButton);
+  }
+
   render() {
     const { selectedProducts } = this.state;
     return (
