@@ -75,7 +75,7 @@ class Intermediate extends Component {
             </ul>
             <span className="price">$24.99</span>
             <BuyButton handleClick={() => {
-              modifyCart("prod_HNzb1HHMmEPmmi", 1);
+              modifyCart("price_1Hl4BnDBTPoEHOlT0fVaMJMH", 1);
               toggleCart();
             }} />
           </div>

@@ -5,7 +5,7 @@ const allProducts = {
     price_id: "price_HNza6zL9e3th0a",
     quantity: 0,
   },
-  prod_HNzb1HHMmEPmmi: {
+  price_1Hl4BnDBTPoEHOlT0fVaMJMH: {
     name: "Intermediate reed",
     price: "24.99",
     price_id: "price_1Hl4BnDBTPoEHOlT0fVaMJMH",
