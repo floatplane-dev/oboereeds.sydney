@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import ReactDOM from "react-dom";
 
 import {
@@ -16,6 +16,7 @@ import {
   Professional
 } from "Home/products";
 
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -32,7 +33,7 @@ class Home extends Component {
     this.resetCart = resetCart.bind(this);
   }
 
-  componentDidMount() {
+  componentDidMount(props) {
     function hideExploreButton() {
       document.querySelector('.scroll-prompt').classList.add('hide');
       console.log('hide explore button');
@@ -67,6 +68,7 @@ class Home extends Component {
           </div>
 
         </section>
+
 
         <Student modifyCart={this.modifyCart} toggleCart={this.toggleCart}/>
         <CartIcon
