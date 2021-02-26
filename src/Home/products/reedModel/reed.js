@@ -10,7 +10,7 @@ dracoLoader.preload();
 const reedModelLoader = async () => {
   return new Promise((resolve, reject) => {
     loader.load(
-      "/models/reed.glb",
+      "/models/reed2.glb",
       (gltf) => resolve(gltf)
       // (xhr) => console.log((xhr.loaded / xhr.total) * 100 + "% loaded"),
       // (error) => reject(error)
@@ -22,12 +22,14 @@ const loadReed = async () => {
   let [reed] = await Promise.all([reedModelLoader()]);
   const { scene } = reed;
 
-  scene.children[0].children[0].children[0].castShadow = true;
+  // scene.children[0].children[0].children[0].castShadow = true;
   console.log({ scene });
 
-  scene.scale.z = 1 / 100;
-  scene.scale.y = 1 / 100;
-  scene.scale.x = 1 / 100;
+  scene.rotation.x = Math.PI / -2;
+
+  scene.scale.z = 1 / 1;
+  scene.scale.y = 1 / 1;
+  scene.scale.x = 1 / 1;
 
   scene.position.z = 2;
 
