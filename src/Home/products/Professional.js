@@ -57,7 +57,7 @@ class Professional extends Component {
 
     function animate() {
       requestAnimationFrame(animate);
-      reed.rotation.y += 0.01;
+      reed.rotation.z += 0.01;
       renderer.render(scene, camera);
     }
   }

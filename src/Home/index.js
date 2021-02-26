@@ -16,6 +16,8 @@ import {
   Professional
 } from "Home/products";
 
+import About from "Home/About/"
+
 
 class Home extends Component {
   constructor(props) {
@@ -77,6 +79,8 @@ class Home extends Component {
         />
         <Intermediate modifyCart={this.modifyCart} toggleCart={this.toggleCart}/>
         <Professional modifyCart={this.modifyCart} toggleCart={this.toggleCart}/>
+
+        <About />
 
         {
           ReactDOM.createPortal(
