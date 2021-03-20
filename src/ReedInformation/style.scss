@@ -1,31 +1,126 @@
-section.reed-information {
+#reed-information {
   box-sizing: border-box;
-  padding: 70px 40px;
   background: #fff;
 
-  @media (max-width: 900px) {
-    padding: 70px 40px;
-  }
-  @media (max-width: 600px) {
-    padding: 50px 30px;
+  > * {
+    margin-bottom: 10px;
   }
 
-  h1 {
-    font-size: 68px;
-  }
-  h2 {
-    font-size: 34px;
+  .fold1 {
+    h2 {
+      margin-bottom: 20px;
+    }
+    h3 {
+      margin-bottom: 30px;
+    }
+    .image1 {
+      max-width: 400px;
+      background-image: url("/img/student-reeds.jpg");
+      background-size: cover;
+      padding-bottom: 200px;
+
+      @media (max-width: 767px) {
+        width: 100%;
+        margin: 20px auto;
+        background-position: 50% 60%;
+      }
+      @media (min-width: 768px) {
+        padding-bottom: 0;
+        margin-bottom: 20px;
+        background-position: center;
+        max-width: none;
+      }
+    }
+    .image2 {
+      width: 100%;
+      max-width: 400px;
+      padding-bottom: 200px;
+      margin: 20px auto;
+      background-image: url("/img/professional-reed2.jpg");
+      background-size: cover;
+      background-position: center;
+
+      @media (min-width: 768px) {
+        padding-bottom: 400px;
+        max-width: none;
+      }
+    }
   }
 
-  h3 {
-    font-size: 24px;
-    margin-bottom: 12px;
+  .fold2 {
+    h1 {
+      @media (max-width: 767px) {
+        br {
+          display: none;
+        }
+      }
+      @media (max-width: 700px) {
+        br {
+          display: inline;
+        }
+      }
+      @media (min-width: 768px) {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .reed-comparison {
+      position: relative;
+      padding-bottom: calc(60% - 20px / 2);
+      margin-top: 20px;
+      margin-bottom: 20px;
+
+      @media (min-width: 768px) {
+        padding-bottom: calc(30% - 20px / 2);
+      }
+
+      > .image1 {
+        position: absolute;
+        left: 0;
+        width: calc((100% / 2) - 10px);
+        height: 100%;
+        background-image: url("/img/professional-reed.jpg");
+        background-size: cover;
+        background-position: center;
+        @media (max-width: 400px) {
+          width: calc((100% / 2) - 5px);
+        }
+      }
+      > .image2 {
+        position: absolute;
+        right: 0;
+        width: calc((100% / 2) - 10px);
+        height: 100%;
+        background-image: url("/img/american-reed.jpg");
+        background-size: 128%;
+        background-position: 50% 48%;
+        @media (max-width: 400px) {
+          width: calc((100% / 2) - 5 spx);
+        }
+      }
+    }
   }
 
-  p,
-  > ul > li {
-    font-size: 16px;
-    line-height: 22px;
-    margin-bottom: 8px;
+  .fold4 {
+    .image1 {
+      background-image: url("/img/madeleine.jpg");
+
+      @media (max-width: 767px) {
+        width: 100%;
+        margin: -20px auto 40px;
+        max-width: 400px;
+        background-size: cover;
+        background-position: 50% 10%;
+        padding-bottom: 280px;
+      }
+      @media (min-width: 768px) {
+        padding-bottom: 0;
+        max-width: none;
+        margin-top: -220px;
+        background-size: cover;
+        background-position: center;
+      }
+    }
   }
 }
