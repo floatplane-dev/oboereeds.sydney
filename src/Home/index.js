@@ -10,6 +10,8 @@ import {
   checkLocalstorage,
 } from "Home/Cart/";
 
+import Hero from "Home/Hero/"
+import Why from "Home/Why/"
 import {
   Student,
   Intermediate,
@@ -20,65 +22,36 @@ import About from "Home/About/"
 
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-
-    const selectedProducts = checkLocalstorage();
-
-    this.state = {
-      selectedProducts,
-      isShowingCart: false,
-    };
-
-    this.modifyCart = modifyCart.bind(this);
-    this.toggleCart = toggleCart.bind(this);
-    this.resetCart = resetCart.bind(this);
-  }
-
-  componentDidMount(props) {
-    function hideExploreButton() {
-      document.querySelector('.scroll-prompt').classList.add('hide');
-      console.log('hide explore button');
-      window.removeEventListener('scroll', hideExploreButton);
-    }
-
-    window.addEventListener('scroll', hideExploreButton);
-  }
+  // constructor(props) {
+  //   super(props);
+  //
+  //   const selectedProducts = checkLocalstorage();
+  //
+  //   this.state = {
+  //     selectedProducts,
+  //     isShowingCart: false,
+  //   };
+  //
+  //   this.modifyCart = modifyCart.bind(this);
+  //   this.toggleCart = toggleCart.bind(this);
+  //   this.resetCart = resetCart.bind(this);
+  // }
 
   render() {
-    const { selectedProducts } = this.state;
+    // const { selectedProducts } = this.state;
+    const { toggleCart, modifyCart, selectedProducts } = this.props;
     return (
       <React.Fragment>
-        <section id="hero">
-          <div className="parallax__layer--back">
-            <img
-              id="parallax-background"
-              src="/img/hero@1200x800.webp" />
-          </div>
+        <Hero />
+        <Why />
 
-          <h1 className="centred">
-            Sydney Oboe Reeds
-          </h1>
-
-          <div
-            className="scroll-prompt"
-            onClick={() => {
-              document.getElementById('student-reed').scrollIntoView({behavior: "smooth"});
-            }}>
-            <span>Explore</span>
-            <img src="img/down.svg" alt="" />
-          </div>
-
-        </section>
-
-
-        <Student modifyCart={this.modifyCart} toggleCart={this.toggleCart}/>
-        <CartIcon
+        <Student modifyCart={modifyCart} toggleCart={toggleCart}/>
+        {/*<CartIcon
           toggleCart={this.toggleCart}
           selectedProducts={selectedProducts}
-        />
-        <Intermediate modifyCart={this.modifyCart} toggleCart={this.toggleCart}/>
-        <Professional modifyCart={this.modifyCart} toggleCart={this.toggleCart}/>
+        />*/}
+        <Intermediate modifyCart={modifyCart} toggleCart={toggleCart}/>
+        <Professional modifyCart={modifyCart} toggleCart={toggleCart}/>
 
         <About />
 
@@ -86,8 +59,8 @@ class Home extends Component {
           ReactDOM.createPortal(
             <Cart
               selectedProducts={selectedProducts}
-              toggleCart={this.toggleCart}
-              modifyCart={this.modifyCart}
+              toggleCart={toggleCart}
+              modifyCart={modifyCart}
             />,
             document.getElementById('app')
           )

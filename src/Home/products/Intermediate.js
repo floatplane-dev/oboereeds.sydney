@@ -59,7 +59,7 @@ class Intermediate extends Component {
 
     return (
       <section id="intermediate-reed">
-        <div>
+        <div className="gutters">
           <div className="product intermediate">
             <h2>Intermediate Reed</h2>
             <p>
@@ -83,13 +83,12 @@ class Intermediate extends Component {
           <ul className="product-images">
             {
               images.map((image, index) =>
-                <li key={index}>
-                  <img
-                    src={image.srcLowRes}
-                    data-caption={image.caption}
-                    onClick={() => this.showModal(index)}
-                  />
-                </li>
+                <img
+                  key={index}
+                  src={image.srcLowRes}
+                  data-caption={image.caption}
+                  onClick={() => this.showModal(index)}
+                />
               )
             }
           </ul>

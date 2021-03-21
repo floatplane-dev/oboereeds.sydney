@@ -59,7 +59,7 @@ class Student extends Component {
 
     return (
           <section id="student-reed">
-            <div>
+            <div className="gutters">
               <div className="product student">
                 <h2>Student Reed</h2>
                 <p>
@@ -84,13 +84,12 @@ class Student extends Component {
               <ul className="product-images">
                 {
                   images.map((image, index) =>
-                    <li key={index}>
-                      <img
-                        src={image.srcLowRes}
-                        data-caption={image.caption}
-                        onClick={() => this.showModal(index)}
-                      />
-                    </li>
+                    <img
+                      key={index}
+                      src={image.srcLowRes}
+                      data-caption={image.caption}
+                      onClick={() => this.showModal(index)}
+                    />
                   )
                 }
               </ul>

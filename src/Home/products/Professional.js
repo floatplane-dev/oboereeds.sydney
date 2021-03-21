@@ -70,7 +70,7 @@ class Professional extends Component {
     const { modifyCart, toggleCart } = this.props;
     return (
       <section id="professional-reed">
-        <div>
+        <div className="gutters">
           <div className="product professional">
             <h2>Professional Reed</h2>
             <p>

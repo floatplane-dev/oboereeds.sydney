@@ -1,0 +1,24 @@
+section#hero {
+  margin: 0 auto;
+
+  .image {
+    height: 47vw;
+    max-height: calc(100vh - 160px);
+    background-image: url("/img/about-madeleine.jpg");
+    background-size: cover;
+    background-position: center;
+    @media (min-width: 1460px) {
+      max-height: 630px;
+    }
+  }
+
+  h1.centred {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   font-size: 36px;
+   color: #153250;
+   white-space: nowrap;
+ }
+}
