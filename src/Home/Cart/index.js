@@ -106,6 +106,8 @@ class Cart extends Component {
               <LineItem key={key} item={item} modifyCart={modifyCart} />
             ))}
           </ul>
+          <p class="disclaimer">* Product currently for preorder only</p>
+
 
           {orderArray.length > 0 && (
             <React.Fragment>

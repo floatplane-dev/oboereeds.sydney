@@ -61,7 +61,7 @@ class Intermediate extends Component {
       <section id="intermediate-reed">
         <div>
           <div className="product intermediate">
-            <h2>Intermediate Reed</h2>
+            <h2>Intermediate Reed*</h2>
             <p>
               Designed for excellent response and stability, the Intermediate Reed
               is ideal for students of grade 3 AMEB and above. It strikes the
@@ -74,10 +74,14 @@ class Intermediate extends Component {
               <li>Suitable for AMEB level 3+ students</li>
             </ul>
             <span className="price">$25.99</span>
-            <BuyButton handleClick={() => {
-              modifyCart("price_1Jau5gDBTPoEHOlTnB7SwT8g", 1);
-              toggleCart();
-            }} />
+            <BuyButton
+              handleClick={() => {
+                modifyCart("price_1Jau5gDBTPoEHOlTnB7SwT8g", 1);
+                toggleCart();
+              }}
+              outOfStock="true"/>
+            <p class="disclaimer">* Due to popular demand, this product is currently out of stock. You can still place orders for them, but we won't be able to deliver them to you until more materials arrive.</p>
+
           </div>
 
           <ul className="product-images">

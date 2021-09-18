@@ -61,7 +61,7 @@ class Student extends Component {
           <section id="student-reed">
             <div>
               <div className="product student">
-                <h2>Student Reed</h2>
+                <h2>Student Reed*</h2>
                 <p>
                   This light weight reed is ideal for the beginner player. Handcrafted
                   to be soft and light, beginners will play with ease. Unlike other
@@ -75,10 +75,14 @@ class Student extends Component {
                 </ul>
                 <span className="price">$20.99</span>
 
-                <BuyButton handleClick={() => {
-                  modifyCart("price_1Jau2yDBTPoEHOlTf2HbfEbe", 1);
-                  toggleCart();
-                }} />
+                <BuyButton
+                    handleClick={() => {
+                    modifyCart("price_1Jau2yDBTPoEHOlTf2HbfEbe", 1);
+                    toggleCart();
+                  }}
+                  outOfStock="true"
+                  />
+                <p class="disclaimer">* Due to popular demand, this product is currently out of stock. You can still place orders for them, but we won't be able to deliver them to you until more materials arrive.</p>
               </div>
 
               <ul className="product-images">
