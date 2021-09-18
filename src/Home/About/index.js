@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
-
 
 class About extends Component {
   render() {
     return (
       <section id="about">
-        <img src="img/about-madeleine.jpg" alt="" />
+        <img
+          src="img/about-madeleine.jpg"
+          alt="img/about-madeleine.jpg"
+          />
         <div>
           <div class="block">
             <h3>AWARDS</h3>

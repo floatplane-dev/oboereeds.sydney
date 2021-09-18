@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import ReactDOM from "react-dom";
 
 import {
@@ -53,7 +53,9 @@ class Home extends Component {
           <div className="parallax__layer--back">
             <img
               id="parallax-background"
-              src="/img/hero@1200x800.webp" />
+              src="/img/hero@1200x800.webp"
+              alt="/img/hero@1200x800.webp" 
+              />
           </div>
 
           <h1 className="centred">

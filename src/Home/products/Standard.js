@@ -90,6 +90,7 @@ class Standard extends Component {
                 <li key={index}>
                   <img
                     src={image.srcLowRes}
+                    alt={image.srcLowRes}
                     data-caption={image.caption}
                     onClick={() => this.showModal(index)}
                   />
