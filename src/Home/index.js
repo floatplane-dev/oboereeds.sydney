@@ -11,8 +11,8 @@ import {
 } from "Home/Cart/";
 
 import {
-  Student,
-  Intermediate,
+  Beginner,
+  Standard,
   Professional
 } from "Home/products";
 
@@ -72,12 +72,12 @@ class Home extends Component {
         </section>
 
 
-        <Student modifyCart={this.modifyCart} toggleCart={this.toggleCart}/>
+        <Beginner modifyCart={this.modifyCart} toggleCart={this.toggleCart}/>
         <CartIcon
           toggleCart={this.toggleCart}
           selectedProducts={selectedProducts}
         />
-        <Intermediate modifyCart={this.modifyCart} toggleCart={this.toggleCart}/>
+        <Standard modifyCart={this.modifyCart} toggleCart={this.toggleCart}/>
         <Professional modifyCart={this.modifyCart} toggleCart={this.toggleCart}/>
 
         <About />

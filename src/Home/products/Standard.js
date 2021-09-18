@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import Modal from "./Modal/";
 import BuyButton from "./BuyButton/";
 
-class Intermediate extends Component {
+class Standard extends Component {
   constructor(props) {
     super(props);
 
@@ -13,7 +13,7 @@ class Intermediate extends Component {
         {
           srcLowRes: "/img/product-images/intermediate1@180x180.webp",
           srcHighRes: "/img/product-images/intermediate1@800x800.webp",
-          caption: "The Intermediate Reed"
+          caption: "The Standard Reed"
         },
         {
           srcLowRes: "/img/product-images/intermediate2@180x180.webp",
@@ -61,9 +61,9 @@ class Intermediate extends Component {
       <section id="intermediate-reed">
         <div>
           <div className="product intermediate">
-            <h2>Intermediate Reed*</h2>
+            <h2>Standard Reed*</h2>
             <p>
-              Designed for excellent response and stability, the Intermediate Reed
+              Designed for excellent response and stability, the Standard Reed
               is ideal for students of grade 3 AMEB and above. It strikes the
               perfect balance between a light weight, responsive reed that still
               provides a dark, rich professional sound.
@@ -118,4 +118,4 @@ class Intermediate extends Component {
   }
 }
 
-export default Intermediate;
+export default Standard;
