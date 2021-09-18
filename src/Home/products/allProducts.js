@@ -1,14 +1,14 @@
 const allProducts = {
-  price_HNza6zL9e3th0a: {
+  price_1Jau2yDBTPoEHOlTf2HbfEbe: {
     name: "Student reed",
-    price: "19.99",
-    price_id: "price_HNza6zL9e3th0a",
+    price: "20.99",
+    price_id: "price_1Jau2yDBTPoEHOlTf2HbfEbe",
     quantity: 0,
   },
-  price_1Hl4BnDBTPoEHOlT0fVaMJMH: {
+  price_1Jau5gDBTPoEHOlTnB7SwT8g: {
     name: "Intermediate reed",
-    price: "24.99",
-    price_id: "price_1Hl4BnDBTPoEHOlT0fVaMJMH",
+    price: "25.99",
+    price_id: "price_1Jau5gDBTPoEHOlTnB7SwT8g",
     quantity: 0,
   },
   price_HNzcuAvZoAPxIj: {

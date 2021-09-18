@@ -73,10 +73,10 @@ class Student extends Component {
                   <li>Soft and light (easy to use)</li>
                   <li>Extremely responsive</li>
                 </ul>
-                <span className="price">$19.99</span>
+                <span className="price">$20.99</span>
 
                 <BuyButton handleClick={() => {
-                  modifyCart("price_HNza6zL9e3th0a", 1);
+                  modifyCart("price_1Jau2yDBTPoEHOlTf2HbfEbe", 1);
                   toggleCart();
                 }} />
               </div>

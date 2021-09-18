@@ -73,9 +73,9 @@ class Intermediate extends Component {
               <li>Medium soft</li>
               <li>Suitable for AMEB level 3+ students</li>
             </ul>
-            <span className="price">$24.99</span>
+            <span className="price">$25.99</span>
             <BuyButton handleClick={() => {
-              modifyCart("price_1Hl4BnDBTPoEHOlT0fVaMJMH", 1);
+              modifyCart("price_1Jau5gDBTPoEHOlTnB7SwT8g", 1);
               toggleCart();
             }} />
           </div>
