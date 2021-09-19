@@ -76,7 +76,7 @@ class Standard extends Component {
             <span className="price">$25.99</span>
             <BuyButton
               handleClick={() => {
-                modifyCart("price_1Jau5gDBTPoEHOlTnB7SwT8g", 1);
+                modifyCart("price_1JNAqeDBTPoEHOlTBcqUDErv", 1);
                 toggleCart();
               }}
               outOfStock="true"/>

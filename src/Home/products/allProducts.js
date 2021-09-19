@@ -5,10 +5,10 @@ const allProducts = {
     price_id: "price_1JNAhwDBTPoEHOlTWWpplETh",
     quantity: 0,
   },
-  price_1Jau5gDBTPoEHOlTnB7SwT8g: {
+  price_1JNAqeDBTPoEHOlTBcqUDErv: {
     name: "Standard reed*",
     price: "25.99",
-    price_id: "price_1Jau5gDBTPoEHOlTnB7SwT8g",
+    price_id: "price_1JNAqeDBTPoEHOlTBcqUDErv",
     quantity: 0,
   },
   price_HNzcuAvZoAPxIj: {
