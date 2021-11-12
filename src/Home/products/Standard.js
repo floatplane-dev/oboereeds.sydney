@@ -61,7 +61,7 @@ class Standard extends Component {
       <section id="intermediate-reed">
         <div>
           <div className="product intermediate">
-            <h2>Standard Reed*</h2>
+            <h2>Standard Reed</h2>
             <p>
               Designed for excellent response and stability, the Standard Reed
               is ideal for students of grade 3 AMEB and above. It strikes the
@@ -79,8 +79,8 @@ class Standard extends Component {
                 modifyCart("price_1JNAqeDBTPoEHOlTBcqUDErv", 1);
                 toggleCart();
               }}
-              outOfStock="true"/>
-            <p class="disclaimer">* Due to popular demand, this product is currently out of stock. You can still place orders for them, but we won't be able to deliver them to you until more materials arrive.</p>
+              outOfStock={false}/>
+            {/*<p class="disclaimer">* Due to popular demand, this product is currently out of stock. You can still place orders for them, but we won't be able to deliver them to you until more materials arrive.</p>*/}
 
           </div>
 

@@ -6,7 +6,7 @@ const allProducts = {
     quantity: 0,
   },
   price_1JNAqeDBTPoEHOlTBcqUDErv: {
-    name: "Standard reed*",
+    name: "Standard reed",
     price: "25.99",
     price_id: "price_1JNAqeDBTPoEHOlTBcqUDErv",
     quantity: 0,
