@@ -1,0 +1,14 @@
+.notification {
+  background-color: #c3d6ff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 185px;
+
+  h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+}

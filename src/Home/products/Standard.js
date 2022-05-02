@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import Modal from "./Modal/";
 import BuyButton from "./BuyButton/";
 
-class Intermediate extends Component {
+class Standard extends Component {
   constructor(props) {
     super(props);
 
@@ -13,7 +13,7 @@ class Intermediate extends Component {
         {
           srcLowRes: "/img/product-images/intermediate1@180x180.webp",
           srcHighRes: "/img/product-images/intermediate1@800x800.webp",
-          caption: "The Intermediate Reed"
+          caption: "The Standard Reed"
         },
         {
           srcLowRes: "/img/product-images/intermediate2@180x180.webp",
@@ -59,11 +59,11 @@ class Intermediate extends Component {
 
     return (
       <section id="intermediate-reed">
-        <div className="gutters">
+        <div>
           <div className="product intermediate">
-            <h2>Intermediate Reed</h2>
+            <h2>Standard Reed</h2>
             <p>
-              Designed for excellent response and stability, the Intermediate Reed
+              Designed for excellent response and stability, the Standard Reed
               is ideal for students of grade 3 AMEB and above. It strikes the
               perfect balance between a light weight, responsive reed that still
               provides a dark, rich professional sound.
@@ -73,22 +73,28 @@ class Intermediate extends Component {
               <li>Medium soft</li>
               <li>Suitable for AMEB level 3+ students</li>
             </ul>
-            <span className="price">$24.99</span>
-            <BuyButton handleClick={() => {
-              modifyCart("price_1Hl4BnDBTPoEHOlT0fVaMJMH", 1);
-              toggleCart();
-            }} />
+            <span className="price">$25.99</span>
+            <BuyButton
+              handleClick={() => {
+                modifyCart("price_1JNAqeDBTPoEHOlTBcqUDErv", 1);
+                toggleCart();
+              }}
+              outOfStock={false}/>
+            {/*<p class="disclaimer">* Due to popular demand, this product is currently out of stock. You can still place orders for them, but we won't be able to deliver them to you until more materials arrive.</p>*/}
+
           </div>
 
           <ul className="product-images">
             {
               images.map((image, index) =>
-                <img
-                  key={index}
-                  src={image.srcLowRes}
-                  data-caption={image.caption}
-                  onClick={() => this.showModal(index)}
-                />
+                <li key={index}>
+                  <img
+                    src={image.srcLowRes}
+                    alt={image.srcLowRes}
+                    data-caption={image.caption}
+                    onClick={() => this.showModal(index)}
+                  />
+                </li>
               )
             }
           </ul>
@@ -113,4 +119,4 @@ class Intermediate extends Component {
   }
 }
 
-export default Intermediate;
+export default Standard;

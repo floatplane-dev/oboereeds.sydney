@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import Modal from "./Modal/";
 import BuyButton from "./BuyButton/";
 
-class Student extends Component {
+class Beginner extends Component {
   constructor(props) {
     super(props);
 
@@ -13,7 +13,7 @@ class Student extends Component {
         {
           srcLowRes: "/img/product-images/student1@180x180.webp",
           srcHighRes: "/img/product-images/student1@800x800.webp",
-          caption: "The Student Reed"
+          caption: "The Beginner Reed"
         },
         {
           srcLowRes: "/img/product-images/student2@180x180.webp",
@@ -59,9 +59,9 @@ class Student extends Component {
 
     return (
           <section id="student-reed">
-            <div className="gutters">
+            <div>
               <div className="product student">
-                <h2>Student Reed</h2>
+                <h2>Beginner Reed*</h2>
                 <p>
                   This light weight reed is ideal for the beginner player. Handcrafted
                   to be soft and light, beginners will play with ease. Unlike other
@@ -73,23 +73,29 @@ class Student extends Component {
                   <li>Soft and light (easy to use)</li>
                   <li>Extremely responsive</li>
                 </ul>
-                <span className="price">$19.99</span>
+                <span className="price">$21.99</span>
 
-                <BuyButton handleClick={() => {
-                  modifyCart("price_HNza6zL9e3th0a", 1);
-                  toggleCart();
-                }} />
+                <BuyButton
+                    handleClick={() => {
+                    modifyCart("price_1JNAhwDBTPoEHOlTWWpplETh", 1);
+                    toggleCart();
+                  }}
+                  outOfStock="true"
+                  />
+                <p class="disclaimer">* Due to popular demand, this product is currently out of stock. You can still place orders for them, but we won't be able to deliver them to you until more materials arrive.</p>
               </div>
 
               <ul className="product-images">
                 {
                   images.map((image, index) =>
-                    <img
-                      key={index}
-                      src={image.srcLowRes}
-                      data-caption={image.caption}
-                      onClick={() => this.showModal(index)}
-                    />
+                    <li key={index}>
+                      <img
+                        src={image.srcLowRes}
+                        alt={image.srcLowRes}
+                        data-caption={image.caption}
+                        onClick={() => this.showModal(index)}
+                      />
+                    </li>
                   )
                 }
               </ul>
@@ -115,4 +121,4 @@ class Student extends Component {
   }
 }
 
-export default Student;
+export default Beginner;

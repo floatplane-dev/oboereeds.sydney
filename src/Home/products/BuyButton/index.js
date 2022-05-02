@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class BuyButton extends Component {
   render() {
-    const { handleClick } = this.props;
+    const { handleClick, outOfStock } = this.props;
 
     return (
       <button
@@ -10,7 +10,7 @@ class BuyButton extends Component {
         type="button"
         className="buy-button"
         >
-        <span>Add to cart</span>
+        <span>{outOfStock ? "Preorder" : "Add to cart"}</span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           height="24"

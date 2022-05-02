@@ -19,6 +19,7 @@ class Modal extends Component {
             <img
               className="arrow back"
               src="/img/arrow_back_ios_new-24px.svg"
+              alt="/img/arrow_back_ios_new-24px.svg"
               onClick={imageBack}/>
           }
           {
@@ -26,6 +27,7 @@ class Modal extends Component {
             <img
               className="arrow forward"
               src="/img/arrow_forward_ios-24px.svg"
+              alt="/img/arrow_forward_ios-24px.svg"
               onClick={imageForward}/>
           }
         </figure>

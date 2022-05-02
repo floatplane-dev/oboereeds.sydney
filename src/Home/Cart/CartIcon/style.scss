@@ -1,12 +1,16 @@
 button#cart-icon {
-  position: relative;
+  transform: translate(-60px, -60px);
+  float: right;
+  position: sticky;
+  top: calc(100vh - 48px);
+  top: calc(var(--vhCart, 1vh) * 100 - 48px);
   background: none;
   border: none;
   cursor: pointer;
   padding: 8px;
   box-sizing: content-box;
   z-index: 1;
-  margin-left: auto;
+  transition: top ease-out 50ms;
 
   @media (max-width: 900px) {
     top: calc(100vh - 40px);
@@ -18,14 +22,19 @@ button#cart-icon {
   }
 
   .icon {
-    width: 20px;
-    height: 20px;
+    width: 32px;
+    height: 32px;
+
+    @media (max-width: 900px) {
+      width: 24px;
+      height: 24px;
+    }
   }
 
   > span {
     position: absolute;
     bottom: 0;
     left: 71%;
-    font-size: 14px;
+    font-size: 16px;
   }
 }

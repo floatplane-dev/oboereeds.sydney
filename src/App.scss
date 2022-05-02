@@ -25,22 +25,21 @@ p {
   margin: 10px 0;
 }
 
-section,
-#header,
-#footer {
-  max-width: 1460px;
-  margin: auto;
+#reed-information {
+  section {
+    margin-top: 30px;
+  }
 }
 
 .gutters {
-  padding: 0 20px;
+  padding: 20px;
   max-width: 1000px;
   margin: auto;
   @media (min-width: 400px) {
-    padding: 0 40px;
+    padding: 40px;
   }
   @media (min-width: 768px) {
-    padding: 0 60px;
+    padding: 60px;
   }
 }
 
@@ -62,6 +61,7 @@ section,
 
 
 #app {
+  position: relative;
 
   &.scrolling-disabled {
     overflow: hidden;
@@ -86,6 +86,16 @@ section,
     top: 0;
     width: 100%;
     height: 100%;
+  }
+
+  // Source: https://keithclark.co.uk/articles/pure-css-parallax-websites/
+  main.parallax {
+    @media (min-width: 901px) {
+      perspective: 300px;
+      height: 100vh;
+      overflow-x: hidden;
+      overflow-y: scroll;
+    }
   }
 }
 

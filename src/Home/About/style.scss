@@ -1,11 +1,30 @@
-#about {
-  margin-bottom: 30px;
-
+#about2 {
   > img {
     width: 100%;
   }
 
   > div {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1200px;
+    padding: 80px 120px;
+    margin: auto;
+
+    @media (max-width: 1200px) {
+      padding: 80px 100px;
+    }
+
+    @media (max-width: 900px) {
+      display: flex;
+      flex-direction: column;
+      padding: 80px 80px;
+    }
+
+    @media (max-width: 600px) {
+      padding: 60px 20px;
+      max-width: 400px;
+      margin: auto;
+    }
 
     > h2 {
       display: inline;
@@ -28,9 +47,9 @@
       margin: 0 0 20px 15px;
 
       @media (max-width: 900px) {
-         order: 1;
-         margin: 20px auto 0 auto;
-         max-width: 100%;
+        order: 1;
+        margin: 20px auto 0 auto;
+        max-width: 100%;
       }
 
       h3 {

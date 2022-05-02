@@ -1,79 +1,49 @@
 import React, { Component } from "react";
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Header from "./Header/";
+
 import Home from "./Home/";
 import ReedInformation from "./ReedInformation/";
 import Thankyou from "./Thankyou/";
+
 import Footer from "./Footer/";
 
-
-import {
-  Cart,
-  CartIcon,
-  toggleCart,
-  modifyCart,
-  resetCart,
-  checkLocalstorage,
-} from "Home/Cart/";
-
 class App extends Component {
-  constructor(props) {
-    super(props);
+  componentDidMount() {
+    let vhExplore = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vhExplore", `${vhExplore}px`);
 
-    const selectedProducts = checkLocalstorage();
-
-    this.state = {
-      selectedProducts,
-      isShowingCart: false,
-    };
-
-    this.modifyCart = modifyCart.bind(this);
-    this.toggleCart = toggleCart.bind(this);
-    this.resetCart = resetCart.bind(this);
+    window.addEventListener("resize", () => {
+      // We execute the same script as before
+      let vhCart = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vhCart", `${vhCart}px`);
+    });
   }
 
   render() {
-    const { toggleCart, modifyCart } = this;
-    const { selectedProducts } = this.state;
-
     return (
       <Router>
-        <Header
-          toggleCart={toggleCart}
-          selectedProducts={selectedProducts}/>
-
-        <main>
+        <main className="parallax">
           <Switch>
             <Route exact path="/">
-              <Home
-                toggleCart={toggleCart}
-                modifyCart={modifyCart}
-                selectedProducts={selectedProducts}/>
+              <Header />
+              <Home />
+              <Footer />
             </Route>
 
             <Route path="/thankyou">
-              <Thankyou
-                toggleCart={toggleCart}
-                modifyCart={modifyCart}
-                selectedProducts={selectedProducts}/>
+              <Thankyou />
             </Route>
 
             <Route path="/reed-information">
-              <ReedInformation
-                toggleCart={toggleCart}
-                modifyCart={modifyCart}
-                selectedProducts={selectedProducts}/>
+              <Header />
+              <ReedInformation />
+              <Footer />
             </Route>
           </Switch>
         </main>
-
-        <Footer />
       </Router>
     );
   }
