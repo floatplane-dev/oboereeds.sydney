@@ -1,36 +1,37 @@
 import React, { Component } from "react";
-import {
-  NavLink
-} from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-import {
-  CartIcon
-} from "Home/Cart/";
+import { toggleCart } from "Home/Cart/";
 
-class Header extends Component {
-  render() {
-    const { toggleCart, selectedProducts } = this.props;
-    return (
-      <header
-        id="header">
-        <nav className="gutters">
-          <NavLink exact to="/">
-            Home
-          </NavLink>
-          <NavLink exact to="/reed-information">
-            Reed Information
-          </NavLink>
-          <a href="#contact">
-            Contact
+function Header() {
+  let location = useLocation();
+  console.log({ location });
+  return (
+    <header
+      style={{
+        position:
+          location.pathname === "/reed-information" ? "static" : "absolute",
+      }}
+    >
+      <div>
+        <nav className="navi">
+          <a href="/">Home</a>
+          <a href="/#about">About</a>
+          <a href="/reed-information">Reed Information</a>
+          <a onClick={toggleCart}>
+            <i class="fa-solid fa-cart-shopping fa-lg"></i>
           </a>
-          <CartIcon
-            toggleCart={toggleCart}
-            selectedProducts={selectedProducts}
-          />
+          <a href="https://www.instagram.com/maddierandall/">
+            <i class="fab fa-instagram fa-xl"></i>
+          </a>
+          <a href="https://www.youtube.com/channel/UC3qxQnsPwbIjVzZBg7Clgzw">
+            <i class="fa-brands fa-youtube fa-xl"></i>
+          </a>
         </nav>
-      </header>
-    );
-  }
+      </div>
+    </header>
+  );
 }
 
 export default Header;

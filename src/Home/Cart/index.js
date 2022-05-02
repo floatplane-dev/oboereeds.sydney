@@ -36,11 +36,14 @@ class Cart extends Component {
       modifyCart,
     } = this.props;
 
+
     const { shippingMethod } = this.state;
 
     const orderArray = Object.keys(selectedProducts)
       .filter((key) => selectedProducts[key].quantity > 0)
       .map((price_id) => selectedProducts[price_id]);
+
+      console.log({orderArray});
 
     const proceedToCheckout = async (event) => {
       const stripe = await stripePromise;
@@ -106,6 +109,10 @@ class Cart extends Component {
               <LineItem key={key} item={item} modifyCart={modifyCart} />
             ))}
           </ul>
+
+          {
+            orderArray.some( product => product.name.includes("*")) && <p className="disclaimer">* Product currently for preorder only</p>
+          }
 
           {orderArray.length > 0 && (
             <React.Fragment>
