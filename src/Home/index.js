@@ -69,7 +69,7 @@ class Home extends Component {
           </div>
         </section>
 
-        <TempNotification />
+        {/* <TempNotification /> */}
 
         <Beginner modifyCart={this.modifyCart} toggleCart={this.toggleCart} />
         <CartIcon
