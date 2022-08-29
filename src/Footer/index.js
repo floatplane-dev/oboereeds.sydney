@@ -6,7 +6,7 @@ function Footer() {
   console.log({ location });
   return (
     <footer>
-      <div id="footer">
+      <div id="footer" className="gutters">
         <div className="footer1">
           <img src="/img/logo192.png" alt="/img/logo192.png" />
           <h4>© 2022 Sydney Oboe Reeds</h4>
