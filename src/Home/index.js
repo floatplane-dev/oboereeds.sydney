@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import toast from 'react-hot-toast';
 
 import {
   Cart,
@@ -39,6 +40,40 @@ class Home extends Component {
     }
 
     window.addEventListener("scroll", hideExploreButton);
+
+    window.setTimeout(() => {
+      toast((t) => (
+        <div style={{display: "flex", flexDirection: "column"}}>
+          <span>
+            <b>Attention:</b> Orders placed after September 4th 2023 will not be filled until October 9th 2023 as Madeleine is getting married!
+          </span>
+
+          <button 
+            style={{
+              fontSize: "16px",
+              fontWeight: "bold",
+              padding: "0 24px",
+              minWidth: "64px",
+              lineHeight: "39px",
+              margin: "auto",
+              marginTop: "16px",
+              background: "#fff",
+              border: "1px solid #222323",
+              borderRadius: "5px",
+              color: "#222323"
+            }}
+            onClick={() => toast.dismiss(t.id)}>
+            Dismiss
+          </button>
+        </div>
+      ), {
+        style: {
+          width: "600px",
+          minWidth: window.innerWidth > 400 ? '520px' : '320px',
+        },
+        duration: Infinity
+      });
+    }, 500)
   }
 
   render() {

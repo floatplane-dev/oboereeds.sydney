@@ -7,6 +7,7 @@ import Header from "./Header/";
 import Home from "./Home/";
 import ReedInformation from "./ReedInformation/";
 import Thankyou from "./Thankyou/";
+import { Toaster } from 'react-hot-toast';
 
 import Footer from "./Footer/";
 
@@ -14,9 +15,10 @@ class App extends Component {
   componentDidMount() {
     let vhExplore = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vhExplore", `${vhExplore}px`);
-
+    
     window.addEventListener("resize", () => {
       // We execute the same script as before
+
       let vhCart = window.innerHeight * 0.01;
       document.documentElement.style.setProperty("--vhCart", `${vhCart}px`);
     });
@@ -24,6 +26,7 @@ class App extends Component {
 
   render() {
     return (
+      <>
       <Router>
         <main className="parallax">
           <Switch>
@@ -45,6 +48,9 @@ class App extends Component {
           </Switch>
         </main>
       </Router>
+          <Toaster />
+          </>
+
     );
   }
 }
