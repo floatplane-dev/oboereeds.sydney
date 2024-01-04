@@ -22,9 +22,6 @@ function Header() {
           <a onClick={toggleCart}>
             <i class="fa-solid fa-cart-shopping fa-lg"></i>
           </a>
-          <a href="https://www.instagram.com/maddierandall/">
-            <i class="fab fa-instagram fa-xl"></i>
-          </a>
           <a href="https://www.youtube.com/channel/UC3qxQnsPwbIjVzZBg7Clgzw">
             <i class="fa-brands fa-youtube fa-xl"></i>
           </a>

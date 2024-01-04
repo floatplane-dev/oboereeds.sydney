@@ -56,6 +56,11 @@ class About extends Component {
             continues to teach from her studio in Queenscliff and schools across
             Sydney.
           </p>
+          
+          <p><br /><b>2024 lesson slots are available.</b> If you are interested in learning Oboe, Clarinet, Saxophone or Music Theory with Madeleine, please contact <a href="mailto:sydneyoboereeds@gmail.com">
+              {" "}
+              <u>sydneyoboereeds@gmail.com</u>
+            </a> for online or face-to-face lessons in Queenscliff, NSW.</p>
         </div>
       </section>
     );
