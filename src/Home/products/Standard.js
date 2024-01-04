@@ -73,10 +73,10 @@ class Standard extends Component {
               <li>Medium soft</li>
               <li>Suitable for AMEB level 3+ students</li>
             </ul>
-            <span className="price">$25.99</span>
+            <span className="price">$28.99</span>
             <BuyButton
               handleClick={() => {
-                modifyCart("price_1JNAqeDBTPoEHOlTBcqUDErv", 1);
+                modifyCart("price_1OUiDCDBTPoEHOlTxHaZY53i", 1);
                 toggleCart();
               }}
               outOfStock={false}/>

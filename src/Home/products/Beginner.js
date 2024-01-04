@@ -73,11 +73,11 @@ class Beginner extends Component {
                   <li>Soft and light (easy to use)</li>
                   <li>Extremely responsive</li>
                 </ul>
-                <span className="price">$21.99</span>
+                <span className="price">$24.99</span>
 
                 <BuyButton
                     handleClick={() => {
-                    modifyCart("price_1JNAhwDBTPoEHOlTWWpplETh", 1);
+                    modifyCart("price_1OUiBCDBTPoEHOlT6jv4Lyq5", 1);
                     toggleCart();
                   }}
                   outOfStock="true"

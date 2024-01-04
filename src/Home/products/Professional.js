@@ -83,9 +83,9 @@ class Professional extends Component {
               <li>For advanced players</li>
               <li>The finest cane, handpicked from each batch</li>
             </ul>
-            <span className="price">$47.99</span>
+            <span className="price">$49.99</span>
             <BuyButton handleClick={() => {
-              modifyCart("price_HNzcuAvZoAPxIj", 1);
+              modifyCart("price_1OUi9xDBTPoEHOlTn4M0ON8L", 1);
               toggleCart();
             }} />
           </div>
